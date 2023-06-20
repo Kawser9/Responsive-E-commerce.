@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HouseController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\FloorController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +33,25 @@ Route::get('/admin/update',[AdminController::class, 'update'])->name('admin.upda
 
 
 // .............................................................................
-Route::get('/home',[HomeController::class, 'list'])->name('home.list');
+Route::get('/house',[HouseController::class, 'list'])->name('house.list');
 
 
 
 // .............................................................................
-Route::get('/floor',[FloorController::class, 'list'])->name('floor.list');
+Route::get('/category',[CategoryController::class, 'list'])->name('category.list');
+Route::get('/category-create',[CategoryController::class, 'categoryCreate'])->name('category.create');
+Route::post('/category-store',[CategoryController::class, 'categoryStore'])->name('category.store');
+
+
+
+// ................................................................................
+Route::get('/product',[ProductController::class, 'list'])->name('product.list');
+Route::get('/product-create',[ProductController::class, 'productCreate'])->name('product.create');
+route::post('/product-store',[ProductController::class, 'productStore'])->name('product.store');
+
+
+
+// ...............................................................................
+Route::get('/supplier',[SupplierController::class, 'list'])->name('supplier.list');
+Route::get('/supplier-create',[SupplierController::class, 'create'])->name('supplier.create');
+Route::post('/supplier-store',[SupplierController::class,'supplierStore'])->name('supplier.store');
