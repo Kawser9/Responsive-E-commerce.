@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,9 @@ route::post('/product-store',[ProductController::class, 'productStore'])->name('
 Route::get('/supplier',[SupplierController::class, 'list'])->name('supplier.list');
 Route::get('/supplier-create',[SupplierController::class, 'create'])->name('supplier.create');
 Route::post('/supplier-store',[SupplierController::class,'supplierStore'])->name('supplier.store');
+
+
+
+
+//Frontend Start..............................................................
+Route::get('/homepage',[FrontendController::class, 'master'])->name('home');
