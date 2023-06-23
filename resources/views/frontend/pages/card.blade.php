@@ -15,7 +15,7 @@
 
     <div class="row portfolio-container">
 
-      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+      <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-app">
         <div class="portfolio-wrap">
           <img src="frontend/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
@@ -55,14 +55,14 @@
             </div>
           </div>
         </div>
-      </div>
-
+      </div> -->
+      @foreach($products as $product)
       <div class="col-lg-4 col-md-6 portfolio-item filter-card">
         <div class="portfolio-wrap">
           <img src="frontend/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
-            <h4>Card 2</h4>
-            <p>Card</p>
+            <p>{{$product->name}}</p>
+            <p>{{$product->price}}</p>
             <div class="portfolio-links">
               <a href="frontend/assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
               <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
@@ -70,8 +70,9 @@
           </div>
         </div>
       </div>
+      @endforeach
 
-      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+      <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
         <div class="portfolio-wrap">
           <img src="frontend/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
@@ -139,7 +140,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
 

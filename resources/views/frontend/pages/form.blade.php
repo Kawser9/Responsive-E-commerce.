@@ -7,8 +7,9 @@
           <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
         </div>
 
-        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
-          <div class="row">
+        <form action="{{route('customer.store')}}" method="post" role="form" class="php-email-form">
+        @csrf
+        <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
@@ -21,7 +22,7 @@
               <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
+            <!-- <div class="col-lg-4 col-md-6 form-group mt-3">
               <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
             </div>
@@ -37,7 +38,7 @@
           <div class="form-group mt-3">
             <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
             <div class="validate"></div>
-          </div>
+          </div> -->
           <div class="mb-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>

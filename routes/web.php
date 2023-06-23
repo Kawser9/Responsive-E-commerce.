@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +63,11 @@ Route::post('/supplier-store',[SupplierController::class,'supplierStore'])->name
 
 //Frontend Start..............................................................
 Route::get('/homepage',[FrontendController::class, 'master'])->name('home');
+
+
+
+
+
+//Customer.............................................................................
+Route::get('/customer',[CustomerController::class, 'list'])->name('customer.list');
+Route::post('/customer-store',[CustomerController::class,'customerStore'])->name('customer.store');
