@@ -18,6 +18,10 @@ class ProductController extends Controller
     }
     public function productStore(Request $request)
     {
+        $request->validate
+            ([
+                'name'=>'required'
+            ]);
         Product::create
         ([
             'name'=>$request->product_name,

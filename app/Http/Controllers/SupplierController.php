@@ -29,6 +29,10 @@ class SupplierController extends Controller
      */
     public function supplierStore(Request $request)
     {
+        $request->validate
+            ([
+                'name'=>'required'
+            ]);
         Supplier::create
         ([
             'name'=>$request->supplier_name,

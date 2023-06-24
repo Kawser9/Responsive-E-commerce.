@@ -24,6 +24,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Customer
                             </a>
+                            <a class="nav-link" href="{{route('brand.list')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Brand
+                            </a>
                             
                 </nav>
             </div>

@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Customer;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function list()
+    public function index()
     {
-        $customers=Customer::all();
-        return view('backend.pages.customer.list',compact('customers'));
+        $brands=Brand::all();
+        return view('backend.pages.brand.list',compact('brands'));
     }
 
     /**
@@ -21,33 +21,31 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        
+        return view('backend.pages.brand.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function customerStore(Request $request)
+    public function store(Request $request)
     {
         $request->validate
             ([
                 'name'=>'required'
             ]);
-        Customer::create
-        ([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'phone'=>$request->phone
-        ]);
-        // return redirect()->route('frontend.master');
+        Brand::create
+            ([
+                'name'=>$request->name,
+                'description'=>$request->description,
 
-        return redirect()->route('home');
+            ]);
+        return redirect()->route('brand.list');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Customer $customer)
+    public function show(Brand $brand)
     {
         //
     }
@@ -55,7 +53,7 @@ class CustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Customer $customer)
+    public function edit(Brand $brand)
     {
         //
     }
@@ -63,7 +61,7 @@ class CustomerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, Brand $brand)
     {
         //
     }
@@ -71,7 +69,7 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Customer $customer)
+    public function destroy(Brand $brand)
     {
         //
     }

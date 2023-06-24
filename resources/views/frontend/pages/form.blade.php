@@ -7,45 +7,30 @@
           <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
         </div>
 
-        <form action="{{route('customer.store')}}" method="post" role="form" class="php-email-form">
+        @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div>
+            <p class="alert alert-danger"> {{$error}}</p>
+            </div>
+        @endforeach
+        @endif
+
+        <form action="{{route('customer.store')}}" method="post">
         @csrf
-        <div class="row">
-            <div class="col-lg-4 col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <!-- <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-              <div class="validate"></div>
-            </div>
-          </div>
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
-            <div class="validate"></div>
-          </div> -->
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
-        </form>
+        <div class="mb-3">
+          <label for="" class="form-label">Name</label>
+          <input required type="text" name="name"class="form-control" id="name" placeholder="Enter your name">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Email</label>
+          <input required type="email" name="email"class="form-control" id="price" placeholder="Enter your email">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label" >Phone</label>
+          <input required type="number" name="phone" class="form-control" id="exampleInputPassword1 "placeholder="Enter phone number">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 
       </div>
     </section><!-- End Book A Table Section -->

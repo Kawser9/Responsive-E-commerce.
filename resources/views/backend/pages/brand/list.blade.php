@@ -1,16 +1,16 @@
 @extends('backend.master')
 @section('content')
-                        <h1 class="page-header">Product List |  <a href="{{route('product.create')}}" class="btn btn-success">Create</a>
-                        </h1>
+
+<h1 class="page-header">Brand list |<a href="{{Route('brand.create')}}"class="btn btn-success">Create</a></h1>
+
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
                                             <th>SL</th>
                                             <th>Name</th>
-                                            <th>Price</th>
                                             <th>Description</th>
-                                            <th>Image</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -18,20 +18,18 @@
                                         <tr>
                                             <th>SL</th>
                                             <th>Name</th>
-                                            <th>Price</th>
                                             <th>Description</th>
-                                            <th>Image</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    @foreach($products as $key=>$product)
+                                    @foreach($brands as $key=>$brand)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$product->name}}</td>
-                                            <td>{{$product->price}}</td>
-                                            <td>{{$product->description}}</td>
-                                            <td>{{$product->image}}</td>
+                                            <td>{{$brand->name}}</td>
+                                            <td>{{$brand->description}}</td>
+                                            <td>{{$brand->status}}</td>
                                             <td>
                                               <ul>
                                                   <a href="" class="btn btn-secondary">Show</a>
@@ -41,9 +39,7 @@
                                             </td>
                                         </tr>
                                         @endforeach
-                                    </tbody>
+                                        </tbody>
                                 </table>
                             </div>
-                        </div>
-                    </div>
 @endsection
