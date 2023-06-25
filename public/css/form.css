@@ -1,0 +1,80 @@
+
+/* Form Styles */
+.form {
+    max-width: 823px;
+    margin: 24px auto;
+    padding: 15px;
+    background-color: #c3daff;
+    border-radius: 11px;
+}
+
+.form h2 {
+  color: #4b87ff;
+  font-family: Calibri;
+  font-size: 2.5rem;
+  font-weight: 100;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  width: 550px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #6675ff;
+  border-radius: 18px;
+}
+
+.form-group textarea{
+  resize: vertical;
+  height: 120px;
+  font-size: 1.2rem;
+    font-weight: 200;
+    line-height: 2;
+    color: #212529;
+    background-color: #f4f4f4
+}
+.form-group input {
+  font-size: 1.2rem;
+  font-weight: 200;
+  line-height: 2;
+  color: #212529;
+  background-color: #f4f4f4;
+  
+}
+
+.form-group button {
+  margin-top: 16px;
+  /* margin-left: 343px; */
+  /* text-align: center; */
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: Calibri;
+  background: #4b87ff;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.form-group button:hover {
+  background-color: #5498f7;
+}
