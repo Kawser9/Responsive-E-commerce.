@@ -669,6 +669,10 @@ progress {
   }
 }
 .row {
+  width: 100%;
+  padding: 30px;
+  background: #fff;
+  padding-bottom: 8px;
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   display: flex;
@@ -11246,4 +11250,25 @@ body {
 
 
 
-
+.button{
+  margin-top: 30px;
+  margin-left:100px;
+  text-align: center;
+  background: #d9232d;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+.form{
+  margin-top: 30px;
+  margin-left:100px;
+  
+}
+.box{
+  text-align: center;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+}

@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function list()
     {
-        $categories=Category::all();
+        $categories=Category::latest()->get();
         return view('backend.pages.category.list',compact('categories'));
     }
 
@@ -23,7 +23,7 @@ class CategoryController extends Controller
     {
         $request->validate
             ([
-                'name'=>'required'
+                'category_name'=>'required'
             ]);
         Category::create
         ([

@@ -9,18 +9,16 @@
         @endforeach
     @endif
 
-      <h1 class="page-header">Brand Create</h1>          
-      <form action="{{route('brand.store')}}" method="post">
+    <form class="form" action="{{route('brand.store')}}" method="post">
+      <h2>Brand Create</h2>
         @csrf
-        <div class="mb-3">
-          <label for="" class="form-label">Name</label>
+        <div class="form-group">
           <input required type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="Enter brand name">
         </div>
-        <div class="mb-3">
-          <label for="" class="form-label" >Description</label>
+        <div class="form-group">
           <textarea required type="text" name="description" class="form-control" id="exampleInputPassword1 "placeholder="Enter brand description"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group"><button type="submit" >Submit</button></div>
       </form>
 
 @endsection

@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function list()
     {
-        $products=Product::all();
+        $products=Product::latest()->get();
         return view('backend.pages.product.list',compact('products'));
     }
     public function productCreate()
@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         $request->validate
             ([
-                'name'=>'required'
+                'product_name'=>'required'
             ]);
         Product::create
         ([

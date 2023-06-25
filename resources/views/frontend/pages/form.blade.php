@@ -14,23 +14,31 @@
             </div>
         @endforeach
         @endif
-
+<!-- ............................ -->
         <form action="{{route('customer.store')}}" method="post">
-        @csrf
-        <div class="mb-3">
-          <label for="" class="form-label">Name</label>
-          <input required type="text" name="name"class="form-control" id="name" placeholder="Enter your name">
+        @csrf 
+        <div class="row">
+            <div class="col-lg-4 col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
         </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Email</label>
-          <input required type="email" name="email"class="form-control" id="price" placeholder="Enter your email">
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label" >Phone</label>
-          <input required type="number" name="phone" class="form-control" id="exampleInputPassword1 "placeholder="Enter phone number">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+          <div class="text-center"><button class="button" type="submit">Send Message</button></div>
+        </form>
+
+
+
+
+        <!-- ...................... -->
+        
 
       </div>
     </section><!-- End Book A Table Section -->

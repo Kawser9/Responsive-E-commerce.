@@ -8,31 +8,24 @@
             </div>
         @endforeach
     @endif
-
-<h4 class="page-header">Supplier Create</h4>                  
-      <form action="{{route('supplier.store')}}" method="post">
+    <form class="form" action="{{route('supplier.store')}}" method="post">
+        <h2>Supplier Create</h2>
         @csrf
-        <div class="mb-3">
-          <label for="" class="form-label">Name</label>
-          <input required type="text" name="supplier_name"class="form-control" id="name" placeholder="Enter supplier name">
+        <div class="form-group">
+          <input required type="text" name="supplier_name"class="form-control" id="name" placeholder="Enter Supplier Name">
         </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Phone</label>
-          <input required type="tel" name="phone"class="form-control" id="price" placeholder="Enter supplier number">
+        <div class="form-group">
+          <input required type="tel" name="phone"class="form-control" id="price" placeholder="Enter Supplier Number">
         </div>
-        <div class="mb-3">
-          <label for="" class="form-label" >Address</label>
-          <input required type="text" name="address" class="form-control" id="exampleInputPassword1 "placeholder="Enter address">
+        <div class="form-group">
+          <input required type="text" name="address" class="form-control" id="exampleInputPassword1 "placeholder="Enter Address">
         </div>
-        <div class="mb-3">
-          <label for="" class="form-label" >Image</label>
-          <input required type="file" name="image" class="form-control" id="exampleInputPassword1 "placeholder="Select product image">
+        <div class="form-group">
+          <input required type="file" name="image" class="form-control" id="exampleInputPassword1 "placeholder="Select Suppler Image">
         </div>
-        <!-- <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div> -->
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group">
+          <button type="submit" >Submit</button>
+        </div>
       </form>
 
 @endsection
