@@ -18,17 +18,33 @@ class ProductController extends Controller
     }
     public function productStore(Request $request)
     {
+
+        //dd($request->all());//check data are coming or not
         $request->validate
             ([
-                'product_name'=>'required'
+
+                'name'=>'required',
+                'price'=>'required|gt:100',
+                'quantity'=>'required|gt:10',
+                'image'=>'required'
+            ]);    
+
+            // dd($request->hasFile('image'));
+            if($request->hasFile('image'))
+            {
+                $image=$request->file('image');
+                $fileName=date('Ymdhsi').'.'.$image->getClientOriginalExtension();
+                $image->storeAs('/products',$fileName);
+
+            }
+            Product::create
+            ([
+                'name'=>$request->name,
+                'price'=>$request->price,
+                'quantity'=>$request->quantity,
+                'description'=>$request->descriptioon,
+                'image'=>$fileName
             ]);
-        Product::create
-        ([
-            'name'=>$request->product_name,
-            'price'=>$request->product_price,
-            'description'=>$request->descriptioon,
-            'image'=>$request->image
-        ]);
-        return redirect()->route('product.list');
+        return redirect()->route('product.list')->with('msg','Product Create Successfully.');
     }
 }

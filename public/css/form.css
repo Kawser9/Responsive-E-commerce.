@@ -1,7 +1,7 @@
 
 /* Form Styles */
 .form {
-    max-width: 823px;
+    max-width: 609px;
     margin: 24px auto;
     padding: 15px;
     background-color: #c3daff;
@@ -77,4 +77,24 @@
 
 .form-group button:hover {
   background-color: #5498f7;
+}
+
+.c_button {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 12px 22px;
+  text-decoration: none;
+  font-family: Calibri;
+  color: #efefef;
+  background-color: #4b87ff;
+  border-radius: 79px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.c_button:hover {
+  color: #efefef;
+  background-color: #3437ff;
 }

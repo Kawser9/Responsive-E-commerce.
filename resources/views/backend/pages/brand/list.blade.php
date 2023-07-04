@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
 
-<h1 class="page-header">Brand list |<a href="{{Route('brand.create')}}"class="btn btn-success">Create</a></h1>
+<h2>Brand list |<a href="{{Route('brand.create')}}"class="c_button">Create</a></h2>
 
                             <div class="card-body">
                                 <table id="datatablesSimple">

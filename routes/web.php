@@ -10,6 +10,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,3 +79,10 @@ Route::post('/customer-store',[CustomerController::class,'customerStore'])->name
 Route::get('/brand',[BrandController::class, 'index'])->name('brand.list');
 Route::get('/brand-create',[BrandController::class, 'create'])->name('brand.create');
 Route::post('/brand-store',[BrandController::class, 'store'])->name('brand.store');
+
+
+
+//Order..............................................................................
+Route::get('/order',[OrderController::class, 'list'])->name('order.list');
+Route::get('/order-create',[OrderController::class, 'create'])->name('order.create');
+Route::post('/order-store',[OrderController::class, 'store'])->name('order.store');

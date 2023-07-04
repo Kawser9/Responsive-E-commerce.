@@ -4,7 +4,7 @@
 
 
 	<div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard | <a class="btn btn-secondary" href="{{route('home')}}">Frontend</a></h1>
+                        <h1 class="mt-4">Dashboard | <a class="c_button" href="{{route('home')}}">Frontend</a></h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>

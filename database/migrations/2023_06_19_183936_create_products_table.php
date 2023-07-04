@@ -12,9 +12,13 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) 
         {
             $table->id();
-            $table->string('name',length:100);
-            $table->double('price');
+            $table->string('name',100);
+            $table->double('price',10,2)->default(0,0);
+            $table->integer('quantity')->default(0);
             $table->text('description');
+            $table->string('status',10)->default('active');
+            $table->integer('discount')->nullable();
+            $table->string('discount-type')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
