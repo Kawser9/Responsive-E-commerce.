@@ -40,8 +40,8 @@
                                             <td>{{$product->quantity}}</td>
                                             <td>{{$product->status}}</td>
                                             <td>{{$product->description}}</td>
-                                            <td>
-                                                <img src="{{url('/uploads/products/'.$product->image)}}"style="width: 50px;" alt="">
+                                                <td>
+                                                    <img src="{{url('/uploads/products/'.$product->image)}}"style="width: 50px;" alt="">
                                             </td>
                                             <td>
                                               <ul>
@@ -54,6 +54,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <br>
                             </div>
                         </div>
                     </div>

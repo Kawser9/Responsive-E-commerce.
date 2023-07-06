@@ -23,12 +23,23 @@ class CategoryController extends Controller
     {
         $request->validate
             ([
-                'category_name'=>'required'
+                'category_name'=>'required',
+                'image'=>'required'
             ]);
+
+        if($request->hasFile('image')) 
+        {
+
+            $image=$request->file('image');
+            $fileName=date('Ymdhsi').'.'.$image->getClientOriginalExtension();
+            $image->storeAs('/category',$fileName);
+
+        }   
         Category::create
         ([
                 'name'=>$request->category_name,
-                'description'=>$request->descriptioon
+                'description'=>$request->descriptioon,
+                'image'=>$fileName
         ]);
         return redirect()->route('category.list');
     }

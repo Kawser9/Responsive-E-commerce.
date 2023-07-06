@@ -11,6 +11,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,14 @@ use App\Http\Controllers\OrderController;
 |
 */
  
+
+Route::get('/admin/login',[UserController::class, 'login'])->name('admin.login');
+Route::post('/admin/login',[UserController::class,'val'])->name('login');
+
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+
+
+
 Route::get('/',[DashboardController::class, 'dashboard'])->name('dashboard');
 
 
@@ -61,14 +70,7 @@ Route::get('/supplier-create',[SupplierController::class, 'create'])->name('supp
 Route::post('/supplier-store',[SupplierController::class,'supplierStore'])->name('supplier.store');
 
 
-
-
-//Frontend Start..............................................................
-Route::get('/homepage',[FrontendController::class, 'master'])->name('home');
-
-
-
-
+});
 
 //Customer.............................................................................
 Route::get('/customer',[CustomerController::class, 'list'])->name('customer.list');
@@ -86,3 +88,9 @@ Route::post('/brand-store',[BrandController::class, 'store'])->name('brand.store
 Route::get('/order',[OrderController::class, 'list'])->name('order.list');
 Route::get('/order-create',[OrderController::class, 'create'])->name('order.create');
 Route::post('/order-store',[OrderController::class, 'store'])->name('order.store');
+
+
+
+
+//Frontend Start..............................................................
+Route::get('/homepage',[FrontendController::class, 'master'])->name('home');

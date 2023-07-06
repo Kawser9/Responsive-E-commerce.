@@ -8,7 +8,7 @@
             </div>
         @endforeach
     @endif
-      <form class="form" action="{{route('category.store')}}" method="post">
+      <form class="form" action="{{route('category.store')}}" method="post" enctype="multipart/form-data">
         <h2>Category Create</h2>
         @csrf
 

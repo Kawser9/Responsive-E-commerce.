@@ -59,12 +59,12 @@
       @foreach($products as $product)
       <div class="col-lg-4 col-md-6 portfolio-item filter-card">
         <div class="portfolio-wrap">
-          <img src="frontend/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+          <img src="{{url('/uploads/products/'.$product->image)}}" class="img-fluid" alt="">
           <div class="portfolio-info">
             <p>{{$product->name}}</p>
             <p>{{$product->price}}</p>
             <div class="portfolio-links">
-              <a href="frontend/assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+              <a href="{{url('/uploads/products/'.$product->image)}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
               <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
             </div>
           </div>

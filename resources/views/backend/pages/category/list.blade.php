@@ -31,7 +31,9 @@
                                             <td>{{$category->name}}</td>
                                             <td>{{$category->description}}</td>
                                             <td>{{$category->status}}</td>
-                                            <td>{{$category->image}}</td>
+                                            <td>
+                                                <img src="{{url('/uploads/category/'.$category->image)}}"style="width: 50px;" alt="">
+                                            </td>
                                             <td>
                                               <ul>
                                                   <a href="" class="btn btn-secondary">Show</a>
