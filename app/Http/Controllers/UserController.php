@@ -26,6 +26,11 @@ class UserController extends Controller
         }
         return redirect()->route('admin.login');
     }
+    public function destroy()
+    {
+        Auth::logout();
+        return redirect()->route('admin.login');
+    }
     // if(Auth::guard()->attempt(['email'=>$request->email,'password'=>$request->password])){
     //     return redirect()->route('dashboard');
     //     return redirect('/admin/dashboard');

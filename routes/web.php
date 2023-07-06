@@ -25,12 +25,16 @@ use App\Http\Controllers\UserController;
 */
  
 
-Route::get('/admin/login',[UserController::class, 'login'])->name('admin.login');
+Route::get('/',[UserController::class, 'login'])->name('admin.login');
 Route::post('/admin/login',[UserController::class,'val'])->name('login');
+Route::post('/logout',[UserController::class,'destroy'])->name('logout');
+
+
+
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
-
+    
 
 Route::get('/',[DashboardController::class, 'dashboard'])->name('dashboard');
 

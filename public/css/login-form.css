@@ -1,0 +1,100 @@
+
+/* Form Styles */
+.form {
+  max-width: 577px;
+  margin: 38px auto;
+  padding: 91px;
+  background-color: #f8f9fa;
+  border-radius: 28px;
+}
+
+.form h2 {
+  color: #dc3545;
+  font-family: Calibri;
+  font-size: 2.5rem;
+  font-weight: 100;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  width: 550px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #bd2130;
+  border-radius: 16px;
+}
+
+.form-group textarea{
+  resize: vertical;
+  height: 120px;
+  font-size: 1.2rem;
+    font-weight: 200;
+    line-height: 2;
+    color: #212529;
+    background-color: #f4f4f4
+}
+.form-group input {
+  font-size: 1.2rem;
+  font-weight: 200;
+  line-height: 2;
+  color: #212529;
+  background-color: #f4f4f4;
+  
+}
+
+.form-group button {
+  margin-top: 44px;
+  /* margin-left: 239px; */
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-family: Calibri;
+  background: #bd2130;
+  border: 0;
+  padding: 5px 38px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 57px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group button:hover {
+  background: #890513;
+}
+
+.c_button {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 12px 22px;
+  text-decoration: none;
+  font-family: Calibri;
+  color: #efefef;
+  background-color: #4b87ff;
+  border-radius: 79px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.c_button:hover {
+  color: #efefef;
+  background-color: #3437ff;
+}
