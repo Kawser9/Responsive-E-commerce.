@@ -35,10 +35,10 @@ class SupplierController extends Controller
             ]);
         Supplier::create
         ([
-            'name'=>$request->supplier_name,
-            'phone'=>$request->phone,
-            'address'=>$request->address,
-            'image'=>$request->image
+            'name'      =>$request->supplier_name,
+            'phone'     =>$request->phone,
+            'address'   =>$request->address,
+            'image'     =>$request->image
 
         ]);
         return redirect()->route('supplier.list');

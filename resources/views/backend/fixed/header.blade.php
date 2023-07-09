@@ -18,10 +18,7 @@
                         <li><a class="dropdown-item" >{{ Auth::user()->name }}</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                            <form action="{{route('logout')}}" method="post">
-                                @csrf
-                                <li><button class="dropdown-item" >Logout</button></li>
-                            </form>
+                        <li><a class="dropdown-item" href="{{route('logout')}}" >Logout</a></li>
                     </ul>
                 </li>
             </ul>

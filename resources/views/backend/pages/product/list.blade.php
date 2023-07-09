@@ -40,14 +40,14 @@
                                             <td>{{$product->quantity}}</td>
                                             <td>{{$product->status}}</td>
                                             <td>{{$product->description}}</td>
-                                                <td>
+                                            <td>
                                                     <img src="{{url('/uploads/products/'.$product->image)}}"style="width: 50px;" alt="">
                                             </td>
-                                            <td>
+                                            <td style="inset-inline: ">
                                               <ul>
-                                                  <a href="" class="btn btn-secondary">Show</a>
-                                                  <a href="" class="btn btn-primary">Edit</a>
-                                                  <a href="" class="btn btn-danger">Delete</a>
+                                                  <a href="{{Route('product.show',$product->id)}}" class="btn btn-secondary">Show</a>
+                                                  <a href="{{Route('product.edit',$product->id)}}" class="btn btn-primary">Edit</a>
+                                                  <a href="{{Route('product.delete',$product->id)}}" class="btn btn-danger">Delete</a>
                                               </ul>
                                             </td>
                                         </tr>

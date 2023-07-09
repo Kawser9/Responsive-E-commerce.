@@ -1,5 +1,9 @@
 @extends('backend.master')
 @section('content')
+
+            @if(session()->has('msg'))
+                    <p class="alert alert-success"> {{session()->get('msg')}}</p>
+            @endif
                         <h1 class="page-header">Category List |  <a href="{{route('category.create')}}" class="c_button">Create</a>
                         </h1>
                             <div class="card-body">
@@ -36,9 +40,9 @@
                                             </td>
                                             <td>
                                               <ul>
-                                                  <a href="" class="btn btn-secondary">Show</a>
-                                                  <a href="" class="btn btn-primary">Edit</a>
-                                                  <a href="" class="btn btn-danger">Delete</a>
+                                                  <a href="{{Route('category.show',$category->id)}}" class="btn btn-secondary">Show</a>
+                                                  <a href="{{Route('category.edit',$category->id)}}" class="btn btn-primary">Edit</a>
+                                                  <a href="{{Route('category.delete',$category->id)}}" class="btn btn-danger">Delete</a>
                                               </ul>
                                             </td>
                                         </tr>

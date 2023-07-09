@@ -24,54 +24,68 @@ use App\Http\Controllers\UserController;
 |
 */
  
-
+// Login............................................................................
 Route::get('/',[UserController::class, 'login'])->name('admin.login');
-Route::post('/admin/login',[UserController::class,'val'])->name('login');
-Route::post('/logout',[UserController::class,'destroy'])->name('logout');
+Route::post('/admin/do-login',[UserController::class,'authenticate'])->name('login');
 
 
 
 
+// Group........................................................................
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
-    
-
-Route::get('/',[DashboardController::class, 'dashboard'])->name('dashboard');
 
 
-
-// .............................................................................
-Route::get('/admin',[AdminController::class, 'list'])->name('admin.list');
-Route::get('/admin/create',[AdminController::class, 'create'])->name('admin.create');
-Route::get('/admin/update',[AdminController::class, 'update'])->name('admin.update');
+        // Logout........................................................................
+        Route::get('/logout',[UserController::class,'destroy'])->name('logout');
 
 
 
-
-
-// .............................................................................
-Route::get('/house',[HouseController::class, 'list'])->name('house.list');
-
-
-
-// .............................................................................
-Route::get('/category',[CategoryController::class, 'list'])->name('category.list');
-Route::get('/category-create',[CategoryController::class, 'categoryCreate'])->name('category.create');
-Route::post('/category-store',[CategoryController::class, 'categoryStore'])->name('category.store');
+        // Dashboard....................................................................
+        Route::get('/',[DashboardController::class, 'dashboard'])->name('dashboard');
 
 
 
-// ................................................................................
-Route::get('/product',[ProductController::class, 'list'])->name('product.list');
-Route::get('/product-create',[ProductController::class, 'productCreate'])->name('product.create');
-route::post('/product-store',[ProductController::class, 'productStore'])->name('product.store');
+        // .............................................................................
+        Route::get('/admin',[AdminController::class, 'list'])->name('admin.list');
+        Route::get('/admin/create',[AdminController::class, 'create'])->name('admin.create');
+        Route::get('/admin/update',[AdminController::class, 'update'])->name('admin.update');
 
 
 
-// ...............................................................................
-Route::get('/supplier',[SupplierController::class, 'list'])->name('supplier.list');
-Route::get('/supplier-create',[SupplierController::class, 'create'])->name('supplier.create');
-Route::post('/supplier-store',[SupplierController::class,'supplierStore'])->name('supplier.store');
+
+
+        // .............................................................................
+        Route::get('/house',[HouseController::class, 'list'])->name('house.list');
+
+
+
+        // .............................................................................
+        Route::get('/category',[CategoryController::class, 'list'])->name('category.list');
+        Route::get('/category-create',[CategoryController::class, 'categoryCreate'])->name('category.create');
+        Route::post('/category-store',[CategoryController::class, 'categoryStore'])->name('category.store');
+        Route::get('/category-edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
+        Route::put('/category-update/{id}',[CategoryController::class,'update'])->name('category.update');
+        Route::get('/category-show/{id}',[CategoryController::class,'show'])->name('category.show');
+        Route::get('/category-delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
+
+
+
+        // ................................................................................
+        Route::get('/product',[ProductController::class, 'list'])->name('product.list');
+        Route::get('/product-create',[ProductController::class, 'productCreate'])->name('product.create');
+        route::post('/product-store',[ProductController::class, 'productStore'])->name('product.store');
+        Route::get('/product-edit/{id}', [ProductController::class,'edit'])->name('product.edit');
+        Route::put('/product-update/{id}', [ProductController::class,'update'])->name('product.update');
+        Route::get('/product-show/{id}', [ProductController::class,'show'])->name('product.show');
+        Route::get('/product-delete/{id}',[ProductController::class,'delete'])->name('product.delete');
+
+
+
+        // ...............................................................................
+        Route::get('/supplier',[SupplierController::class, 'list'])->name('supplier.list');
+        Route::get('/supplier-create',[SupplierController::class, 'create'])->name('supplier.create');
+        Route::post('/supplier-store',[SupplierController::class,'supplierStore'])->name('supplier.store');
 
 
 });
@@ -97,4 +111,5 @@ Route::post('/order-store',[OrderController::class, 'store'])->name('order.store
 
 
 //Frontend Start..............................................................
-Route::get('/homepage',[FrontendController::class, 'master'])->name('home');
+Route::get('/home',[FrontendController::class, 'master'])->name('home');
+Route::get('/card-show',[FrontendController::class, 'cardShow'])->name('card.show');

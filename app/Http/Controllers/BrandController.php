@@ -36,8 +36,8 @@ class BrandController extends Controller
             ]);
         Brand::create
             ([
-                'name'=>$request->name,
-                'description'=>$request->description,
+                'name'          =>$request->name,
+                'description'   =>$request->description,
 
             ]);
         return redirect()->route('brand.list');

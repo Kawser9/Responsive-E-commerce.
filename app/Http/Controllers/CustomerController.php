@@ -35,9 +35,9 @@ class CustomerController extends Controller
             ]);
         Customer::create
         ([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'phone'=>$request->phone
+            'name'      =>$request->name,
+            'email'     =>$request->email,
+            'phone'     =>$request->phone
         ]);
         // return redirect()->route('frontend.master');
 

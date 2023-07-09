@@ -21,14 +21,14 @@ class OrderController extends Controller
     {
         $request->validate
         ([
-            'product'=>'required',
-            'total'=>'required'
+            'product'   =>'required',
+            'total'     =>'required'
         ]);
 
         Order::create
         ([
-            'product'=>$request->product,
-            'total'=>$request->total
+            'product'   =>$request->product,
+            'total'     =>$request->total
         ]);
         return redirect()->route('order.list');
     }

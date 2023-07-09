@@ -12,24 +12,26 @@ class UserController extends Controller
         return view('backend.pages.login');
     }
 
-    public function val(Request $request)
+    public function authenticate(Request $request)
     {
 
         // dd($request->all());
-        // $request->Validate
-        // ([
-        //     'email'=>'required',
-        //     'password'=>'required'
-        // ]);
-        if(auth()->attempt(request()->only(['email','password']))){
-            return redirect()->route('dashboard');
+        $request->validate
+        ([
+            'email'      =>'required|email',
+            'password'   =>'required'
+        ]);
+        if(auth()->attempt(request()->only(['email','password'])))
+        {
+            return redirect()->route('dashboard')->with('msg','Login successfully.');
         }
-        return redirect()->route('admin.login');
+            return redirect()->route('admin.login')->with('msg','Login faild,try again.');
     }
+
     public function destroy()
     {
         Auth::logout();
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.login')->with('msg','Logeout success.');
     }
     // if(Auth::guard()->attempt(['email'=>$request->email,'password'=>$request->password])){
     //     return redirect()->route('dashboard');

@@ -64,8 +64,8 @@
             <p>{{$product->name}}</p>
             <p>{{$product->price}}</p>
             <div class="portfolio-links">
-              <a href="{{url('/uploads/products/'.$product->image)}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              <a href="" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+              <a href="{{Route('card.show',$product->id)}}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
         </div>

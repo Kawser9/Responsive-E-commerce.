@@ -12,4 +12,11 @@ class FrontendController extends Controller
         $products=Product::all();
         return view('frontend.master',compact('products'));
     }
+
+
+    public function cardShow($id)
+    {
+        $product=Product::find($id);
+        return view('frontend.pages.show',compact('product'));
+    }
 }
