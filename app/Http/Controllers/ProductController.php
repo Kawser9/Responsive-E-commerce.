@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +16,8 @@ class ProductController extends Controller
     }
     public function productCreate()
     {
-        return view('backend.pages.product.create');
+        $categories=Category::all();
+        return view('backend.pages.product.create',compact('categories'));
     }
     public function productStore(Request $request)
     {
@@ -27,7 +29,8 @@ class ProductController extends Controller
                 'name'      =>'required',
                 'price'     =>'required|gt:100',
                 'quantity'  =>'required|gt:10',
-                'image'     =>'required'
+                'image'     =>'required',
+                'category_id'=>'required'
             ]);    
 
             // dd($request->hasFile('image'));
@@ -42,6 +45,7 @@ class ProductController extends Controller
             ([
                 'name'          =>$request->name,
                 'price'         =>$request->price,
+                'category_id'   =>$request->category_id,
                 'quantity'      =>$request->quantity,
                 'description'   =>$request->descriptioon,
                 'image'         =>$fileName

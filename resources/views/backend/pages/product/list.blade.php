@@ -12,6 +12,7 @@
                                         <th>SL</th>
                                             <th>Name</th>
                                             <th>Price</th>
+                                            <th>Category</th>
                                             <th>Quantity</th>
                                             <th>Status</th>
                                             <th>Description</th>
@@ -24,6 +25,7 @@
                                             <th>SL</th>
                                             <th>Name</th>
                                             <th>Price</th>
+                                            <th>Category</th>
                                             <th>Quantity</th>
                                             <th>Status</th>
                                             <th>Description</th>
@@ -37,6 +39,7 @@
                                             <td>{{$key+1}}</td>
                                             <td>{{$product->name}}</td>
                                             <td>{{$product->price}}</td>
+                                            <td>{{$product->catname->name}}</td>
                                             <td>{{$product->quantity}}</td>
                                             <td>{{$product->status}}</td>
                                             <td>{{$product->description}}</td>
