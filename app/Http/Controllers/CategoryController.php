@@ -65,7 +65,7 @@ class CategoryController extends Controller
     {
         $category=Category::find($id);
 
-
+        $fileName=$category->image;
             if ($request->hasFile('image'))
             {
                 if ($category->image)

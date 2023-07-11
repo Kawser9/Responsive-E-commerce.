@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function list()
     {
-        $products=Product::latest()->get();
+        $products=Product::with('catname')->get();
         return view('backend.pages.product.list',compact('products'));
     }
     public function productCreate()
@@ -63,7 +63,7 @@ class ProductController extends Controller
     {
         $product=Product::find($id);
 
-
+        $fileName=$product->image;
         if ($request->hasFile('image')) 
         {
             // Delete the previous image if it exists

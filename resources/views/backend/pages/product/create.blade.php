@@ -25,20 +25,14 @@
         <div class="form-group">
           <textarea required type="description" name="descriptioon" class="form-control" id="exampleInputPassword1 "placeholder="Enter Product Description"></textarea>
         </div>
-
-
         <div class="form-group">
-          <label for="a">Select Category</label>
-         <select class="form-control" name="category_id" id="a">
-          
-        @foreach ($categories as $category)
-          <option value="{{$category->id}}">{{$category->name}}</option>
-        @endforeach
-         
-      </select>
-      </div>
-
-
+          {{-- <label for="a">Select Category</label> --}}
+          <select value="Select Category" class="form-control" name="category_id" id="a">
+                @foreach ($categories as $category)
+                  <option class="form-control" value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+          </select>
+        </div>
         <div class="form-group">
           <input type="file" name="image" class="form-control" id="exampleInputPassword1 "placeholder="Select Product Image">
         </div>

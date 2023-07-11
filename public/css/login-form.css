@@ -56,6 +56,21 @@
   background-color: #f4f4f4;
   
 }
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #bd2130;
+  border-radius: 16px;
+}
+.form-group select {
+  font-size: 1.2rem;
+  font-weight: 200;
+  line-height: 2;
+  color: #212529;
+  background-color: #f4f4f4;
+  
+}
 
 .form-group button {
   margin-top: 44px;
