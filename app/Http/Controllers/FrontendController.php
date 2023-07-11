@@ -16,7 +16,6 @@ class FrontendController extends Controller
 
     public function cardShow($id)
     {
-        $product=Product::find($id);
         return view('frontend.pages.show',compact('product'));
     }
 }

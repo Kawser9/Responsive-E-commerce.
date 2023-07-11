@@ -7,11 +7,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ use App\Http\Controllers\UserController;
 */
  
 // Login............................................................................
-Route::get('/',[UserController::class, 'login'])->name('admin.login');
+Route::get('/admin',[UserController::class, 'login'])->name('admin.login');
 Route::post('/admin/do-login',[UserController::class,'authenticate'])->name('login');
 
 
@@ -42,7 +43,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
 
         // Dashboard....................................................................
-        Route::get('/',[DashboardController::class, 'dashboard'])->name('dashboard');
+        Route::get('/dashboard',[DashboardController::class, 'dashboard'])->name('dashboard');
 
 
 
@@ -111,5 +112,5 @@ Route::post('/order-store',[OrderController::class, 'store'])->name('order.store
 
 
 //Frontend Start..............................................................
-Route::get('/home',[FrontendController::class, 'master'])->name('home');
+Route::get('/',[FrontendController::class, 'master'])->name('home');
 Route::get('/card-show',[FrontendController::class, 'cardShow'])->name('card.show');
