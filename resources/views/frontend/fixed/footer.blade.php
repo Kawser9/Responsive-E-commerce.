@@ -5,7 +5,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>Sailor</h3>
+              <h3>E-Commerse</h3>
               <p>
                 A108 Adam Street <br>
                 NY 535022, USA<br><br>
@@ -66,7 +66,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/sailor-free-bootstrap-theme/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/">E-Commerse</a>
       </div>
     </div>
   </footer>

@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Sailor Bootstrap Template - Index</title>
+  <title>E-Commerse</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -28,6 +28,7 @@
 
   <!-- Template Main CSS File -->
   <link href="frontend/assets/css/style.css" rel="stylesheet">
+  <link href="frontend/forms/form.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Sailor
@@ -51,19 +52,19 @@
   <!-- ======= Hero Section ======= -->
   
 
-            @include('frontend.pages.slider')
+            {{-- @include('frontend.pages.slider') --}}
   <!-- End Hero -->
 
 <!-- End #main -->
 
 <!-- all -->
-@include('frontend.pages.card')
+{{-- @include('frontend.pages.card') --}}
 
-       
+       @yield('content')
 
 <!-- all end -->
 
-            @include('frontend.pages.form')
+            {{-- @include('frontend.pages.form') --}}
   <!-- ======= Footer ======= -->
 
   @include('frontend.fixed.footer')

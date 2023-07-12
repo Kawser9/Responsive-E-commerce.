@@ -8,7 +8,7 @@
                                             <th>SL</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Phone</th>
+                                            <th>Password</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -17,7 +17,7 @@
                                             <th>SL</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Phone</th>
+                                            <th>Password</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
@@ -27,7 +27,7 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$customer->name}}</td>
                                             <td>{{$customer->email}}</td>
-                                            <td>{{$customer->phone}}</td>
+                                            <td>{{$customer->password}}</td>
                                             <td>
                                               <ul>
                                                   <a href="" class="btn btn-secondary">Show</a>

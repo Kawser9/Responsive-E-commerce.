@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Brand;
 use App\Models\Category;
-use Illuminate\Contracts\View\View;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,8 +23,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $categories=Category::all();
-        view()->share('category', $categories);
+            $categories=Category::all();
+            View::share('category', $categories);
+            // view()->share('',''); Another way without facads
+        
+
+
+            $brand=Brand::all();
+            View::share('brands',$brand);
+
+
 
         Paginator::useBootstrap();
     }

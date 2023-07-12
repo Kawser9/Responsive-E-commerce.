@@ -9,13 +9,7 @@ class FrontendController extends Controller
 {
     public function master()
     {
-        $products=Product::all();
-        return view('frontend.master',compact('products'));
+        return view('frontend.pages.home');
     }
 
-
-    public function cardShow($id)
-    {
-        return view('frontend.pages.show',compact('product'));
-    }
 }

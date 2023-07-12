@@ -13,6 +13,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\Website\ProductController as WebsiteProductController;
+use App\Http\Controllers\Website\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,8 +111,23 @@ Route::get('/order-create',[OrderController::class, 'create'])->name('order.crea
 Route::post('/order-store',[OrderController::class, 'store'])->name('order.store');
 
 
-
+//=========================================================================================
 
 //Frontend Start..............................................................
 Route::get('/',[FrontendController::class, 'master'])->name('home');
 Route::get('/card-show',[FrontendController::class, 'cardShow'])->name('card.show');
+
+
+
+
+
+//Registration................................................................
+Route::get('/registration',[RegistrationController::class,'registration'])->name('registration');
+
+
+
+
+// Product....................................................................
+Route::get('/products',[WebsiteProductController::class,'view_product'])->name('frontend.product');
+
+

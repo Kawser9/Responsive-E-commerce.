@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->String('name',length:100);
             $table->String('email',length:20);
-            $table->double('phone');
+            $table->double('password');
+            $table->double('confirm-password');
             $table->timestamps();
         });
     }

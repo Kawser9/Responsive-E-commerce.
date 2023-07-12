@@ -31,13 +31,17 @@ class CustomerController extends Controller
     {
         $request->validate
             ([
-                'name'=>'required'
+                'name'=>'required',
+                'email'=>'required',
+                'password'=>'required',
+                'confirm_password'=>'required'
             ]);
         Customer::create
         ([
-            'name'      =>$request->name,
-            'email'     =>$request->email,
-            'phone'     =>$request->phone
+            'name'              =>$request->name,
+            'email'             =>$request->email,
+            'password'          =>$request->password,
+            'confirm-password'  =>$request->confirm_password
         ]);
         // return redirect()->route('frontend.master');
 
