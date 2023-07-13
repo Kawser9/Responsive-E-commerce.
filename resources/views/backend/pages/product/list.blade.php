@@ -5,42 +5,31 @@
             @endif
                         <h1 class="page-header">Product List |  <a href="{{route('product.create')}}" class="c_button">Create</a>
                         </h1>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
+                            <div >
+                                <table table class="table">
                                     <thead>
                                         <tr>
                                         <th>SL</th>
                                             <th>Name</th>
                                             <th>Price</th>
-                                            <th>Category</th>
                                             <th>Quantity</th>
+                                            <th>Category</th>
+                                            <th>Brand</th>
                                             <th>Status</th>
                                             <th>Description</th>
                                             <th>Image</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>SL</th>
-                                            <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Category</th>
-                                            <th>Quantity</th>
-                                            <th>Status</th>
-                                            <th>Description</th>
-                                            <th>Image</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     @foreach($products as $key=>$product)
                                         <tr>
                                             <td>{{$key+1}}</td>
                                             <td>{{$product->name}}</td>
                                             <td>{{$product->price}}</td>
-                                            <td>{{$product->catname->name}}</td>
                                             <td>{{$product->quantity}}</td>
+                                            <td>{{$product->catname->name}}</td>
+                                            <td>{{$product->brand_name->name}}</td>
                                             <td>{{$product->status}}</td>
                                             <td>{{$product->description}}</td>
                                             <td>
@@ -57,6 +46,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                {{$products->links()}}
                                 <br>
                             </div>
                         </div>

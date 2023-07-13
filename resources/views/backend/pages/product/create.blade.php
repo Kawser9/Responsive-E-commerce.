@@ -1,7 +1,9 @@
 @extends('backend.master')
 @section('content')
 
-
+@if(session()->has('msg'))
+<p class="alert alert-success"> {{session()->get('msg')}}</p>
+@endif
 
     @if ($errors->any())
         @foreach ($errors->all() as $error)
@@ -26,8 +28,16 @@
           <textarea required type="description" name="descriptioon" class="form-control" id="exampleInputPassword1 "placeholder="Enter Product Description"></textarea>
         </div>
         <div class="form-group">
+          <label for="">Select brand</label>
+        <select value="Select Brand" class="form-control"placeholder="Select brand" name="brand_id" id="a">
+            @foreach ($brands as $brand)
+              <option class="form-control" value="{{$brand->id}}">{{$brand->name}}</option>
+            @endforeach
+        </select>
+        <br>
           {{-- <label for="a">Select Category</label> --}}
-          <select value="Select Category" class="form-control" name="category_id" id="a">
+          <label for="">Select category</label>
+          <select value="Select Category" class="form-control"placeholder="Select category" name="category_id" id="a">
                 @foreach ($categories as $category)
                   <option class="form-control" value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach

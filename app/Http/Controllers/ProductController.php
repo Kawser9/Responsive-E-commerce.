@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -11,13 +12,14 @@ class ProductController extends Controller
 {
     public function list()
     {
-        $products=Product::with('catname')->get();
+        $products=Product::with('catname','brand_name')->paginate(2);
         return view('backend.pages.product.list',compact('products'));
     }
     public function productCreate()
     {
+        $brands=Brand::all();
         $categories=Category::all();
-        return view('backend.pages.product.create',compact('categories'));
+        return view('backend.pages.product.create',compact('categories','brands'));
     }
     public function productStore(Request $request)
     {
@@ -26,11 +28,12 @@ class ProductController extends Controller
         $request->validate
             ([
 
-                'name'      =>'required',
-                'price'     =>'required|gt:100',
-                'quantity'  =>'required|gt:10',
-                'image'     =>'required',
-                'category_id'=>'required'
+                'name'          =>'required',
+                'price'         =>'required|gt:100',
+                'quantity'      =>'required|gt:10',
+                'image'         =>'required',
+                'category_id'   =>'required',
+                'brand_id'      =>'required'
             ]);    
 
             // dd($request->hasFile('image'));
@@ -46,22 +49,26 @@ class ProductController extends Controller
                 'name'          =>$request->name,
                 'price'         =>$request->price,
                 'category_id'   =>$request->category_id,
+                'brand_id'      =>$request->brand_id,
                 'quantity'      =>$request->quantity,
                 'description'   =>$request->descriptioon,
                 'image'         =>$fileName
             ]);
-        return redirect()->route('product.list')->with('msg','Product Create Successfully.');
+        return redirect()->back()->with('msg','Product Create Successfully.');
     }
 
     public function edit($id)
     {
+        $brands=Brand::all();
+        $categories=Category::all();
         $product=Product::find($id);
-        return view('backend.pages.product.edit',compact('product'));
+        return view('backend.pages.product.edit',compact('product','categories','brands'));
     }
 
     public function update(Request $request, $id)
     {
         $product=Product::find($id);
+        
 
         $fileName=$product->image;
         if ($request->hasFile('image')) 
@@ -84,6 +91,8 @@ class ProductController extends Controller
         $product->quantity      =$request->quantity;
         $product->status        =$request->status;
         $product->description   =$request->descriptioon;
+        $product->category_id   =$request->category_id;
+        $product->brand_id      =$request->brand_id;
         $product->image         = $fileName;
 
         $product->save();

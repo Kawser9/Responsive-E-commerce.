@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
      
-public function login()
-{
-    return view('backend.pages.login');
-}
+    public function login()
+    {
+        return view('backend.pages.login');
+    }
+    
     public function authenticate(Request $request)
     {
 

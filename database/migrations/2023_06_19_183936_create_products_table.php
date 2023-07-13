@@ -13,6 +13,7 @@ return new class extends Migration
         {
             $table->id();
             $table->string('name',100);
+            $table->foreignId('brand_id')->constrained('brands')->restrictOnDelete();
             $table->foreignId('category_id')->constrained('categories')->restrictOnDelete();
             $table->double('price',10,2)->default(0,0);
             $table->integer('quantity')->default(0);

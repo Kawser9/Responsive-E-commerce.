@@ -98,10 +98,15 @@ Route::get('/customer',[CustomerController::class, 'list'])->name('customer.list
 Route::post('/customer-store',[CustomerController::class,'customerStore'])->name('customer.store');
 
 
-// Route..............................................................................
+//Brand..............................................................................
 Route::get('/brand',[BrandController::class, 'index'])->name('brand.list');
 Route::get('/brand-create',[BrandController::class, 'create'])->name('brand.create');
 Route::post('/brand-store',[BrandController::class, 'store'])->name('brand.store');
+Route::get('/brand-edit/{id}', [BrandController::class,'edit'])->name('brand.edit');
+Route::put('/brand-update/{id}', [BrandController::class,'update'])->name('brand.update');
+Route::get('/brand-show/{id}', [BrandController::class,'show'])->name('brand.show');
+Route::get('/brand-delete/{id}',[BrandController::class,'delete'])->name('brand.delete');
+
 
 
 

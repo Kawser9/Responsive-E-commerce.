@@ -54,24 +54,39 @@ class BrandController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Brand $brand)
+    public function edit($id)
     {
-        //
+        $brand=Brand::find($id);
+        return view('backend.pages.brand.edit',compact('brand'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, $id)
     {
-        //
+        $brand=Brand::find($id);
+
+
+        // variable-> database collumn name = $request->input field name
+    
+        $brand->name          =$request->name;
+        $brand->status        =$request->status;
+        $brand->description   =$request->descriptioon;
+
+        $brand->save();
+
+
+        return redirect()->route('brand.list')->with('msg','Brand Updated Successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Brand $brand)
+    public function delete($id)
     {
-        //
+        $brand=Brand::find($id);
+        $brand->delete();
+        return redirect()->back()->with('msg','Brand Delete Successfully.');
     }
 }

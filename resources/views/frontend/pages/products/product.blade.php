@@ -25,10 +25,10 @@
                     <div class="portfolio-wrap">
                         <img src="{{url('/uploads/products/'.$product->image)}}" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                        <p>{{$product->name}}</p>
-                        <p>{{$product->price}}</p>
+                        <h4>{{$product->name}}</h4>
+                        <h4>{{$product->price}}</h4>
                         <div class="portfolio-links">
-                            <button href="" class="btn btn-success">Buy Product</button>
+                            <button href="" class="form-group button">Buy Product</button>
                             <a href=""><i class="btn bi-lightning-charge-fill"></i></a>
                         </div>
                         </div>

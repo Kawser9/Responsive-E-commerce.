@@ -1,7 +1,11 @@
 @extends('backend.master')
 @section('content')
 
-<h2>Brand list |<a href="{{Route('brand.create')}}"class="c_button">Create</a></h2>
+
+            @if(session()->has('msg'))
+             <p class="alert alert-success"> {{session()->get('msg')}}</p>
+            @endif
+                    <h2>Brand list |<a href="{{Route('brand.create')}}"class="c_button">Create</a></h2>
 
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -33,8 +37,8 @@
                                             <td>
                                               <ul>
                                                   <a href="" class="btn btn-secondary">Show</a>
-                                                  <a href="" class="btn btn-primary">Edit</a>
-                                                  <a href="" class="btn btn-danger">Delete</a>
+                                                  <a href="{{Route('brand.edit',$brand->id)}}" class="btn btn-primary">Edit</a>
+                                                  <a href="{{Route('brand.delete',$brand->id)}}" class="btn btn-danger">Delete</a>
                                               </ul>
                                             </td>
                                         </tr>
