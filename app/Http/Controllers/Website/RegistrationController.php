@@ -11,4 +11,10 @@ class RegistrationController extends Controller
     {
         return view('frontend.pages.registration.registration');
     }
+
+
+    public function login()
+    {
+        return view('frontend.pages.registration.login');
+    }
 }

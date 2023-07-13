@@ -63,7 +63,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
 
 
-        // .............................................................................
+        //Category .............................................................................
         Route::get('/category',[CategoryController::class, 'list'])->name('category.list');
         Route::get('/category-create',[CategoryController::class, 'categoryCreate'])->name('category.create');
         Route::post('/category-store',[CategoryController::class, 'categoryStore'])->name('category.store');
@@ -74,7 +74,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
 
 
-        // ................................................................................
+        //Product ................................................................................
         Route::get('/product',[ProductController::class, 'list'])->name('product.list');
         Route::get('/product-create',[ProductController::class, 'productCreate'])->name('product.create');
         route::post('/product-store',[ProductController::class, 'productStore'])->name('product.store');
@@ -85,7 +85,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
 
 
-        // ...............................................................................
+        //Supplier ...............................................................................
         Route::get('/supplier',[SupplierController::class, 'list'])->name('supplier.list');
         Route::get('/supplier-create',[SupplierController::class, 'create'])->name('supplier.create');
         Route::post('/supplier-store',[SupplierController::class,'supplierStore'])->name('supplier.store');
@@ -128,6 +128,7 @@ Route::get('/card-show',[FrontendController::class, 'cardShow'])->name('card.sho
 
 //Registration................................................................
 Route::get('/registration',[RegistrationController::class,'registration'])->name('registration');
+Route::get('/frontend_login',[RegistrationController::class,'login'])->name('frontend.login');
 
 
 

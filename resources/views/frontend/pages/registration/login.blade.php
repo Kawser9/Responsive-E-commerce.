@@ -12,15 +12,15 @@
     @endif
 
     <form class="form" action="" method="post" enctype="multipart/form-data">
-        <h2>Registration Form</h2>
+        <h2>Login Here</h2>
         @csrf
 
         <div class="form-group">
-        <input required type="email" name="email" class="form-control" id="exampleInputPassword1 "placeholder="Enter Email">
+        <input required type="email" name="email" class="form-control" id="exampleInputPassword1 "placeholder="Enter Your Email">
         </div>
 
         <div class="form-group">
-        <input type="password" name="password" class="form-control" id="exampleInputPassword1 "placeholder="Enter New password">
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1 "placeholder="Enter Your password">
         </div>
         
         <div class="form-group"><button type="submit" >Login</button></div>

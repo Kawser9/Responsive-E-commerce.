@@ -39,7 +39,7 @@
           <li><a href="blog.html">Blog</a></li>
 
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="index.html" class="getstarted">Login</a></li>
+          <li><a href="{{Route('frontend.login')}}" class="getstarted">Login</a></li>
           <li><a href="{{Route('registration')}}" class="getstarted">Registration</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
