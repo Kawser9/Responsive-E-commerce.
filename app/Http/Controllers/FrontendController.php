@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Slider;
 
 class FrontendController extends Controller
 {
     public function master()
     {
-        return view('frontend.pages.home');
+        $sliders=Slider::all();
+        $products=Product::latest()->take(6)->get();
+        return view('frontend.pages.home',compact('products','sliders'));
+    }
+
+    public function contact()
+    {
+        return view('frontend.pages.contact.contact');
     }
 
 }

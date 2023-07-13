@@ -1,7 +1,7 @@
 <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">E-Commerse</a></h1>
+      <h1 class="logo me-auto"><a href="{{Route('home')}}">E-Commerse</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="frontend/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -38,7 +38,7 @@
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="blog.html">Blog</a></li>
 
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{{Route('contact')}}">Contact</a></li>
           <li><a href="{{Route('frontend.login')}}" class="getstarted">Login</a></li>
           <li><a href="{{Route('registration')}}" class="getstarted">Registration</a></li>
         </ul>

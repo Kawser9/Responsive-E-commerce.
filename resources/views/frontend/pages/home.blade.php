@@ -1,44 +1,66 @@
 @extends('frontend.master')
 @section('content')
-          <section id="hero">
-            <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+
+<br><br>
+<section id="hero">
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000"> <!-- Decrease the data-bs-interval value to make the slides change faster -->
+
+      {{-- <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div> --}}
+
+      <div class="carousel-inner">
+          @foreach ($sliders as $key => $slider) <!-- Use a variable to track the active slide -->
+          <div class="carousel-item {{$key == 0 ? 'active' : ''}}"> <!-- Set the first slide as active -->
+              <img src="{{url('/uploads/sliders/'.$slider->image)}}" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                  <h5>{{$slider->title}}</h5>
+                  <p>{{$slider->description}}</p>
+              </div>
+          </div>
+          @endforeach
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+</section>
+
+            {{-- <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
               <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
+              
               <div class="carousel-inner" role="listbox">
+ --}}
 
                 <!-- Slide 1 -->
-                <div class="carousel-item active" style="background-image: url(frontend/assets/img/slide/slide-1.jpg)">
-                  <div class="carousel-container">
+                {{-- @foreach ($sliders as $slider) --}}
+                  
+                
+                {{-- <div class="carousel-item active" style="background-image: ">
+                  <img  src="{{url('/uploads/sliders/'.$slider->image)}}" alt=""> --}}
+                  {{-- src="{{url('/uploads/sliders/'.$slider->image)}}" --}}
+                  {{-- <div class="carousel-container">
                     <div class="container">
-                      <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Sailor</span></h2>
-                      <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                      <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-                    </div>
+                      <h2 class="animate__animated animate__fadeInDown">{{$slider->title}}</h2>
+                      <p class="animate__animated animate__fadeInUp">{{$slider->description}}</p> --}}
+                      {{-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> --}}
+                    {{-- </div>
                   </div>
                 </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-item" style="background-image: url(frontend/assets/img/slide/slide-2.jpg)">
-                  <div class="carousel-container">
-                    <div class="container">
-                      <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-                      <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                      <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-item" style="background-image: url(frontend/assets/img/slide/slide-3.jpg)">
-                  <div class="carousel-container">
-                    <div class="container">
-                      <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-                      <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                      <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
+                
 
               </div>
 
@@ -50,7 +72,7 @@
                 <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
               </a>
 
-            </div>
+            </div> --}}
           </section>
 
 
@@ -184,7 +206,7 @@
                     <ul id="portfolio-flters">
                       <li data-filter="*" class="filter-active">All</li>
                       <li data-filter=".filter-app">App</li>
-                      <li data-filter=".filter-card">Card</li>
+                      <li data-filter=".filter-card">Product</li>
                       <li data-filter=".filter-web">Web</li>
                     </ul>
                   </div>
@@ -234,19 +256,30 @@
                     </div>
                   </div>
 
-                  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+
+
+
+
+                   @foreach($products as $product)
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
                     <div class="portfolio-wrap">
-                      <img src="frontend/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                        <h4>Card 2</h4>
-                        <p>Card</p>
+                        <img src="{{url('/uploads/products/'.$product->image)}}" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                        <h4>{{$product->name}}</h4>
+                        <h4>{{$product->price}}</h4>
                         <div class="portfolio-links">
-                          <a href="frontend/assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                          <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                            <button href="" class="form-group button">Buy Product</button>
+                            <a href=""><i class="btn bi-lightning-charge-fill"></i></a>
                         </div>
-                      </div>
+                        </div>
                     </div>
-                  </div>
+                    </div>
+                    @endforeach
+
+
+
+
+
 
                   <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                     <div class="portfolio-wrap">
@@ -262,47 +295,9 @@
                     </div>
                   </div>
 
-                  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                      <img src="frontend/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                        <h4>App 3</h4>
-                        <p>App</p>
-                        <div class="portfolio-links">
-                          <a href="frontend/assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                          <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                 
 
-                  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <div class="portfolio-wrap">
-                      <img src="frontend/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                        <h4>Card 1</h4>
-                        <p>Card</p>
-                        <div class="portfolio-links">
-                          <a href="frontend/assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                          <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <div class="portfolio-wrap">
-                      <img src="frontend/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                        <h4>Card 3</h4>
-                        <p>Card</p>
-                        <div class="portfolio-links">
-                          <a href="frontend/assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                          <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                 
 
                   <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                     <div class="portfolio-wrap">
@@ -321,6 +316,12 @@
                 </div>
 
               </div>
+
+                <div class="form">
+                  <a class="button" href="{{Route('frontend.product')}}">All Products</a>
+                </div>
+                  
+              
             </section>
             <!-- End Portfolio Section -->
 

@@ -13,6 +13,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\Website\ProductController as WebsiteProductController;
 use App\Http\Controllers\Website\RegistrationController;
 
@@ -77,7 +78,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         //Product ................................................................................
         Route::get('/product',[ProductController::class, 'list'])->name('product.list');
         Route::get('/product-create',[ProductController::class, 'productCreate'])->name('product.create');
-        route::post('/product-store',[ProductController::class, 'productStore'])->name('product.store');
+        Route::post('/product-store',[ProductController::class, 'productStore'])->name('product.store');
         Route::get('/product-edit/{id}', [ProductController::class,'edit'])->name('product.edit');
         Route::put('/product-update/{id}', [ProductController::class,'update'])->name('product.update');
         Route::get('/product-show/{id}', [ProductController::class,'show'])->name('product.show');
@@ -90,6 +91,16 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         Route::get('/supplier-create',[SupplierController::class, 'create'])->name('supplier.create');
         Route::post('/supplier-store',[SupplierController::class,'supplierStore'])->name('supplier.store');
 
+
+        // Slider...........................................................................
+        Route::get('slider',[SliderController::class,'list'])->name('slider.list');
+        Route::get('slider-create',[SliderController::class,'create'])->name('slider.create');
+        route::post('/slider-store',[SliderController::class, 'store'])->name('slider.store');
+        Route::get('/slider-edit/{id}', [SliderController::class,'edit'])->name('slider.edit');
+        Route::put('/slider-update/{id}', [SliderController::class,'update'])->name('slider.update');
+        Route::get('/slider-show/{id}', [SliderController::class,'show'])->name('slider.show');
+        Route::get('/slider-delete/{id}',[SliderController::class,'delete'])->name('slider.delete');
+        
 
 });
 
@@ -135,5 +146,10 @@ Route::get('/frontend_login',[RegistrationController::class,'login'])->name('fro
 
 // Product....................................................................
 Route::get('/products',[WebsiteProductController::class,'view_product'])->name('frontend.product');
+
+
+
+//Contact......................................................................................
+Route::get('/contact',[FrontendController::class, 'contact'])->name('contact');
 
 
