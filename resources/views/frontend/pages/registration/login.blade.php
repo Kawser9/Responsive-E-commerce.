@@ -12,7 +12,7 @@
     @endif
 
     <form class="form" action="" method="post" enctype="multipart/form-data">
-        <h2>Login Here</h2>
+        <h2>Login</h2>
         @csrf
 
         <div class="form-group">
@@ -24,6 +24,7 @@
         </div>
         
         <div class="form-group"><button type="submit" >Login</button></div>
+
     </form>
 
 

@@ -122,8 +122,9 @@ a {
 }
 
 a:hover {
-  color: #e24d55;
+  color: #f18086;
   text-decoration: none;
+  color: #fff;
 }
 
 h1,
@@ -1968,6 +1969,7 @@ section {
 
 .blog .sidebar .search-form form button:hover {
   background: #de323c;
+  color: #fff;
 }
 
 .blog .sidebar .categories ul {

@@ -40,9 +40,9 @@
                                             </td>
                                             <td>
                                               <ul>
-                                                  <a href="{{Route('category.show',$category->id)}}" class="btn btn-secondary">Show</a>
-                                                  <a href="{{Route('category.edit',$category->id)}}" class="btn btn-primary">Edit</a>
-                                                  <a href="{{Route('category.delete',$category->id)}}" class="btn btn-danger">Delete</a>
+                                                <a href="{{Route('category.show',$category->id)}}" class="btn btn-primary"><i class="fa fa-eye" ></i></a>
+                                                <a href="{{Route('category.edit',$category->id)}}" class="btn btn-success"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="{{Route('category.delete',$category->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                               </ul>
                                             </td>
                                         </tr>

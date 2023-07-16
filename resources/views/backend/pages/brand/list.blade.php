@@ -35,11 +35,11 @@
                                             <td>{{$brand->description}}</td>
                                             <td>{{$brand->status}}</td>
                                             <td>
-                                              <ul>
-                                                  <a href="" class="btn btn-secondary">Show</a>
-                                                  <a href="{{Route('brand.edit',$brand->id)}}" class="btn btn-primary">Edit</a>
-                                                  <a href="{{Route('brand.delete',$brand->id)}}" class="btn btn-danger">Delete</a>
-                                              </ul>
+                                                <ul>
+                                                    <a href="" class="btn btn-primary"><i class="fa fa-eye" ></i></a>
+                                                    <a href="{{Route('brand.edit',$brand->id)}}" class="btn btn-success"><i class="fa fa-pencil-square"></i></a>
+                                                    <a href="{{Route('brand.delete',$brand->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                                </ul>
                                             </td>
                                         </tr>
                                         @endforeach

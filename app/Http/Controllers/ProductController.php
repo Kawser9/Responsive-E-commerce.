@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function list()
     {
-        $products=Product::with('catname','brand_name')->paginate(2);
+        $products=Product::with('catname','brand_name')->paginate(10);
         return view('backend.pages.product.list',compact('products'));
     }
     public function productCreate()

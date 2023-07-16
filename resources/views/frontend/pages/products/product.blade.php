@@ -28,7 +28,8 @@
                         <h4>{{$product->name}}</h4>
                         <h4>{{$product->price}}</h4>
                         <div class="portfolio-links">
-                            <button href="" class="form-group button">Buy Product</button>
+                            <a href="{{Route('frontend.show',$product->id)}}" class="button">Buy Product</a>
+                            {{-- <a href="{{Route('frontend.show',$product->id)}}" class="btn btn-secondary">Show</a> --}}
                             <a href=""><i class="btn bi-lightning-charge-fill"></i></a>
                         </div>
                         </div>

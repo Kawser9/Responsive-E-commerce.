@@ -146,6 +146,8 @@ Route::get('/frontend_login',[RegistrationController::class,'login'])->name('fro
 
 // Product....................................................................
 Route::get('/products',[WebsiteProductController::class,'view_product'])->name('frontend.product');
+Route::get('/products-show/{id}',[WebsiteProductController::class,'show'])->name('frontend.show');
+
 
 
 

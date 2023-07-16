@@ -78,7 +78,8 @@
 }
 
 .form-group button:hover {
-  background-color: #5498f7;
+  color: #ffffff;
+  background-color: #8c0707;
 }
 
 .c_button {
@@ -90,7 +91,7 @@
   text-decoration: none;
   font-family: Calibri;
   color: #efefef;
-  background-color: #4b87ff;
+  background-color: #d21e1e;
   border-radius: 79px;
   transition: background-color 0.3s ease;
 }
@@ -98,5 +99,5 @@
 /* Hover effect */
 .c_button:hover {
   color: #efefef;
-  background-color: #3437ff;
+  background-color: #ef0c2a;
 }

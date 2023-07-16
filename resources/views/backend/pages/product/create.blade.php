@@ -35,6 +35,7 @@
             @endforeach
         </select>
         <br>
+        
           {{-- <label for="a">Select Category</label> --}}
           <label for="">Select category</label>
           <select value="Select Category" class="form-control"placeholder="Select category" name="category_id" id="a">
