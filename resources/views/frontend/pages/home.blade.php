@@ -3,10 +3,14 @@
 
 
 <br><br>
+
+            
 <section id="hero">
 
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000"> <!-- Decrease the data-bs-interval value to make the slides change faster -->
-
+    @if(session()->has('msg'))
+              <p class="alert alert-success"> {{session()->get('msg')}}</p>
+            @endif
       {{-- <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>

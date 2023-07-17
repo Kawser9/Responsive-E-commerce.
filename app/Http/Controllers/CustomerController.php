@@ -32,20 +32,41 @@ class CustomerController extends Controller
         $request->validate
             ([
                 'name'=>'required',
-                'email'=>'required',
-                'password'=>'required',
-                'confirm_password'=>'required'
+                'email'=>'required|email|unique:customers',
+                'password'=>'required|min:6',
+                'confirm_password'=>'required|min:6'
             ]);
         Customer::create
-        ([
-            'name'              =>$request->name,
-            'email'             =>$request->email,
-            'password'          =>$request->password,
-            'confirm-password'  =>$request->confirm_password
-        ]);
+            ([
+                'name'              =>$request->name,
+                'email'             =>$request->email,
+                'password'          =>bcrypt($request->password)
+            ]);
         // return redirect()->route('frontend.master');
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('msg','Registration Complete.');
+    } 
+
+    public function dologin(Request $request)
+    {
+        $request->validate
+        ([
+            'email'      =>'required|email',
+            'password'   =>'required'
+        ]);
+
+        // dd($request->all());
+
+        $credentials=$request->except('_token');
+
+        // dd($credentials);
+
+        if(auth()->guard('customer')->attempt($credentials))
+        {
+            return redirect()->route('home');
+        }
+        return redirect()->back()->with('msg','Login Failed Try Again.');
+        // dd("invalid user");
     }
 
     /**

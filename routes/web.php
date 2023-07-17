@@ -12,10 +12,11 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 
-use App\Http\Controllers\FrontendController;
+// use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\Website\ProductController as WebsiteProductController;
 use App\Http\Controllers\Website\RegistrationController;
+use App\Http\Controllers\Website\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ use App\Http\Controllers\Website\RegistrationController;
 */
  
 // Login............................................................................
-Route::get('/admin',[UserController::class, 'login'])->name('admin.login');
+Route::get('/admin-login',[UserController::class, 'login'])->name('admin.login');
 Route::post('/admin/do-login',[UserController::class,'authenticate'])->name('login');
 
 
@@ -46,7 +47,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
 
         // Dashboard....................................................................
-        Route::get('/dashboard',[DashboardController::class, 'dashboard'])->name('dashboard');
+        Route::get('/',[DashboardController::class, 'dashboard'])->name('dashboard');
 
 
 
@@ -107,6 +108,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 //Customer.............................................................................
 Route::get('/customer',[CustomerController::class, 'list'])->name('customer.list');
 Route::post('/customer-store',[CustomerController::class,'customerStore'])->name('customer.store');
+Route::post('/doligin',[CustomerController::class,'dologin'])->name('customer.login');
+
+
 
 
 //Brand..............................................................................
@@ -137,9 +141,12 @@ Route::get('/card-show',[FrontendController::class, 'cardShow'])->name('card.sho
 
 
 
+
 //Registration................................................................
 Route::get('/registration',[RegistrationController::class,'registration'])->name('registration');
 Route::get('/frontend_login',[RegistrationController::class,'login'])->name('frontend.login');
+
+
 
 
 

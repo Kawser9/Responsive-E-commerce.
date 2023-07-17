@@ -11,7 +11,11 @@
     @endforeach
     @endif
 
-    <form class="form" action="" method="post" enctype="multipart/form-data">
+            @if(session()->has('msg'))
+              <p class="alert alert-success"> {{session()->get('msg')}}</p>
+            @endif
+
+    <form class="form" action="{{Route('customer.login')}}" method="post" enctype="multipart/form-data">
         <h2>Login</h2>
         @csrf
 
