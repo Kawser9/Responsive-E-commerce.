@@ -13,7 +13,7 @@
         @endforeach
     @endif              
       <form class="form" action="{{route('slider.store')}}" method="post" enctype="multipart/form-data">
-      <h2>Slider Create</h2>
+      <h2>Slider Create | <a href="{{Route('slider.list')}}" class="c_button">list</a></h2>
         @csrf
         <div class="form-group">
           <input required type="text" name="title"class="form-control" id="title" placeholder="Enter slider Title">

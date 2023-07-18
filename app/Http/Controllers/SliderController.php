@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Slider;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
@@ -65,17 +66,42 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Slider $slider)
+    public function edit($id)
     {
-        //
+        $slider=Slider::find($id);
+        return view('backend.pages.slider.edit',compact('slider'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, $id)
     {
-        //
+        $slider=Slider::find($id);
+
+        $fileName=$slider->image;
+        if ($request->hasFile('image')) 
+        {
+            // Delete the previous image if it exists
+            if ($slider->image) {
+                Storage::delete($slider->image);
+            }
+    
+            // Store the new image
+            $image=$request->file('image');
+            $fileName=date('Ymdhsi').'.'.$image->getClientOriginalExtension();
+            $image->storeAs('/sliders',$fileName);
+        }
+
+        
+        $slider->title          =$request->title;
+        $slider->description    =$request->description;
+        $slider->image          =$fileName;
+
+
+        $slider->save();
+
+        return redirect()->route('slider.list')->with('msg','Slider Update Successfully.');
     }
 
     /**

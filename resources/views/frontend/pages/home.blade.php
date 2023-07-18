@@ -5,40 +5,7 @@
 <br><br>
 
             
-<section id="hero">
-
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000"> <!-- Decrease the data-bs-interval value to make the slides change faster -->
-    @if(session()->has('msg'))
-              <p class="alert alert-success"> {{session()->get('msg')}}</p>
-            @endif
-      {{-- <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div> --}}
-
-      <div class="carousel-inner">
-          @foreach ($sliders as $key => $slider) <!-- Use a variable to track the active slide -->
-          <div class="carousel-item {{$key == 0 ? 'active' : ''}}"> <!-- Set the first slide as active -->
-              <img src="{{url('/uploads/sliders/'.$slider->image)}}" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                  <h5>{{$slider->title}}</h5>
-                  <p>{{$slider->description}}</p>
-              </div>
-          </div>
-          @endforeach
-      </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-      </button>
-  </div>
-</section>
+@include('frontend.pages.all.slider')
 
             {{-- <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 

@@ -34,8 +34,6 @@ Route::get('/admin-login',[UserController::class, 'login'])->name('admin.login')
 Route::post('/admin/do-login',[UserController::class,'authenticate'])->name('login');
 
 
-
-
 // Group........................................................................
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
@@ -103,34 +101,34 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         Route::get('/slider-delete/{id}',[SliderController::class,'delete'])->name('slider.delete');
         
 
+
+
+        //Customer.............................................................................
+        Route::get('/customer',[CustomerController::class, 'list'])->name('customer.list');
+        Route::post('/customer-store',[CustomerController::class,'customerStore'])->name('customer.store');
+        Route::post('/doligin',[CustomerController::class,'dologin'])->name('customer.login');
+
+
+
+
+        //Brand..............................................................................
+        Route::get('/brand',[BrandController::class, 'index'])->name('brand.list');
+        Route::get('/brand-create',[BrandController::class, 'create'])->name('brand.create');
+        Route::post('/brand-store',[BrandController::class, 'store'])->name('brand.store');
+        Route::get('/brand-edit/{id}', [BrandController::class,'edit'])->name('brand.edit');
+        Route::put('/brand-update/{id}', [BrandController::class,'update'])->name('brand.update');
+        Route::get('/brand-show/{id}', [BrandController::class,'show'])->name('brand.show');
+        Route::get('/brand-delete/{id}',[BrandController::class,'delete'])->name('brand.delete');
+
+
+
+
+        //Order..............................................................................
+        Route::get('/order',[OrderController::class, 'list'])->name('order.list');
+        Route::get('/order-create',[OrderController::class, 'create'])->name('order.create');
+        Route::post('/order-store',[OrderController::class, 'store'])->name('order.store');
+
 });
-
-//Customer.............................................................................
-Route::get('/customer',[CustomerController::class, 'list'])->name('customer.list');
-Route::post('/customer-store',[CustomerController::class,'customerStore'])->name('customer.store');
-Route::post('/doligin',[CustomerController::class,'dologin'])->name('customer.login');
-
-
-
-
-//Brand..............................................................................
-Route::get('/brand',[BrandController::class, 'index'])->name('brand.list');
-Route::get('/brand-create',[BrandController::class, 'create'])->name('brand.create');
-Route::post('/brand-store',[BrandController::class, 'store'])->name('brand.store');
-Route::get('/brand-edit/{id}', [BrandController::class,'edit'])->name('brand.edit');
-Route::put('/brand-update/{id}', [BrandController::class,'update'])->name('brand.update');
-Route::get('/brand-show/{id}', [BrandController::class,'show'])->name('brand.show');
-Route::get('/brand-delete/{id}',[BrandController::class,'delete'])->name('brand.delete');
-
-
-
-
-//Order..............................................................................
-Route::get('/order',[OrderController::class, 'list'])->name('order.list');
-Route::get('/order-create',[OrderController::class, 'create'])->name('order.create');
-Route::post('/order-store',[OrderController::class, 'store'])->name('order.store');
-
-
 //=========================================================================================
 
 //Frontend Start..............................................................

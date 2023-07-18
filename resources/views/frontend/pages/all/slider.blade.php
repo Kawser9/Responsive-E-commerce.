@@ -1,27 +1,38 @@
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
+<section id="hero">
+  <div id="heroCarousel" data-bs-interval="2000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
+    <ol class="carousel-indicators" id="hero-carousel-indicators"class="carousel slide" ></ol>
 
-    <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
+    <div class="carousel-inner" role="listbox">
+
+      <!-- Slide 1 -->
+      @foreach ($sliders as $key => $slider)
+        <div class="carousel-item {{$key == 0 ? 'active' : ''}}" >
+          <img src="{{url('/uploads/sliders/'.$slider->image)}}" class="d-block w-100" alt="...">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">{{$slider->title}}</span></h2>
+                <p class="animate__animated animate__fadeInUp">{{$slider->description}}</p>
+                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+              </div>
+          </div>
+        </div>
+      @endforeach
+
     </div>
-    
+
+    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+    </a>
+
+    <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+    </a>
+
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+</section><!-- End Hero -->
+
+
+
+
+
