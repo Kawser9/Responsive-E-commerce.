@@ -11,8 +11,11 @@
 
           <li class="dropdown"><a href="#"><span>Category</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              @foreach ($category as $cats)
-               <li><a href="about.html">{{$cats->name}}</a></li>
+
+              @foreach ($category as $cat)
+              <li>
+                <a href="{{Route('category.product',$cat->id)}}">{{$cat->name}}</a>
+              </li>
               @endforeach
               
 
@@ -30,7 +33,7 @@
           <li class="dropdown"><a href="#"><span>Brands</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               @foreach($brands as $brand)
-                 <li><a href="about.html">{{$brand->name}}</a></li>
+                 <li><a href="">{{$brand->name}}</a></li>
               @endforeach
             </ul>
           <li><a href="{{Route('frontend.product')}}">Products</a></li>

@@ -58,7 +58,7 @@ class CustomerController extends Controller
         // dd($request->all());
 
         $credentials=$request->except('_token');
-
+ 
         // dd($credentials);
 
         if(auth()->guard('customer')->attempt($credentials))

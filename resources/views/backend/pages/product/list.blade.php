@@ -37,7 +37,7 @@
                                             </td>
                                             <td style="inset-inline: ">
                                               <ul>
-                                                  <a href="{{Route('product.show',$product->id)}}" class="btn btn-primary"><i class="fa fa-eye" ></i></a>
+                                                  <a href="{{Route('product.show',$product->id)}}" class="btn btn-info"><i class="fa fa-eye" ></i></a>
                                                   <a href="{{Route('product.edit',$product->id)}}" class="btn btn-success"><i class="fa fa-pencil-square"></i></a>
                                                   <a href="{{Route('product.delete',$product->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                               </ul>
