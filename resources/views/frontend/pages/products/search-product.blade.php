@@ -11,14 +11,14 @@
                     <ul id="portfolio-flters">
                         {{-- <li data-filter="*" class="filter-active">All</li> --}}
                         {{-- <li data-filter=".filter-app">App</li> --}}
-                        <li data-filter=".filter-card"class="filter-active">Products</li>
+                        <li data-filter=".filter-card"class="filter-active">Searching for: {{$searchKey}} Found: {{$products->count()}}</li>
                         {{-- <li data-filter=".filter-web">Web</li> --}}
                     </ul>
                     </div>
                 </div>
             
                 <div class="row portfolio-container">
-            
+                    @if($products->count() > 0)
                   
                     @foreach($products as $product)
                     <div class="col-lg-4 col-md-6 portfolio-item filter-card">
@@ -36,8 +36,12 @@
                     </div>
                     </div>
                     @endforeach
-            
 
+                    @else
+
+                    <p>No product found.</p>
+            
+                    @endif
             
                 </div>
             

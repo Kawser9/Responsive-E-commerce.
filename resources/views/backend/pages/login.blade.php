@@ -3,25 +3,20 @@
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- Latest minified Toastr CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<!-- Latest minified Toastr JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
                <form class="form" action="{{route('login')}}" method="post">
                 <h2>Admin login</h2>
 
                 {{-- login faild msg --}}
-               @if(session('msg'))
-                  <div class="alert alert-success">
-                     {{ session('msg') }}
-                  </div>
-               @endif
+                
 
                   {{-- validation error message --}}
-                @if ($errors->any())
-                  @foreach ($errors->all() as $error)
-                     <div>
-                        <p class="alert alert-warning">{{$error}}</p>
-                     </div>
-                  @endforeach
-                @endif
+                
 
                 {{-- csrl tocken --}}
                 @csrf
@@ -36,3 +31,21 @@
                   
                </form>
            
+
+               <script>
+                  @if(session('logout'))
+                  toastr.options = {
+                     "closeButton": true,
+                     "progressBar": true
+                  };
+                      toastr.success('{{ session('logout') }}');
+                  @endif
+                  @if(session('logoutfaild'))
+                  toastr.options = {
+                     "closeButton": true,
+                     "progressBar": true
+                  };
+                      toastr.warning('{{ session('logoutfaild') }}');
+
+                  @endif
+              </script>

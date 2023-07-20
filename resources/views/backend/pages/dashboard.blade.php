@@ -2,12 +2,17 @@
 
 @section('content')
 
+            
+<script>
+    @if(session('login'))
+    toastr.options = {
+       "closeButton": true,
+       "progressBar": true
+    };
+        toastr.success('{{ session('login') }}');
+    @endif
+</script>
 
-        @if(session('msg'))
-            <div class="alert alert-success">
-                {{ session('msg') }}
-            </div>
-        @endif
 
 
 	<div class="container-fluid px-4">

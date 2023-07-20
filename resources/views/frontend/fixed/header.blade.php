@@ -5,6 +5,13 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="frontend/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
+      <div class="search-box">
+        <form action="{{Route('search')}}" method="GET">
+          <input type="text" name="search" placeholder="Search Product ...">
+          <button type="submit"><i class="bi bi-search"></i></button>
+        </form>
+      </div>
+
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="{{Route('home')}}" class="active">Home</a></li>
@@ -19,13 +26,9 @@
               @endforeach
               
 
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+              <li class="dropdown"><a href="#"><span>Nothing</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
+                  <li><a href="#">Nothing</a></li>
                 </ul>
               </li>
             </ul>
@@ -37,9 +40,6 @@
               @endforeach
             </ul>
           <li><a href="{{Route('frontend.product')}}">Products</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
 
           <li><a href="{{Route('contact')}}">Contact</a></li>
           <li><a href="{{Route('frontend.login')}}" class="getstarted">Login</a></li>

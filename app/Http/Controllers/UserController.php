@@ -24,15 +24,15 @@ class UserController extends Controller
         ]);
         if(auth()->attempt(request()->only(['email','password'])))
         {
-            return redirect()->route('dashboard')->with('msg','Login successfully.');
+            return redirect()->route('dashboard')->with('login','Login successfully.');
         }
-            return redirect()->route('admin.login')->with('msg','Login faild,try again.');
+            return redirect()->route('admin.login')->with('logoutfaild','Login faild,try again.');
     }
 
     public function destroy()
     {
         Auth::logout();
-        return redirect()->route('admin.login')->with('msg','Logeout success.');
+        return redirect()->route('admin.login')->with('logout','Logeout success.');
     }
     // if(Auth::guard()->attempt(['email'=>$request->email,'password'=>$request->password])){
     //     return redirect()->route('dashboard');

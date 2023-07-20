@@ -44,6 +44,12 @@
         <script src="{{ URL::asset('js/scripts.js') }}assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="{{ URL::asset('js/datatables-simple-demo.js') }}"></script>
+
+        <!-- Latest minified Toastr CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+        <!-- Latest minified Toastr JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
     </body>
 </html>
 

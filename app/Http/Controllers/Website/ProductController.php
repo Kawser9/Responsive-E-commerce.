@@ -17,7 +17,8 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $product=Product::find($id);
+
+        $product=Product::with('images')->find($id);
         return view('frontend.pages.products.show',compact('product'));
     }
 

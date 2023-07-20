@@ -6,6 +6,35 @@
 * License: https://bootstrapmade.com/license/
 */
 
+ /* Search Box Styles */
+ .search-box {
+  margin-right: 20px;
+  position: relative;
+}
+
+.search-box form {
+  display: flex;
+}
+
+.search-box input[type="text"] {
+  width: 237px;
+  padding: 9px;
+  border: 1px solid #d9232d;
+  border-radius: 8px 0 0 4px;
+}
+
+.search-box button {
+  background-color: #d9232d;
+  color: #ffffff;
+  padding: 11px 13px;
+  border: none;
+  border-radius: 0 8px 4px 0;
+  cursor: pointer;
+}
+
+
+
+
 
 /*--------------------------------------------------------------
 # Book A Table

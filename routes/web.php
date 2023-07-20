@@ -128,12 +128,30 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         Route::get('/order-create',[OrderController::class, 'create'])->name('order.create');
         Route::post('/order-store',[OrderController::class, 'store'])->name('order.store');
 
+
+
+
+        //Product Image..........................................................................
+        Route::get('/product-image',[ProductController::class, 'image'])->name('image.list');
+        Route::get('/image-create',[ProductController::class, 'imageCreate'])->name('image.create');
+        Route::post('/image-store',[ProductController::class, 'imageStore'])->name('image.store');
+        // Route::get('/product-edit/{id}', [ProductController::class,'edit'])->name('image.edit');
+        // Route::put('/product-update/{id}', [ProductController::class,'update'])->name('image.update');
+        // Route::get('/product-show/{id}', [ProductController::class,'show'])->name('image.show');
+        // Route::get('/product-delete/{id}',[ProductController::class,'delete'])->name('image.delete');
+
+
+
+
+
+
 });
 //=========================================================================================
 
 //Frontend Start..............................................................
 Route::get('/',[FrontendController::class, 'master'])->name('home');
 Route::get('/card-show',[FrontendController::class, 'cardShow'])->name('card.show');
+Route::get('/search',[FrontendController::class,'search'])->name('search');
 
 
 

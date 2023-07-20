@@ -5,13 +5,25 @@
 <p class="alert alert-success"> {{session()->get('msg')}}</p>
 @endif
 
+<script>
+  @if(session=>has('msg'))
+  toastr.options = {
+    "closeButton": true,
+    "progressBar": true
+  };
+      toastr.success('{{ session('msg') }}');
+  @endif
+</script>
+
     @if ($errors->any())
         @foreach ($errors->all() as $error)
              <div>
             <p class="alert alert-danger"> {{$error}}</p>
             </div>
         @endforeach
-    @endif              
+    @endif     
+    
+    
       <form class="form" action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
       <h2>Product Create</h2>
         @csrf

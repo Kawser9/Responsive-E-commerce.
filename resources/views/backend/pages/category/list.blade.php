@@ -4,8 +4,8 @@
             @if(session()->has('msg'))
                     <p class="alert alert-success"> {{session()->get('msg')}}</p>
             @endif
-                        <h1 class="page-header">Category List |  <a href="{{route('category.create')}}" class="c_button">Create</a>
-                        </h1>
+                        <h2 class="page-header">Category List |  <a href="{{route('category.create')}}" class="c_button">Create</a>
+                        </h2>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
@@ -40,7 +40,7 @@
                                             </td>
                                             <td>
                                               <ul>
-                                                <a href="{{Route('category.show',$category->id)}}" class="btn btn-primary"><i class="fa fa-eye" ></i></a>
+                                                <a href="{{Route('category.show',$category->id)}}" class="btn btn-info"><i class="fa fa-eye" ></i></a>
                                                 <a href="{{Route('category.edit',$category->id)}}" class="btn btn-success"><i class="fa fa-pencil-square"></i></a>
                                                 <a href="{{Route('category.delete',$category->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                               </ul>

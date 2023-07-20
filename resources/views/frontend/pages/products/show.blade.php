@@ -3,7 +3,7 @@
 
 <body>
 	<br><br>
-	 <!-- ======= Portfolio Details Section ======= -->
+	 
 	 <section id="portfolio-details" class="portfolio-details">
 		<div class="container">
   
@@ -45,7 +45,7 @@
 		  </div>
   
 		</div>
-	  </section><!-- End Portfolio Details Section -->
+	  </section>
 
 </body>
 

@@ -21,4 +21,20 @@ class FrontendController extends Controller
         return view('frontend.pages.contact.contact');
     }
 
+    public function search()
+    {
+        $searchKey=request()->search;
+
+         // where('column_name','comparison','value')
+      // example: where('price','=',100);
+      // example: where('name','habijabi');
+
+      //LIKE % Tushar      ---->matching from right side
+      //LIKE Tushar %      ----->matching from left side
+
+        $products=Product::where('name','LIKE','%'.$searchKey.'%')->get();
+
+        return view('frontend.pages.products.search-product',compact('products','searchKey'));
+    }
+
 }

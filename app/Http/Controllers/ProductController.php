@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
@@ -118,5 +119,53 @@ class ProductController extends Controller
         return redirect()->back()->with('msg','Product Delete Successfully.');
     }
 
+
+
+    public function image()
+    {
+        return view('backend.pages.product_image.list');
+    }
+
+    public function imageCreate()
+    {
+        $products=Product::all();
+        $categories=Category::all();
+        $brands=Brand::all();
+
+        return view('backend.pages.product_image.create',compact('products','categories','brands'));
+    }
+
+
+    public function imageStore(Request $request)
+    {
+        $request->validate
+        ([
+                'category_id'   =>'required',
+                'image'         =>'required',
+                'category_id'   =>'required',
+                'brand_id'      =>'required'
+        ]);
+        if($request->hasFile('image'))
+        {
+            $image=$request->file('image');
+            $fileName=date('Ymdhsi').'.'.$image->getClientOriginalExtension();
+            $image->storeAs('/product_images',$fileName);
+        }
+
+        Image::create
+        ([
+            'category_id'   =>$request->category_id,
+            'brand_id'      =>$request->brand_id,
+            'product_id'    =>$request->product_id,
+            'image'         =>$fileName
+
+        ]);
+        return redirect()->back()->with('msg','Image store successfully.');
+
+    }
+
+
+
+
 }
-// ->with('product',$product)
+
