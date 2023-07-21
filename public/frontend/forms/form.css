@@ -66,10 +66,10 @@
     font-family: Calibri;
     background: #d9232d;
     border: 0;
-    padding: 14px 21px;
+    padding: 8px 35px;
     color: #ffffff;
     transition: 0.4s;
-    border-radius: 42px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-content: center;

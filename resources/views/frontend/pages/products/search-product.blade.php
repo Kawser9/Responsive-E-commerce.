@@ -28,7 +28,10 @@
                         <h4>{{$product->name}}</h4>
                         <h4>{{$product->price}} BTD</h4>
                         <div class="portfolio-links">
-                            <a href="{{Route('frontend.show',$product->id)}}" class="button">Buy Product</a>
+                            @php
+                                $encryptID = Crypt::encrypt($product->id);
+                            @endphp
+                              <a href="{{Route('frontend.show',$encryptID)}}" class="button">Buy Product</a>
                             {{-- <a href="{{Route('frontend.show',$product->id)}}" class="btn btn-secondary">Show</a> --}}
                             <a href=""><i class="btn bi-lightning-charge-fill"></i></a>
                         </div>

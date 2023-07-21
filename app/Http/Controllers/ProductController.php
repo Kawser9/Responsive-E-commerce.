@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -106,8 +107,9 @@ class ProductController extends Controller
 
     }
 
-    public function show($id)
+    public function show($encryptID)
     {
+    $id = Crypt::decrypt($encryptID);
         $product=Product::find($id);
         return view('backend.pages.product.show',compact('product'));
     }

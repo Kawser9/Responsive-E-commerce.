@@ -28,6 +28,7 @@
         </div>
         
         <div class="form-group"><button type="submit" >Login</button></div>
+        <p>Don't have account? <a href="{{Route('registration')}}">Register</a></p>
 
     </form>
 
