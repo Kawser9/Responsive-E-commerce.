@@ -44,7 +44,7 @@ class CustomerController extends Controller
             ]);
         // return redirect()->route('frontend.master');
 
-        return redirect()->route('home')->with('msg','Registration Complete.');
+        return redirect()->route('frontend.login')->with('msg','Registration Complete.');
     } 
 
     public function dologin(Request $request)
@@ -63,9 +63,9 @@ class CustomerController extends Controller
 
         if(auth()->guard('customer')->attempt($credentials))
         {
-            return redirect()->route('home');
+            return redirect()->route('home')->with('msg','Login Success.');
         }
-        return redirect()->back()->with('msg','Login Failed Try Again.');
+        return redirect()->back()->with('error','Login Failed Try Again.');
         // dd("invalid user");
     }
 

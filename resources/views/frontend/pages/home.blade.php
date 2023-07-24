@@ -298,4 +298,16 @@
 
             </main>
 
+
+            <script>
+              @if(Session::has('msg'))
+              toastr.options =
+              {
+                  "closeButton" : true,
+                  "progressBar" : true
+              }
+                      toastr.success("{{ session('msg') }}");
+              @endif
+              </script>
+
 @endsection

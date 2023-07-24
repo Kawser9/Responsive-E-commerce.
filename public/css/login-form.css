@@ -1,11 +1,18 @@
 
 /* Form Styles */
-.form {
+/* .form {
   max-width: 577px;
   margin: 38px auto;
   padding: 91px;
   background-color: #f8f9fa;
   border-radius: 28px;
+} */
+.form {
+  max-width: 981px;
+  margin: -55px auto;
+  padding: 68px;
+  background-color: #fff8f8;
+  border-radius: 31px;
 }
 
 .form h2 {
@@ -95,21 +102,21 @@
 }
 
 .c_button {
-  font-size: 1.5rem;
-  margin-top: 10px;
-  text-transform: uppercase;
-  display: inline-block;
-  padding: 12px 22px;
-  text-decoration: none;
-  font-family: Calibri;
-  color: #efefef;
-  background-color: #4b87ff;
-  border-radius: 79px;
-  transition: background-color 0.3s ease;
+    font-size: 1rem;
+    margin-top: 24px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 7px 10px;
+    text-decoration: none;
+    font-family: Calibri;
+    color: #ffffff;
+    background-color: #dc3545;
+    border-radius: 79px;
+    transition: background-color 0.3s ease;
 }
 
 /* Hover effect */
 .c_button:hover {
-  color: #efefef;
-  background-color: #3437ff;
+  color: #e0d0d0;
+  background-color: #f12a3e;
 }

@@ -6,7 +6,7 @@
 @endif
 
 <script>
-  @if(session=>has('msg'))
+  @if(session('msg'))
   toastr.options = {
     "closeButton": true,
     "progressBar": true
@@ -39,23 +39,25 @@
         <div class="form-group">
           <textarea required type="description" name="descriptioon" class="form-control" id="exampleInputPassword1 "placeholder="Enter Product Description"></textarea>
         </div>
+
         <div class="form-group">
-          <label for="">Select brand</label>
-        <select value="Select Brand" class="form-control"placeholder="Select brand" name="brand_id" id="a">
-            @foreach ($brands as $brand)
-              <option class="form-control" value="{{$brand->id}}">{{$brand->name}}</option>
-            @endforeach
-        </select>
-        <br>
-        
-          {{-- <label for="a">Select Category</label> --}}
-          <label for="">Select category</label>
-          <select value="Select Category" class="form-control"placeholder="Select category" name="category_id" id="a">
-                @foreach ($categories as $category)
-                  <option class="form-control" value="{{$category->id}}">{{$category->name}}</option>
-                @endforeach
+          <select name="brand_id" class="form-select" aria-label="Default select example">
+          <option selected>Select brand</option>
+              @foreach ($brands as $brand)
+                 <option value="{{$brand->id}}">{{$brand->name}}</option>
+              @endforeach
           </select>
         </div>
+        
+        <div class="form-group">
+          <select name="category_id" class="form-select" aria-label="Default select example">
+            <option selected>Select category</option>
+               @foreach ($categories as $category)
+                 <option value="{{$category->id}}">{{$category->name}}</option>
+               @endforeach
+          </select>
+        </div>
+
         <div class="form-group">
           <input type="file" name="image" class="form-control" id="exampleInputPassword1 "placeholder="Select Product Image">
         </div>

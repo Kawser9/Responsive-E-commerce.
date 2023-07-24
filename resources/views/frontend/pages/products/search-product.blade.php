@@ -11,7 +11,7 @@
                     <ul id="portfolio-flters">
                         {{-- <li data-filter="*" class="filter-active">All</li> --}}
                         {{-- <li data-filter=".filter-app">App</li> --}}
-                        <li data-filter=".filter-card"class="filter-active">Searching for: {{$searchKey}} Found: {{$products->count()}}</li>
+                        <li data-filter=".filter-card"class="filter-active">Searching for: {{$searchKey}} - Found: {{$products->count()}}</li>
                         {{-- <li data-filter=".filter-web">Web</li> --}}
                     </ul>
                     </div>

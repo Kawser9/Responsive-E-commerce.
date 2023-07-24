@@ -59,16 +59,19 @@ class ProductController extends Controller
         return redirect()->back()->with('msg','Product Create Successfully.');
     }
 
-    public function edit($id)
+    public function edit($encryptID)
     {
+        $id=Crypt::decrypt($encryptID);
         $brands=Brand::all();
         $categories=Category::all();
         $product=Product::find($id);
-        return view('backend.pages.product.edit',compact('product','categories','brands'));
+        return view('backend.pages.product.edit',compact(['product','categories','brands']));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $encryptID)
     {
+
+        $id=Crypt::decrypt($encryptID);
         $product=Product::find($id);
         
 
@@ -109,7 +112,7 @@ class ProductController extends Controller
 
     public function show($encryptID)
     {
-    $id = Crypt::decrypt($encryptID);
+        $id = Crypt::decrypt($encryptID);
         $product=Product::find($id);
         return view('backend.pages.product.show',compact('product'));
     }

@@ -1,10 +1,32 @@
 @extends('backend.master')
 @section('content')
-            @if(session()->has('msg'))
+
+<script>
+    @if(Session::has('msg'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.success("{{ session('msg') }}");
+    @endif
+  
+    @if(Session::has('error'))
+    toastr.options =
+    {
+        "closeButton" : true,
+        "progressBar" : true
+    }
+            toastr.error("{{ session('error') }}");
+    @endif
+</script>
+
+        
+            {{-- @if(session()->has('msg'))
             <p class="alert alert-success"> {{session()->get('msg')}}</p>
-            @endif
-                        <h1 class="page-header">Product List |  <a href="{{route('product.create')}}" class="c_button">Create</a>
-                        </h1>
+            @endif --}}
+                        <h2 class="page-header">Product List |  <a href="{{route('product.create')}}" class="c_button">Create</a>
+                        </h2>
                             <div >
                                 <table table class="table">
                                     <thead>
@@ -41,7 +63,7 @@
                                                     $encryptID =Crypt::encrypt($product->id);
                                                 @endphp
                                                   <a href="{{Route('product.show',$encryptID)}}" class="btn btn-info"><i class="fa fa-eye" ></i></a>
-                                                  <a href="{{Route('product.edit',$product->id)}}" class="btn btn-success"><i class="fa fa-pencil-square"></i></a>
+                                                  <a href="{{Route('product.edit',$encryptID)}}" class="btn btn-success"><i class="fa fa-pencil-square"></i></a>
                                                   <a href="{{Route('product.delete',$product->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                               </ul>
                                             </td>
