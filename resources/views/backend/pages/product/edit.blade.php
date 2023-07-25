@@ -32,7 +32,7 @@
           <input required type="text" placeholder="Status" name="status"class="form-control" id="status" value="{{$product->status}}">
         </div>
         <div class="form-group">
-          <input type="description" placeholder="Description" name="descriptioon" class="form-control" id="exampleInputPassword1 "value="{{$product->description}}">
+          <textarea required type="description" name="descriptioon" class="form-control" id="exampleInputPassword1 "placeholder="Enter Product Description">{{$product->description}}</textarea>
         </div>
 
 
@@ -41,7 +41,7 @@
           <select name="brand_id" class="form-select" aria-label="Default select example">
           <option selected>Update brand</option>
               @foreach ($brands as $brand)
-                 <option value="{{$brand->id}}">{{$brand->name}}</option>
+                 <option @if ($product->brand_id==$brand->id) selected @endif value="{{$brand->id}}">{{$brand->name}}</option>
               @endforeach
           </select>
         </div>
@@ -50,7 +50,7 @@
           <select name="category_id" class="form-select" aria-label="Default select example">
             <option value="" selected>Update Category</option>
               @foreach ($categories as $category)
-               <option value="{{$category->id}}">{{$category->name}}</option>
+               <option  @if ($product->category_id==$category->id) selected @endif value="{{$category->id}}">{{$category->name}}</option>
                @endforeach
           </select>
         </div>
