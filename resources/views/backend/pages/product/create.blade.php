@@ -57,6 +57,14 @@
                @endforeach
           </select>
         </div>
+        <div class="form-group">
+          <select name="type" class="form-select" aria-label="Default select example">
+          <option selected>Select type</option>
+                <option value="New">New</option>
+                <option value="Upcoming">Upcoming</option>
+                <option value="Best Sell">Best Sell</option>
+          </select>
+        </div>
 
         <div class="form-group">
           <input type="file" name="image" class="form-control" id="exampleInputPassword1 "placeholder="Select Product Image">

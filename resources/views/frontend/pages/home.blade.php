@@ -175,60 +175,15 @@
                 <div class="row">
                   <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
-                      <li data-filter="*" class="filter-active">All</li>
-                      <li data-filter=".filter-app">App</li>
-                      <li data-filter=".filter-card">Product</li>
-                      <li data-filter=".filter-web">Web</li>
+                      <li data-filter="*" class="filter-active"> Products</li>
+                      <a class="button" href="{{Route('get.by.product','new')}}">New</a>
+                      <a class="button" href="{{Route('get.by.product','upcoming')}}">Upcoming</a>
+                      <a class="button" href="{{Route('get.by.product','best sell')}}">Best sell</a>
                     </ul>
                   </div>
                 </div>
 
                 <div class="row portfolio-container">
-
-                  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                      <img src="frontend/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                        <h4>App 1</h4>
-                        <p>App</p>
-                        <div class="portfolio-links">
-                          <a href="frontend/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                          <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                      <img src="frontend/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                        <h4>Web 3</h4>
-                        <p>Web</p>
-                        <div class="portfolio-links">
-                          <a href="frontend/assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                          <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                      <img src="frontend/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                        <h4>App 2</h4>
-                        <p>App</p>
-                        <div class="portfolio-links">
-                          <a href="frontend/assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                          <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
 
 
                    @foreach($products as $product)
@@ -236,10 +191,13 @@
                     <div class="portfolio-wrap">
                         <img src="{{url('/uploads/products/'.$product->image)}}" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                        <h4>{{$product->name}}</h4>
+                        <h4>{{$product->name}} | <span class="badge badge-primary">{{$product->type}}</span></h4>
                         <h4>{{$product->price}}</h4>
                         <div class="portfolio-links">
-                            <a href="{{Route('frontend.show',$product->id)}}" class="form-group button">Buy Product</a>
+                          @php
+                            $encryptedID=Crypt::encrypt($product->id);
+                          @endphp
+                            <a href="{{Route('frontend.show',$encryptedID)}}" class="form-group button">Buy Product</a>
                             <a href=""><i class="btn bi-lightning-charge-fill"></i></a>
                         </div>
                         </div>
@@ -247,42 +205,6 @@
                     </div>
                     @endforeach
 
-
-
-
-
-
-                  <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                      <img src="frontend/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                        <h4>Web 2</h4>
-                        <p>Web</p>
-                        <div class="portfolio-links">
-                          <a href="frontend/assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                          <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                 
-
-                 
-
-                  <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                      <img src="frontend/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                        <h4>Web 3</h4>
-                        <p>Web</p>
-                        <div class="portfolio-links">
-                          <a href="frontend/assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                          <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
                 </div>
 

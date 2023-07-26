@@ -152,6 +152,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 Route::get('/',[FrontendController::class, 'master'])->name('home');
 Route::get('/card-show',[FrontendController::class, 'cardShow'])->name('card.show');
 Route::get('/search',[FrontendController::class,'search'])->name('search');
+Route::get('/get-by-type/{type}',[FrontendController::class,'getByType'])->name('get.by.product');
 
 
 

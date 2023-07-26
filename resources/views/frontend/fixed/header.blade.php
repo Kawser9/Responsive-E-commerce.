@@ -4,7 +4,7 @@
 <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="{{Route('home')}}">E-Commerse</a></h1>
+      <h1 class="logo me-auto"><a href="{{Route('home')}}">E-Commerce</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="frontend/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -26,7 +26,8 @@
               </form>
             </div>
           </li>
-          <li><a href="{{Route('home')}}" class="active">Home</a></li>
+          <li><a href="{{Route('home')}}" class="">Home</a></li>
+          {{-- @dd($category) --}}
 
           <li class="dropdown"><a href="#"><span>Category</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -48,12 +49,28 @@
               </li>
             </ul>
           </li>
+          
           <li class="dropdown"><a href="#"><span>Brands</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               @foreach($brands as $brand)
                  <li><a href="">{{$brand->name}}</a></li>
               @endforeach
             </ul>
+
+            {{-- <li class="dropdown"><a href="#"><span>Type</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                @foreach($products as $product)
+                   <li><a href="">{{$product->type}}</a></li>
+                @endforeach
+              </ul> --}}
+
+              <li class="dropdown"><a href="#"><span>Type</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                    <li><a href="{{Route('get.by.product','new')}}">New</a></li>
+                    <li><a href="{{Route('get.by.product','upcoming')}}">Upcoming</a></li>
+                    <li><a href="{{Route('get.by.product','best sell')}}">Best sell</a></li>
+                </ul>
+
           <li><a href="{{Route('frontend.product')}}">Products</a></li>
 
           <li><a href="{{Route('contact')}}">Contact</a></li>

@@ -25,7 +25,7 @@
                     <div class="portfolio-wrap">
                         <img src="{{url('/uploads/products/'.$product->image)}}" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                        <h4>{{$product->name}}</h4>
+                        <h4>{{$product->name}} | <span class="badge badge-primary">{{$product->type}}</h4>
                         <h4>{{$product->price}} BTD</h4>
                         <div class="portfolio-links">
                             @php

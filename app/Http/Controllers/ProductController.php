@@ -14,7 +14,7 @@ class ProductController extends Controller
 {
     public function list()
     {
-        $products=Product::with('catname','brand_name')->paginate(10);
+        $products=Product::with('catname','brand_name')->latest()->paginate(10);
         return view('backend.pages.product.list',compact('products'));
     }
     public function productCreate()
@@ -35,7 +35,8 @@ class ProductController extends Controller
                 'quantity'      =>'required|gt:10',
                 'image'         =>'required',
                 'category_id'   =>'required',
-                'brand_id'      =>'required'
+                'brand_id'      =>'required',
+                'type'          =>'required'
             ]);    
 
             // dd($request->hasFile('image'));
@@ -54,6 +55,7 @@ class ProductController extends Controller
                 'brand_id'      =>$request->brand_id,
                 'quantity'      =>$request->quantity,
                 'description'   =>$request->descriptioon,
+                'type'          =>$request->type,
                 'image'         =>$fileName
             ]);
         return redirect()->back()->with('msg','Product Create Successfully.');
@@ -98,6 +100,7 @@ class ProductController extends Controller
         $product->description   =$request->descriptioon;
         $product->category_id   =$request->category_id;
         $product->brand_id      =$request->brand_id;
+        $product->type          =$request->type;
         $product->image         = $fileName;
 
         $product->save();

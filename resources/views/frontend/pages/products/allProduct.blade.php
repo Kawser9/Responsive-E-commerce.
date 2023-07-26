@@ -9,10 +9,9 @@
                 <div class="row">
                     <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
-                        {{-- <li data-filter="*" class="filter-active">All</li> --}}
-                        {{-- <li data-filter=".filter-app">App</li> --}}
-                        <li data-filter=".filter-card"class="filter-active">Products</li>
-                        {{-- <li data-filter=".filter-web">Web</li> --}}
+                        <a class="button" href="{{Route('get.by.product','new')}}">New</a>
+                        <a class="button" href="{{Route('get.by.product','upcoming')}}">Upcoming</a>
+                        <a class="button" href="{{Route('get.by.product','best sell')}}">Best sell</a>
                     </ul>
                     </div>
                 </div>
@@ -25,7 +24,7 @@
                     <div class="portfolio-wrap">
                         <img src="{{url('/uploads/products/'.$product->image)}}" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                        <h4>{{$product->name}}</h4>
+                        <h4>{{$product->name}} | <span class="badge badge-primary">{{$product->type}}</h4>
                         <h4>{{$product->price}} BTD</h4>
                         <div class="portfolio-links">
                             @php

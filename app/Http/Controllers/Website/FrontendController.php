@@ -37,4 +37,12 @@ class FrontendController extends Controller
         return view('frontend.pages.products.search-product',compact('products','searchKey'));
     }
 
+
+    public function getByType($type)
+    {
+        $sliders=Slider::all();
+        $products=Product::where('type',$type)->get();
+        return view('frontend.pages.home',compact('products','sliders','type'));
+    }
+
 }

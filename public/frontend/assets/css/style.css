@@ -127,16 +127,28 @@
   background: #d9232d;
 }
 .button{
-  margin-top: 30px;
-  background: #d9232d;
-  border: 0;
-  padding: 10px 24px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 15px 10px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #444444;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 3px;
   color: #fff;
-  transition: 0.4s;
-  border-radius: 50px;
+  background: #d9232d;
 }
 
 
+.button:hover {
+  color: #720006;
+  text-decoration: none;
+  color: #ffffff;
+
+}
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -151,7 +163,7 @@ a {
 }
 
 a:hover {
-  color: #fd7279;
+  color: #800208;
   text-decoration: none;
   color: #0f0101;
 }

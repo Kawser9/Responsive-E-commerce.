@@ -38,6 +38,7 @@
                                             <th>Category</th>
                                             <th>Brand</th>
                                             <th>Status</th>
+                                            <th>Type</th>
                                             <th>Description</th>
                                             <th>Image</th>
                                             <th>Action</th>
@@ -53,6 +54,7 @@
                                             <td>{{$product->catname->name}}</td>
                                             <td>{{$product->brand_name->name}}</td>
                                             <td>{{$product->status}}</td>
+                                            <td>{{$product->type}}</td>
                                             <td>{{$product->description}}</td>
                                             <td>
                                                     <img src="{{url('/uploads/products/'.$product->image)}}"style="width: 50px;" alt="">
