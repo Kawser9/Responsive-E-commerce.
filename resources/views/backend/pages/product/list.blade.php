@@ -25,6 +25,7 @@
             {{-- @if(session()->has('msg'))
             <p class="alert alert-success"> {{session()->get('msg')}}</p>
             @endif --}}
+                <div class="container mt-5">
                         <h2 class="page-header">Product List |  <a href="{{route('product.create')}}" class="c_button">Create</a>
                         </h2>
                             <div >
@@ -60,13 +61,13 @@
                                                     <img src="{{url('/uploads/products/'.$product->image)}}"style="width: 50px;" alt="">
                                             </td>
                                             <td style="inset-inline: ">
-                                              <ul>
+                                              <ul class="culumn justify-content-center ">
                                                 @php
                                                     $encryptID =Crypt::encrypt($product->id);
                                                 @endphp
-                                                  <a href="{{Route('product.show',$encryptID)}}" class="btn btn-info"><i class="fa fa-eye" ></i></a>
-                                                  <a href="{{Route('product.edit',$encryptID)}}" class="btn btn-success"><i class="fa fa-pencil-square"></i></a>
-                                                  <a href="{{Route('product.delete',$product->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                                  <a href="{{Route('product.show',$encryptID)}}" class="btn btn-info btn-sm "><i class="fa fa-eye" ></i></a>
+                                                  <a href="{{Route('product.edit',$encryptID)}}" class="btn btn-success btn-sm"><i class="fa fa-pencil-square"></i></a>
+                                                  <a href="{{Route('product.delete',$product->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                               </ul>
                                             </td>
                                         </tr>
@@ -78,4 +79,5 @@
                             </div>
                         </div>
                     </div>
+                </div>
 @endsection

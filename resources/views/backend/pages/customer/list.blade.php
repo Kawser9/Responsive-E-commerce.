@@ -1,5 +1,8 @@
 @extends('backend.master')
 @section('content')
+
+
+                <div class="container mt-5">
                         <h1 class="page-header">Customer List </h1>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -42,4 +45,6 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
 @endsection

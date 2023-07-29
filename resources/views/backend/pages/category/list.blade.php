@@ -4,6 +4,9 @@
             @if(session()->has('msg'))
                     <p class="alert alert-success"> {{session()->get('msg')}}</p>
             @endif
+
+
+            <div class="container mt-5">
                         <h2 class="page-header">Category List |  <a href="{{route('category.create')}}" class="c_button">Create</a>
                         </h2>
                             <div class="card-body">
@@ -40,9 +43,9 @@
                                             </td>
                                             <td>
                                               <ul>
-                                                <a href="{{Route('category.show',$category->id)}}" class="btn btn-info"><i class="fa fa-eye" ></i></a>
-                                                <a href="{{Route('category.edit',$category->id)}}" class="btn btn-success"><i class="fa fa-pencil-square"></i></a>
-                                                <a href="{{Route('category.delete',$category->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                                <a href="{{Route('category.show',$category->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye" ></i></a>
+                                                <a href="{{Route('category.edit',$category->id)}}" class="btn btn-success btn-sm"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="{{Route('category.delete',$category->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                               </ul>
                                             </td>
                                         </tr>
@@ -50,4 +53,6 @@
                                     </tbody>
                                 </table>
                             </div>
+
+            </div>
 @endsection

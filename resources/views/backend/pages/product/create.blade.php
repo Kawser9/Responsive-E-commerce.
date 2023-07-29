@@ -25,7 +25,7 @@
     
     
       <form class="form" action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
-      <h2>Product Create</h2>
+      <h2>Product Create | <a href="{{Route('product.list')}}">List</a></h2>
         @csrf
         <div class="form-group">
           <input required type="text" name="name"class="form-control" id="name" placeholder="Enter Product Name">

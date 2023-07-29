@@ -10,6 +10,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
 
 // use App\Http\Controllers\FrontendController;
@@ -141,6 +142,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         // Route::get('/product-delete/{id}',[ProductController::class,'delete'])->name('image.delete');
 
 
+        Route::get('/reports',[ReportController::class,'reportList'])->name('reports.list');
+        Route::get('/product-reports-by-time',[ReportController::class,'getByTimeReport'])->name('getByTimeReport');
+        Route::get('/search-report',[ReportController::class,'searchByTime'])->name('report.search');
+
+
 
 
 
@@ -169,9 +175,10 @@ Route::get('/frontend_login',[RegistrationController::class,'login'])->name('fro
 
 
 // Product....................................................................
-Route::get('/products',[WebsiteProductController::class,'view_product'])->name('frontend.product');
+Route::get('/all-products',[WebsiteProductController::class,'view_product'])->name('frontend.product');
 Route::get('/products-show/{id}',[WebsiteProductController::class,'show'])->name('frontend.show');
 Route::get('/category-wise-product/{id}',[WebsiteProductController::class,'categoryWiseProduct'])->name('category.product');
+Route::get('/filter-by-type/{type}',[WebsiteProductController::class,'filteByType'])->name('filter.by.product');
 
 
 

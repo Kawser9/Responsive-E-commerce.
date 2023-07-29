@@ -80,21 +80,21 @@
 }
 
 .form-group button {
-  margin-top: 44px;
-  /* margin-left: 239px; */
-  text-align: center;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  font-family: Calibri;
-  background: #bd2130;
-  border: 0;
-  padding: 5px 38px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 57px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    margin-top: 37px;
+    /* margin-left: 239px; */
+    text-align: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: Calibri;
+    background: #bd2130;
+    border: 0;
+    padding: 5px 27px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-group button:hover {

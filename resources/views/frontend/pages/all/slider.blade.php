@@ -13,7 +13,7 @@
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">{{$slider->title}}</span></h2>
                 <p class="animate__animated animate__fadeInUp">{{$slider->description}}</p>
-                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                <a href="{{Route('frontend.product')}}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Shop Now</a>
               </div>
           </div>
         </div>

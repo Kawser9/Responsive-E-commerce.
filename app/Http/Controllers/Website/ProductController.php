@@ -31,4 +31,9 @@ class ProductController extends Controller
         
         return view('frontend.pages.products.category-wise-product',compact('singleCategory'));
     }
+    public function filteByType($type)
+    {
+        $products=Product::where('type',$type)->get();
+        return view('frontend.pages.products.filterProduct',compact('products','type'));
+    }
 }

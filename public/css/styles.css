@@ -11283,15 +11283,15 @@ body {
 
 
 .button{
-  margin-top: 30px;
-  margin-left:100px;
+  /* margin-top: 30px; */
+  margin-left:30px;
   text-align: center;
   background: #d9232d;
   border: 0;
-  padding: 10px 24px;
+  padding: 6px 17px;
   color: #fff;
   transition: 0.4s;
-  border-radius: 50px;
+  border-radius: 3px;
 }
 .form{
   margin-top: 30px;
@@ -11304,3 +11304,23 @@ body {
   box-shadow: none;
   font-size: 14px;
 }
+
+
+
+
+ #printReport {
+        max-width: 100%; /* Set a maximum width for the report container */
+    }
+
+    table.table {
+        width: 100%; /* Set the table width to 100% */
+    }
+
+    table.table td, table.table th {
+        word-wrap: break-word; /* Enable word-wrap for table cells */
+    }
+
+    /* Adjust font size for the table content */
+    table.table td, table.table th {
+        font-size: 12px;
+    }
