@@ -76,7 +76,7 @@
           <li><a href="{{Route('contact')}}">Contact</a></li>
           <li><a href="{{Route('frontend.login')}}" class="getstarted">Login</a></li>
           {{-- <li><a href="{{Route('registration')}}" class="getstarted">Registration</a></li> --}}
-          <li><a href="" class="getstarted">My card</a></li>
+          <li><a href="{{Route('view.card')}}" class="getstarted">My card</a></li>
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

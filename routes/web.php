@@ -159,6 +159,10 @@ Route::get('/',[FrontendController::class, 'master'])->name('home');
 Route::get('/card-show',[FrontendController::class, 'cardShow'])->name('card.show');
 Route::get('/search',[FrontendController::class,'search'])->name('search');
 Route::get('/get-by-type/{type}',[FrontendController::class,'getByType'])->name('get.by.product');
+Route::get('/card',[FrontendController::class,'card'])->name('view.card');
+Route::get('/addToCard/{id}',[FrontendController::class,'addToCard'])->name('add.to.card');
+Route::get('/remove-Item/{id}',[FrontendController::class,'removeItem'])->name('remove.item');
+
 
 
 

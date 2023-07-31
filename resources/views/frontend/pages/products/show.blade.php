@@ -3,10 +3,13 @@
 
 <body>
 	<br><br>
-	 
+	
+
 	 <section id="portfolio-details" class="portfolio-details">
 		<div class="container">
-  
+			@if(session()->has('msg'))
+				<p class="alert alert-success"> {{session()->get('msg')}}</p>
+			@endif
 		  <div class="row gy-4">
   
 			<div class="col-lg-8">
@@ -31,8 +34,7 @@
 				  <li><strong>Brand</strong>: {{$product->brand_name->name}}</li>
 				  <li><strong>Price</strong>: {{$product->price}}  BDT</li>
 				</ul>
-				<a href="index.html" class="button">Add To Card</a>
-				<a href="index.html" class="form-group button">Buy Now</a>
+				<a href="{{Route('add.to.card',$product->id)}}" class="button">Add To Card</a>
 			  </div>
 			  <div class="portfolio-description">
 				<h2>Details</h2>
