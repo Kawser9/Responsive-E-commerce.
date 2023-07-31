@@ -27,9 +27,9 @@
                                             </td>
                                             <td style="inset-inline: ">
                                               <ul>
-                                                <a href="" class="btn btn-primary"><i class="fa fa-eye" ></i></a>
-                                                <a href="{{Route('slider.edit',$slider->id)}}" class="btn btn-success"><i class="fa fa-pencil-square"></i></a>
-                                                <a href="{{Route('slider.delete',$slider->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                                <a href="" class="btn btn-info btn-sm"><i class="fa fa-eye" ></i></a>
+                                                <a href="{{Route('slider.edit',$slider->id)}}" class="btn btn-success btn-sm"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="{{Route('slider.delete',$slider->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                               </ul>
                                             </td>
                                         </tr>
@@ -42,3 +42,4 @@
                         </div>
                     </div>
 @endsection
+

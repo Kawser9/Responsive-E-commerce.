@@ -64,18 +64,20 @@
                 @endforeach
               </ul> --}}
 
-              <li class="dropdown"><a href="#"><span>Type</span> <i class="bi bi-chevron-down"></i></a>
+              {{-- <li class="dropdown"><a href="#"><span>Type</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                     <li><a href="{{Route('get.by.product','new')}}">New</a></li>
                     <li><a href="{{Route('get.by.product','upcoming')}}">Upcoming</a></li>
                     <li><a href="{{Route('get.by.product','best sell')}}">Best sell</a></li>
-                </ul>
+                </ul> --}}
 
           <li><a href="{{Route('frontend.product')}}">Products</a></li>
 
           <li><a href="{{Route('contact')}}">Contact</a></li>
           <li><a href="{{Route('frontend.login')}}" class="getstarted">Login</a></li>
           {{-- <li><a href="{{Route('registration')}}" class="getstarted">Registration</a></li> --}}
+          <li><a href="" class="getstarted">My card</a></li>
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

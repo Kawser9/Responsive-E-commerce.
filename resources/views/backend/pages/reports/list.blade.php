@@ -9,11 +9,8 @@
       <div class="col">
         <div class="card h-100">
           <div class="card-body">
-            <h3 class="card-title">Product Report</h3>
+            <h5 class="card-title">Product Report</h5>
             <a class="btn btn-primary btn-block" href="{{Route('getByTimeReport')}}">Report by time</a>
-            <a class="btn btn-primary btn-block" href="">Report by type</a>
-            <a class="btn btn-primary btn-block" href="">Report by category</a>
-           <a class="btn btn-primary btn-block" href="">Report by brands</a>
           </div>
         </div>
       </div>
@@ -31,19 +28,13 @@
       <div class="col">
         <div class="card h-100">
           <div class="card-body">
-            <h5 class="card-title">Report 2</h5>
-            <p class="card-text">Nullam malesuada quam vel libero fermentum, non lacinia arcu tristique.</p>
+            <h5 class="card-title">Order Report</h5>
+            <a class="btn btn-primary btn-block" href="">Pending Order</a>
+            <p class="card-text"></p>
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">Report 3</h5>
-            <p class="card-text">Vestibulum facilisis tellus a sapien vestibulum, vel dignissim mauris dapibus.</p>
-          </div>
-        </div>
-      </div>
+     
       <!-- Add more cards here for additional reports -->
     </div>
   </div>

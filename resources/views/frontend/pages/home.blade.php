@@ -197,7 +197,7 @@
                           @php
                             $encryptedID=Crypt::encrypt($product->id);
                           @endphp
-                            <a href="{{Route('frontend.show',$encryptedID)}}" class="form-group button">Buy Product</a>
+                            <a href="{{Route('frontend.show',$encryptedID)}}"><i class="bx bx-plus"></i></a>
                             <a href=""><i class="btn bi-lightning-charge-fill"></i></a>
                         </div>
                         </div>

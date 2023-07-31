@@ -31,7 +31,9 @@
                             @php
                                 $encryptID = Crypt::encrypt($product->id);
                             @endphp
-                            <a href="{{Route('frontend.show',$encryptID)}}" class="button">Buy Product</a>
+                            {{-- <a href="{{Route('frontend.show',$encryptID)}}" class="button">Buy Product</a> --}}
+                            <a href="{{Route('frontend.show',$encryptID)}}"><i class="bx bx-plus"></i></a>
+                            <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
                             {{-- <a href="{{Route('frontend.show',$product->id)}}" class="btn btn-secondary">Show</a> --}}
                             <a href=""><i class="btn bi-lightning-charge-fill"></i></a>
                         </div>

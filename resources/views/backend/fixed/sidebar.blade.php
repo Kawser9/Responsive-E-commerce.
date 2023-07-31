@@ -16,10 +16,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Product
                             </a>
-                            <a class="nav-link" href="{{route('supplier.list')}}">
+                            {{-- <a class="nav-link" href="{{route('supplier.list')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Supplier
-                            </a>
+                            </a> --}}
                             <a class="nav-link" href="{{route('customer.list')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Customer

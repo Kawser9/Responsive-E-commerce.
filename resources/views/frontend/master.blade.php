@@ -29,6 +29,7 @@
   
   <!-- Template Main CSS File -->
   <link href="{{ URL('frontend/assets/css/style.css') }}" rel="stylesheet">
+  {{-- <link href="{{ URL('frontend/assets/css/addToCard.css') }}" rel="stylesheet"> --}}
   <link href="{{ URL('frontend/forms/form.css') }}" rel="stylesheet">
   {{-- <link href="{{ URL('frontend/assets/css/single-show.css') }}" rel="stylesheet"> --}}
   
