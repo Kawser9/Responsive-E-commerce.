@@ -18,19 +18,20 @@
                         </div>
                         <button type="submit" class="button">Search</button>
                     </form>
+
                 <div class="row">
                     <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
-                        <a class="button" href="{{Route('frontend.product')}}">All products</a>
-                        <a class="button" href="{{Route('filter.by.product','new')}}">New</a>
-                        <a class="button" href="{{Route('filter.by.product','upcoming')}}">Upcoming</a>
-                        <a class="button" href="{{Route('filter.by.product','best sell')}}">Best sell</a>
+                        {{-- <li data-filter="*" class="filter-active">All</li> --}}
+                        {{-- <li data-filter=".filter-app">App</li> --}}
+                        <li data-filter=".filter-card"class="filter-active">Found: {{$products->count()}}</li>
+                        {{-- <li data-filter=".filter-web">Web</li> --}}
                     </ul>
                     </div>
                 </div>
             
                 <div class="row portfolio-container">
-            
+                    @if($products->count() > 0)
                   
                     @foreach($products as $product)
                     <div class="col-lg-4 col-md-6 portfolio-item filter-card">
@@ -43,9 +44,7 @@
                             @php
                                 $encryptID = Crypt::encrypt($product->id);
                             @endphp
-                            {{-- <a href="{{Route('frontend.show',$encryptID)}}" class="button">Buy Product</a> --}}
-                            <a href="{{Route('frontend.show',$encryptID)}}"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                              <a href="{{Route('frontend.show',$encryptID)}}"><i class="bx bx-plus"></i></a>
                             {{-- <a href="{{Route('frontend.show',$product->id)}}" class="btn btn-secondary">Show</a> --}}
                             <a href=""><i class="btn bi-lightning-charge-fill"></i></a>
                         </div>
@@ -53,8 +52,12 @@
                     </div>
                     </div>
                     @endforeach
-            
 
+                    @else
+
+                    <p>No product found.</p>
+            
+                    @endif
             
                 </div>
             

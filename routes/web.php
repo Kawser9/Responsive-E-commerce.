@@ -162,6 +162,8 @@ Route::get('/get-by-type/{type}',[FrontendController::class,'getByType'])->name(
 Route::get('/card',[FrontendController::class,'card'])->name('view.card');
 Route::get('/addToCard/{id}',[FrontendController::class,'addToCard'])->name('add.to.card');
 Route::get('/remove-Item/{id}',[FrontendController::class,'removeItem'])->name('remove.item');
+Route::get('/search-by-price',[FrontendController::class,'searchByPrice'])->name('search.by.price');
+
 
 
 

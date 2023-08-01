@@ -38,6 +38,17 @@ class FrontendController extends Controller
         return view('frontend.pages.products.search-product',compact('products','searchKey'));
     }
 
+    public function searchByPrice(Request $request)
+    {
+        $request->validate([
+            'start_price' => 'required',
+            'end_price' => 'required|after_or_equal:start_price',
+        ]);
+        $from=$request->start_price;
+        $to=$request->end_price;
+        $products=Product::whereBetween('price',[$from , $to])->get();
+        return view('frontend.pages.products.search-by-price-product',compact('products'));
+    }
 
     public function getByType($type)
     {
