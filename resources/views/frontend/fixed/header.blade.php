@@ -74,10 +74,11 @@
           <li><a href="{{Route('frontend.product')}}">Products</a></li>
 
           <li><a href="{{Route('contact')}}">Contact</a></li>
+          <li><a href="{{Route('customer.profile')}}"><i class="fa-solid fa-user fa-beat fa-xl"></i></a></li>
+          <li><a href="{{Route('view.card')}}" ><i class="fa-solid fa-cart-shopping fa-beat fa-xl"></i></a></li>
           <li><a href="{{Route('frontend.login')}}" class="getstarted">Login</a></li>
           {{-- <li><a href="{{Route('registration')}}" class="getstarted">Registration</a></li> --}}
-          <li><a href="{{Route('view.card')}}" class="getstarted">My card</a></li>
-          
+          {{-- <a href="{{Route('view.card')}}" class="btn btn-info btn-sm "><i class="fa-solid fa-cart-shopping" ></i></a> --}}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

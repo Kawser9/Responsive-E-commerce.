@@ -190,5 +190,7 @@ Route::get('/filter-by-type/{type}',[WebsiteProductController::class,'filteByTyp
 
 //Contact......................................................................................
 Route::get('/contact',[FrontendController::class, 'contact'])->name('contact');
+Route::get('/customer-profile',[FrontendController::class, 'customerProfile'])->name('customer.profile');
+
 
 

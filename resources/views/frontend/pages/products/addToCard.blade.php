@@ -24,7 +24,7 @@
                         class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
                     </div>
                     <div class="flex-grow-1 ms-3">
-                      <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
+                      {{-- <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a> --}}
                       <h5 class="text-primary">{{$cart['name']}}</h5>
                       {{-- <h6 style="color: #9e9e9e;">Color: white</h6> --}}
                       <div class="d-flex align-items-center">
@@ -41,7 +41,7 @@
                     </div>
                     <!-- Add Subtotal Column Here -->
                     <div class="ms-auto text-end">
-                        <ul><h5 class="text-primary">Subtotal</h5><a href="{{Route('remove.item',$key)}}" type="button" class="plus">x</a></ul>
+                        <ul><h5 class="text-primary">Subtotal</h5><a href="{{Route('remove.item',$key)}}" type="button" ><i class="fa-solid fa-xmark xl" style="color: #ff0a3b;"></i></a></ul>
                       <p class="fw-bold mb-0">{{$cart['price'] * $cart['quantity']}}</p>
                     </div>
                   </div>

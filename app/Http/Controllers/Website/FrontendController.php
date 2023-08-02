@@ -22,6 +22,12 @@ class FrontendController extends Controller
         return view('frontend.pages.contact.contact');
     }
 
+    public function customerProfile()
+    {
+        return view('frontend.pages.registration.profile');
+    }
+
+
     public function search()
     {
         $searchKey=request()->search;
@@ -122,5 +128,8 @@ class FrontendController extends Controller
         session()->put('cart',$cart);
         return redirect()->back();
     }
+
+
+
 
 }
