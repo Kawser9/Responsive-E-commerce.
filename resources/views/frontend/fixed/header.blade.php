@@ -50,12 +50,12 @@
             </ul>
           </li>
           
-          <li class="dropdown"><a href="#"><span>Brands</span> <i class="bi bi-chevron-down"></i></a>
+          {{-- <li class="dropdown"><a href="#"><span>Brands</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               @foreach($brands as $brand)
                  <li><a href="">{{$brand->name}}</a></li>
               @endforeach
-            </ul>
+            </ul> --}}
 
             {{-- <li class="dropdown"><a href="#"><span>Type</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
@@ -74,10 +74,25 @@
           <li><a href="{{Route('frontend.product')}}">Products</a></li>
 
           <li><a href="{{Route('contact')}}">Contact</a></li>
-          <li><a href="{{Route('customer.profile')}}"><i class="fa-solid fa-user fa-beat fa-xl"></i></a></li>
-          <li><a href="{{Route('view.card')}}" ><i class="fa-solid fa-cart-shopping fa-beat fa-xl"></i></a></li>
+          {{-- <li><a href="{{Route('customer.profile')}}"><i class="fa-solid fa-user fa-xl"></i></a></li> --}}
+          
+        @if (auth('customer')->user())
+          
+        
+          <li class="dropdown"><a href="#"><span><i class="fa-solid fa-user fa-xl"></i></span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+                 <li><a href="">{{auth('customer')->user()->name}}</a></li>
+                 <li><a href="{{Route('customer.profile')}}">My Profile</a></li>
+                 <li><a href="{{Route('customer.logout')}}">Logout</a></li>
+             
+            </ul>
+        @else
+            
           <li><a href="{{Route('frontend.login')}}" class="getstarted">Login</a></li>
-          {{-- <li><a href="{{Route('registration')}}" class="getstarted">Registration</a></li> --}}
+        @endif
+        <li><a href="{{Route('view.card')}}" ><i class="fa-solid fa-cart-shopping fa-beat fa-xl"></i></a></li>
+
+
           {{-- <a href="{{Route('view.card')}}" class="btn btn-info btn-sm "><i class="fa-solid fa-cart-shopping" ></i></a> --}}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

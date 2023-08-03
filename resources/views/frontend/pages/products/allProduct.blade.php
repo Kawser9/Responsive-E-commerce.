@@ -5,7 +5,7 @@
 
             <section id="portfolio" class="portfolio">
                 <div class="container">
-                    <form action="{{route('search.by.price')}}" method="get" >
+                    {{-- <form action="{{route('search.by.price')}}" method="get" >
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="start_date">Start price :</label>
@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <button type="submit" class="button">Search</button>
-                    </form>
+                    </form> --}}
                 <div class="row">
                     <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
@@ -44,10 +44,11 @@
                                 $encryptID = Crypt::encrypt($product->id);
                             @endphp
                             {{-- <a href="{{Route('frontend.show',$encryptID)}}" class="button">Buy Product</a> --}}
-                            <a href="{{Route('frontend.show',$encryptID)}}"><i class="bx bx-plus"></i></a>
-                            <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                            <a href="{{Route('add.to.card',$product->id)}}"><i class="fa-solid fa-cart-plus fa-xl"></i></i></a>
+                            <a href="{{Route('frontend.show',$encryptID)}}"><i class="fa-solid fa-eye fa-xl"></i></a>
+                            {{-- <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a> --}}
                             {{-- <a href="{{Route('frontend.show',$product->id)}}" class="btn btn-secondary">Show</a> --}}
-                            <a href=""><i class="btn bi-lightning-charge-fill"></i></a>
+                            {{-- <a href=""><i class="btn bi-lightning-charge-fill"></i></a> --}}
                         </div>
                         </div>
                     </div>

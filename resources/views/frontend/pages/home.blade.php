@@ -195,10 +195,10 @@
                         <h4>{{$product->price}}</h4>
                         <div class="portfolio-links">
                           @php
-                            $encryptedID=Crypt::encrypt($product->id);
+                            $encryptID=Crypt::encrypt($product->id);
                           @endphp
-                            <a href="{{Route('frontend.show',$encryptedID)}}"><i class="bx bx-plus"></i></a>
-                            <a href=""><i class="btn bi-lightning-charge-fill"></i></a>
+                            <a href="{{Route('add.to.card',$product->id)}}"><i class="fa-solid fa-cart-plus fa-xl"></i></i></a>
+                            <a href="{{Route('frontend.show',$encryptID)}}"><i class="fa-solid fa-eye fa-xl"></i></a>
                         </div>
                         </div>
                     </div>

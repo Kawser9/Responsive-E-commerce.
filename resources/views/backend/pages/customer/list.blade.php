@@ -33,9 +33,9 @@
                                             <td>{{$customer->password}}</td>
                                             <td>
                                               <ul>
-                                                  <a href="" class="btn btn-secondary">Show</a>
-                                                  <a href="" class="btn btn-primary">Edit</a>
-                                                  <a href="" class="btn btn-danger">Delete</a>
+                                                <a href="" class="btn btn-info btn-sm"><i class="fa fa-eye" ></i></a>
+                                                <a href="" class="btn btn-success btn-sm"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                               </ul>
                                             </td>
                                         </tr>

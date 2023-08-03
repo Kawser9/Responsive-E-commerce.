@@ -129,6 +129,12 @@ class FrontendController extends Controller
         return redirect()->back();
     }
 
+    public function clearCart()
+    {
+        session()->forget('cart');
+        return redirect()->back()->with('msg','Card clear successfully.');
+    }
+
 
 
 

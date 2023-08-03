@@ -7,13 +7,15 @@
     <div class="container h-100 py-5">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col">
-          <div class="card shopping-cart" style="border-radius: 15px;">
+          <div class="card shopping-cart" style="border-radius: 25px;">
             <div class="card-body text-black">
   
               <div class="row">
-                <div class="col-lg-6 px-5 py-4">
+                <div class="col-lg-12 px-5 py-4">
   
                   <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your products</h3>
+                  <a href="{{Route('clear.cart')}}" class="btn btn-warning">Clear all</a>
+                  
   
                 @if ($cartData!=null)
                 @foreach ($cartData as $key=>$cart)
@@ -25,7 +27,7 @@
                     </div>
                     <div class="flex-grow-1 ms-3">
                       {{-- <a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a> --}}
-                      <h5 class="text-primary">{{$cart['name']}}</h5>
+                      <h5 class="">{{$cart['name']}}</h5>
                       {{-- <h6 style="color: #9e9e9e;">Color: white</h6> --}}
                       <div class="d-flex align-items-center">
                         <p class="fw-bold mb-0 me-5 pe-3">{{$cart['price']}}</p>
@@ -41,7 +43,8 @@
                     </div>
                     <!-- Add Subtotal Column Here -->
                     <div class="ms-auto text-end">
-                        <ul><h5 class="text-primary">Subtotal</h5><a href="{{Route('remove.item',$key)}}" type="button" ><i class="fa-solid fa-xmark xl" style="color: #ff0a3b;"></i></a></ul>
+                        <ul><a href="{{Route('remove.item',$key)}}" type="button" ><i class="fa-solid fa-xmark xl" style="color: #ff0a3b;"></i></a></ul>
+                        <h5 style="color: #085f81;" class="text-center text-uppercase">Subtotal</h5>
                       <p class="fw-bold mb-0">{{$cart['price'] * $cart['quantity']}}</p>
                     </div>
                   </div>
@@ -55,59 +58,21 @@
                     {{-- <p class="fw-bold">Discount:</p> --}}
                     {{-- <p class="fw-bold">95$</p> --}}
                   </div>
-                  <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
-                    <h5 class="fw-bold mb-0">Total:</h5>
-                    <p class="fw-bold mb-0">{{$cartData?array_sum(array_column($cartData,'sub_total')):0}}</p>
+                  <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #f17f7f;">
+                    <h5 class="fw-bold mb-0" style="color: #fffcfc;">Total:</h5>
+                    <p class="fw-bold mb-0" style="color: #fffcfc;">{{$cartData?array_sum(array_column($cartData,'sub_total')):0}}</p>
                   </div>
   
+
+                  @if (session()->has('cart'))
+                   
+                  <a href="{{Route('checkout')}}" class="form-group button">Check out</a>
+                     
+                  @endif
                 </div>
-                <div class="col-lg-6 px-5 py-4">
-  
-                  <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Payment</h3>
-  
-                  <form class="mb-5">
-  
-                    <div class="form-outline mb-5">
-                      <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                        value="" minlength="19" maxlength="19" />
-                      <label class="form-label" for="typeText">Card Number</label>
-                    </div>
-  
-                    <div class="form-outline mb-5">
-                      <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
-                        value="" />
-                      <label class="form-label" for="typeName">Name on card</label>
-                    </div>
-  
-                    <div class="row">
-                      <div class="col-md-6 mb-5">
-                        <div class="form-outline">
-                          <input type="text" id="typeExp" class="form-control form-control-lg" value=""
-                            size="7" id="exp" minlength="7" maxlength="7" />
-                          <label class="form-label" for="typeExp">Expiration</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6 mb-5">
-                        <div class="form-outline">
-                          <input type="password" id="typeText" class="form-control form-control-lg"
-                            value="" size="1" minlength="3" maxlength="3" />
-                          <label class="form-label" for="typeText">Cvv</label>
-                        </div>
-                      </div>
-                    </div>
-  
-                    {{-- <p class="mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit <a
-                        href="#!">obcaecati sapiente</a>.</p> --}}
-  
-                    <button type="button" class="form-group button">Buy now</button>
-                    {{-- <a href="index.html" class="form-group button">Buy Now</a> --}}
-                    <h5 class="fw-bold mb-5" style="position: absolute; bottom: 0;">
-                      <a href="{{Route('frontend.product')}}"><i class="fas fa-angle-left me-2"></i>Back to shopping</a>
-                    </h5>
-  
-                  </form>
-  
-                </div>
+               
+                  <a href="{{Route('frontend.product')}}"><i class="fas fa-angle-left me-2"></i>Back to shopping</a>
+               
               </div>
   
             </div>

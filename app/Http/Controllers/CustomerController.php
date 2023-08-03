@@ -63,11 +63,22 @@ class CustomerController extends Controller
 
         if(auth()->guard('customer')->attempt($credentials))
         {
-            return redirect()->route('home')->with('msg','Login Success.');
+            return redirect()->intended()->with('msg','Login Success.');
         }
         return redirect()->back()->with('error','Login Failed Try Again.');
         // dd("invalid user");
     }
+    public function logout()
+    {
+        auth()->guard('customer')->logout();
+        return redirect()->route('home');
+    }
+
+    public function checkOut()
+    {
+        return view('frontend.pages.products.checkout');
+    }
+
 
     /**
      * Display the specified resource.

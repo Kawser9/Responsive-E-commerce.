@@ -106,8 +106,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
         //Customer.............................................................................
         Route::get('/customer',[CustomerController::class, 'list'])->name('customer.list');
-        Route::post('/customer-store',[CustomerController::class,'customerStore'])->name('customer.store');
-        Route::post('/doligin',[CustomerController::class,'dologin'])->name('customer.login');
+        
 
 
 
@@ -162,6 +161,7 @@ Route::get('/get-by-type/{type}',[FrontendController::class,'getByType'])->name(
 Route::get('/card',[FrontendController::class,'card'])->name('view.card');
 Route::get('/addToCard/{id}',[FrontendController::class,'addToCard'])->name('add.to.card');
 Route::get('/remove-Item/{id}',[FrontendController::class,'removeItem'])->name('remove.item');
+Route::get('/clear-cart',[FrontendController::class,'clearCart'])->name('clear.cart');
 Route::get('/search-by-price',[FrontendController::class,'searchByPrice'])->name('search.by.price');
 
 
@@ -174,9 +174,19 @@ Route::get('/search-by-price',[FrontendController::class,'searchByPrice'])->name
 //Registration................................................................
 Route::get('/registration',[RegistrationController::class,'registration'])->name('registration');
 Route::get('/frontend_login',[RegistrationController::class,'login'])->name('frontend.login');
+Route::post('/customer-store',[CustomerController::class,'customerStore'])->name('customer.store');
+Route::post('/doligin',[CustomerController::class,'dologin'])->name('customer.login');
 
 
 
+Route::group(['middleware'=>'frontendAuth'],function(){
+
+        Route::get('/customer-logout',[CustomerController::class,'logout'])->name('customer.logout');
+        Route::get('/checkout',[CustomerController::class,'checkOut'])->name('checkout');
+        
+       
+    
+});
 
 
 
