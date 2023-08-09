@@ -5,7 +5,26 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #d9232d;
+  --bs-btn-border-color: #dc3545;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #dc3545;
+  --bs-btn-hover-border-color: #0a58ca;
+  --bs-btn-focus-shadow-rgb: 49,132,253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #d9232d;
+  --bs-btn-active-border-color: #0a53be;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #0d6efd;
+  --bs-btn-disabled-border-color: #0d6efd;
+}
+.text-primary
+{
+  --bs-primary-rgb: #f60f1b;
+}
  /* Search Box Styles */
  .search-box {
   margin-right: 20px;

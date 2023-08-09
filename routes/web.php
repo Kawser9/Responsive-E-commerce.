@@ -127,6 +127,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         Route::get('/order',[OrderController::class, 'list'])->name('order.list');
         Route::get('/order-create',[OrderController::class, 'create'])->name('order.create');
         Route::post('/order-store',[OrderController::class, 'store'])->name('order.store');
+        Route::get('/order-detais/{id}',[OrderController::class, 'orderDetails'])->name('order.details');
+       
 
 
 
@@ -183,6 +185,7 @@ Route::group(['middleware'=>'frontendAuth'],function(){
 
         Route::get('/customer-logout',[CustomerController::class,'logout'])->name('customer.logout');
         Route::get('/checkout',[CustomerController::class,'checkOut'])->name('checkout');
+        Route::post('/place-order',[OrderController::class,'placeOrder'])->name('place.order');
         
        
     

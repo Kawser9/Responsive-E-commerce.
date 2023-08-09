@@ -63,7 +63,7 @@ class CustomerController extends Controller
 
         if(auth()->guard('customer')->attempt($credentials))
         {
-            return redirect()->intended()->with('msg','Login Success.');
+            return redirect()->route('view.card')->with('msg','Login Success.');
         }
         return redirect()->back()->with('error','Login Failed Try Again.');
         // dd("invalid user");
@@ -80,12 +80,10 @@ class CustomerController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Customer $customer)
+    public function placeOrder(Request $request)
     {
-        //
+        // dd($request->all());
+
     }
 
     /**

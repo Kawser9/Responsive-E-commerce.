@@ -42,7 +42,7 @@
 
         <div class="form-group">
           <select name="brand_id" class="form-select" aria-label="Default select example">
-          <option selected>Select brand</option>
+          <option selected>Select brand</option>3
               @foreach ($brands as $brand)
                  <option value="{{$brand->id}}">{{$brand->name}}</option>
               @endforeach
