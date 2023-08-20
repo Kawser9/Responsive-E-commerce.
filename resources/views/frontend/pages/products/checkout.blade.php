@@ -55,7 +55,7 @@
         <li class="list-group-item d-flex justify-content-between bg-light">
           <div class="text-success">
             <h6 class="my-0">Promo code</h6>
-            <small>EXAMPLECODE</small>
+            <small>.........</small>
           </div>
           <span class="text-success">−$5</span>
         </li>
@@ -96,7 +96,7 @@
           
           <div class="col-12">
             <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-            <input name="email" type="email" class="form-control" id="email" placeholder="you@example.com">
+            <input name="email" type="email" class="form-control" id="email" placeholder="">
             <div class="invalid-feedback">
               Please enter a valid email address for shipping updates.
             </div>
@@ -104,18 +104,13 @@
 
           <div class="col-12">
             <label for="address" class="form-label">Address</label>
-            <input name="address" type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+            <input name="address" type="text" class="form-control" id="address" placeholder="" required>
             <div class="invalid-feedback">
               Please enter your shipping address.
             </div>
           </div>
 
-          <div class="col-12">
-            <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-            <input name="address2" type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-          </div>
-
-          <div class="col-md-5">
+          {{-- <div class="col-md-5">
             <label for="country" class="form-label">Country</label>
             <select name="country" class="form-select" id="country" required>
               <option value="">Choose...</option>
@@ -156,7 +151,7 @@
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="save-info">
           <label class="form-check-label" for="save-info">Save this information for next time</label>
-        </div>
+        </div> --}}
 
         <hr class="my-4">
 
@@ -170,10 +165,6 @@
           <div class="form-check">
             <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
             <label class="form-check-label" for="debit">Debit card</label>
-          </div>
-          <div class="form-check">
-            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-            <label class="form-check-label" for="paypal">PayPal</label>
           </div>
         </div>
 

@@ -1,6 +1,15 @@
 @extends('backend.master')
 @section('content')
 
+<script>
+  @if(session('msg'))
+  toastr.options = {
+     "closeButton": true,
+     "progressBar": true
+  };
+      toastr.success('{{ session('msg') }}');
+  @endif
+</script>
     @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Slider;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Contracts\Session\Session;
 
 class FrontendController extends Controller
@@ -111,8 +112,8 @@ class FrontendController extends Controller
             }
             
         }
-        
-        return redirect()->back()->with('msg','Product add to card successfully.');
+        Toastr::success('Product add to card successfully.', 'Cart', ['options']);
+        return redirect()->back();
     }
 
     public function card()
@@ -126,13 +127,15 @@ class FrontendController extends Controller
         $cart=session()->get('cart');
         unset($cart[$id]);
         session()->put('cart',$cart);
+        Toastr::success('One item remove successfully.', 'Cart', ['options']);
         return redirect()->back();
     }
 
     public function clearCart()
     {
         session()->forget('cart');
-        return redirect()->back()->with('msg','Card clear successfully.');
+        Toastr::success('Cart clear successfully.', 'Cart', ['options']);
+        return redirect()->back();
     }
 
 

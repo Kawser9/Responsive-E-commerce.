@@ -1,10 +1,18 @@
 @extends('backend.master')
 @section('content')
 
-            @if(session()->has('msg'))
+            {{-- @if(session()->has('msg'))
                     <p class="alert alert-success"> {{session()->get('msg')}}</p>
-            @endif
-
+            @endif --}}
+            <script>
+                @if(session('msg'))
+                toastr.options = {
+                   "closeButton": true,
+                   "progressBar": true
+                };
+                    toastr.success('{{ session('msg') }}');
+                @endif
+              </script>
 
             <div class="container mt-5">
                         <h2 class="page-header">Category List |  <a href="{{route('category.create')}}" class="c_button">Create</a>

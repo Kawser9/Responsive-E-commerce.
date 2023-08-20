@@ -6,38 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>E-Commerse</title>
-{{--  --}}
-<!-- Start of Async Drift Code -->
-<script>
-  "use strict";
-  
-  !function() {
-    var t = window.driftt = window.drift = window.driftt || [];
-    if (!t.init) {
-      if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-      t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-      t.factory = function(e) {
-        return function() {
-          var n = Array.prototype.slice.call(arguments);
-          return n.unshift(e), t.push(n), t;
-        };
-      }, t.methods.forEach(function(e) {
-        t[e] = t.factory(e);
-      }), t.load = function(t) {
-        var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-        var i = document.getElementsByTagName("script")[0];
-        i.parentNode.insertBefore(o, i);
-      };
-    }
-  }();
-  drift.SNIPPET_VERSION = '0.3.1';
-  drift.load('z3ms9brv4k2b');
-  </script>
-  <!-- End of Async Drift Code -->
-
-
+  <title>Buy Gadget</title>
 {{--  --}}
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -64,6 +33,8 @@
   {{-- <link href="{{ URL('frontend/assets/css/addToCard.css') }}" rel="stylesheet"> --}}
   <link href="{{ URL('frontend/forms/form.css') }}" rel="stylesheet">
   {{-- <link href="{{ URL('frontend/assets/css/single-show.css') }}" rel="stylesheet"> --}}
+  <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+  
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
   
@@ -128,6 +99,9 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        {!! Toastr::message() !!}
   <!-- Vendor JS Files -->
   <script src="{{ URL('frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ URL('frontend/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>

@@ -4,7 +4,7 @@
 <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="{{Route('home')}}">E-Commerce</a></h1>
+      <h1 class="logo me-auto"><a href="{{Route('home')}}">Buy Gadget</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="frontend/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -71,7 +71,7 @@
                     <li><a href="{{Route('get.by.product','best sell')}}">Best sell</a></li>
                 </ul> --}}
 
-          <li><a href="{{Route('frontend.product')}}">Products</a></li>
+          <li><a href="{{Route('frontend.product')}}">All Products</a></li>
 
           <li><a href="{{Route('contact')}}">Contact</a></li>
           {{-- <li><a href="{{Route('customer.profile')}}"><i class="fa-solid fa-user fa-xl"></i></a></li> --}}

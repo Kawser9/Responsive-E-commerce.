@@ -12,7 +12,7 @@
     @endif
 
     <form class="form" action="{{route('customer.store')}}" method="post" enctype="multipart/form-data">
-        <h2>Registration Form</h2>
+        <h2>Registration</h2>
         @csrf
 
         <div class="form-group">

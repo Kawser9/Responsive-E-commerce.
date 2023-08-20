@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -43,8 +44,8 @@ class CustomerController extends Controller
                 'password'          =>bcrypt($request->password)
             ]);
         // return redirect()->route('frontend.master');
-
-        return redirect()->route('frontend.login')->with('msg','Registration Complete.');
+        Toastr::success('Registration Complete.', 'Customer', ['options']);
+        return redirect()->route('frontend.login');
     } 
 
     public function dologin(Request $request)
@@ -63,14 +64,17 @@ class CustomerController extends Controller
 
         if(auth()->guard('customer')->attempt($credentials))
         {
+            Toastr::success('Login Success.', 'Customer', ['options']);
             return redirect()->route('view.card')->with('msg','Login Success.');
         }
-        return redirect()->back()->with('error','Login Failed Try Again.');
+        Toastr::warning('Login Failed Try Again.', 'Customer', ['options']);
+        return redirect()->back();
         // dd("invalid user");
     }
     public function logout()
     {
         auth()->guard('customer')->logout();
+        Toastr::success('Logout Success.', 'Customer', ['options']);
         return redirect()->route('home');
     }
 

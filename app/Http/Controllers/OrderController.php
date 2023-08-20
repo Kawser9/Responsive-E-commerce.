@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\Function_;
 use Throwable;
@@ -13,8 +14,15 @@ class OrderController extends Controller
 {
     public function list()
     {
-        $orders=Order::all();
+        $orders=Order::with('customer')->get();
         return view('backend.pages.order.list',compact('orders'));
+    }
+    public Function orderDetails($id)
+    {
+      // dd($id);
+        $detail=Order::find($id);
+        $orderDetail=OrderDetail::with('product')->where('order_id',$id)->get();
+        return view('backend.pages.order.orderDetails',compact('orderDetail','detail'));
     }
 
     public function create()
@@ -77,22 +85,20 @@ class OrderController extends Controller
   
             }
             DB::commit();
-            return redirect()->back()->with('msg','Order is Place.');
+            Toastr::success('Order is Placed.', 'Order', ['options']);
+            return redirect()->back();
         }catch(Throwable $e)
         {
           DB::rollBack();
-          return redirect()->back()->with('msg','Something went wrong');
+          Toastr::warning('Something went wrong.', 'Order', ['options']);
+          return redirect()->back();
   
         }
   
   
   
     }
-    public Function orderDetails($id)
-    {
-        $orderDetail=OrderDetail::where('order_id', $id);
-        return view('backend.pages.order.orderDetails',compact('orderDetail'));
-    }
+   
 
 
 

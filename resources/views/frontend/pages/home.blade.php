@@ -4,6 +4,16 @@
 
 <br><br>
 
+
+<script>
+  @if(session('msg'))
+  toastr.options = {
+     "closeButton": true,
+     "progressBar": true
+  };
+      toastr.success('{{ session('msg') }}');
+  @endif
+</script>
             
 @include('frontend.pages.all.slider')
 

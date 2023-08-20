@@ -1,15 +1,11 @@
 @extends('backend.master')
 @section('content')
 
-@if(session()->has('msg'))
-<p class="alert alert-success"> {{session()->get('msg')}}</p>
-@endif
-
 <script>
   @if(session('msg'))
   toastr.options = {
-    "closeButton": true,
-    "progressBar": true
+     "closeButton": true,
+     "progressBar": true
   };
       toastr.success('{{ session('msg') }}');
   @endif

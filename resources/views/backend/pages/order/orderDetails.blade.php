@@ -15,42 +15,12 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Hyper</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">eCommerce</a></li>
-                                            <li class="breadcrumb-item active">Order Details</li>
-                                        </ol>
-                                    </div>
                                     <h4 class="page-title">Order Details</h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
 
-                        <div class="row justify-content-center">
-                            <div class="col-lg-7 col-md-10 col-sm-11">
-        
-                                <div class="horizontal-steps mt-4 mb-4 pb-5" id="tooltip-container">
-                                    <div class="horizontal-steps-content">
-                                        <div class="step-item">
-                                            <span data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="bottom" title="20/08/2018 07:24 PM">Order Placed</span>
-                                        </div>
-                                        <div class="step-item current">
-                                            <span data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="bottom" title="21/08/2018 11:32 AM">Packed</span>
-                                        </div>
-                                        <div class="step-item">
-                                            <span>Shipped</span>
-                                        </div>
-                                        <div class="step-item">
-                                            <span>Delivered</span>
-                                        </div>
-                                    </div>
-        
-                                    <div class="process-line" style="width: 33%;"></div>
-                                </div>
-                            </div>
-                        </div>
                         <!-- end row -->    
                         
                         
@@ -58,7 +28,7 @@
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mb-3">Items from Order #12537</h4>
+                                        <h4 class="header-title mb-3">Items from Order #</h4>
             
                                         <div class="table-responsive">
                                             <table class="table mb-0">
@@ -71,30 +41,14 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                @foreach ($orderDetail as $item)
                                                 <tr>
-                                                    <td>The Military Duffle Bag</td>
-                                                    <td>3</td>
-                                                    <td>$128</td>
-                                                    <td>$384</td>
+                                                    <td>{{$item->product->name}}</td>
+                                                    <td>{{$item->qty}}</td>
+                                                    <td>{{$item->price}} BTD</td>
+                                                    <td>{{$item->subtotal}} BTD</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Mountain Basket Ball</td>
-                                                    <td>1</td>
-                                                    <td>$199</td>
-                                                    <td>$199</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Wavex Canvas Messenger Bag</td>
-                                                    <td>5</td>
-                                                    <td>$180</td>
-                                                    <td>$900</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>The Utility Shirt</td>
-                                                    <td>2</td>
-                                                    <td>$79</td>
-                                                    <td>$158</td>
-                                                </tr>
+                                                @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -124,7 +78,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Shipping Charge :</td>
-                                                    <td>$23</td>
+                                                    <td>120 BTD</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Estimated Tax : </td>
@@ -152,12 +106,11 @@
                                     <div class="card-body">
                                         <h4 class="header-title mb-3">Shipping Information</h4>
 
-                                        <h5>Stanley Jones</h5>
+                                        <h5>{{$detail->name}}</h5>
                                         
                                         <address class="mb-0 font-14 address-lg">
-                                            795 Folsom Ave, Suite 600<br>
-                                            San Francisco, CA 94107<br>
-                                            <abbr title="Phone">P:</abbr> (123) 456-7890 <br/>
+                                            {{$detail->address}}<br>
+                                            <abbr title="Phone">Email:</abbr> {{$detail->email}} <br/>
                                             <abbr title="Mobile">M:</abbr> (+01) 12345 67890
                                         </address>
             
@@ -205,24 +158,6 @@
 
                 </div> <!-- content -->
 
-                <!-- Footer Start -->
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © Hyper - Coderthemes.com
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-md-end footer-links d-none d-md-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <!-- end Footer -->
 
             </div>
 

@@ -2,22 +2,12 @@
 @section('content')
 
 <script>
-    @if(Session::has('msg'))
-    toastr.options =
-    {
-        "closeButton" : true,
-        "progressBar" : true
-    }
-            toastr.success("{{ session('msg') }}");
-    @endif
-  
-    @if(Session::has('error'))
-    toastr.options =
-    {
-        "closeButton" : true,
-        "progressBar" : true
-    }
-            toastr.error("{{ session('error') }}");
+    @if(session('msg'))
+    toastr.options = {
+       "closeButton": true,
+       "progressBar": true
+    };
+        toastr.success('{{ session('msg') }}');
     @endif
 </script>
 

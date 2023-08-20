@@ -36,6 +36,7 @@
                                         <div class="cart_item_title">Total</div>
                                         <div class="cart_item_text">{{$cart['price'] * $cart['quantity']}} BTD</div>
                                     </div>
+                                    <ul><a href="{{Route('remove.item',$key)}}" type="button" ><i class="fa-solid fa-xmark xl" style="color: #ff0a3b;"></i></a></ul>
                                 </div>
                             </li>
                             @endforeach

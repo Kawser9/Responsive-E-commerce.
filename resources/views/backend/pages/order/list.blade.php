@@ -1,15 +1,15 @@
 @extends('backend.master')
 @section('content')
                     <div class="container mt-5">
-                        <h2 class="page-header">Product List |  <a href="{{route('order.create')}}" class="c_button">Create</a>
+                        <h2 class="page-header">Order List |  <a href="{{route('order.create')}}" class="c_button">Create</a>
                         </h2>
                             <div >
                                 <table table class="table">
                                     <thead>
                                         <tr>
                                             <th>SL</th>
-                                            <th>Name</th>
-                                            <th>Customer ID</th>
+                                            <th>Rechiver</th>
+                                            <th>Customer</th>
                                             <th>Email</th>
                                             <th>Address</th>
                                             <th>Payment </th>
@@ -23,7 +23,7 @@
                                         <tr>
                                             <td>{{$key+1}}</td>
                                             <td>{{$order->name}}</td>
-                                            <td>{{$order->customer_id}}</td>
+                                            <td>{{$order->customer->name}}</td>
                                             <td>{{$order->email}}</td>
                                             <td>{{$order->address}}</td>
                                             <td>{{$order->payment_method}}</td>

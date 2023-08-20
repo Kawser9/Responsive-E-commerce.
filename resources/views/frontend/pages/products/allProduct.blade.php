@@ -2,7 +2,15 @@
 @section('content')
 
 <br><br>
-
+{{-- <script>
+    @if(session('msg'))
+    toastr.options = {
+       "closeButton": true,
+       "progressBar": true
+    };
+        toastr.success('{{ session('msg') }}');
+    @endif
+  </script> --}}
             <section id="portfolio" class="portfolio">
                 <div class="container">
                     {{-- <form action="{{route('search.by.price')}}" method="get" >
