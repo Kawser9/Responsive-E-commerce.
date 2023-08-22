@@ -16,10 +16,6 @@
 		</div>
 		<div class="product-price">Price: {{$product->price}} BTD</div>
 	</div>
-
-	{{-- <div class="footer">
-		<p>&copy; 2023 Product Showcase. All rights reserved.</p>
-	</div> --}}
 </body>
 
 

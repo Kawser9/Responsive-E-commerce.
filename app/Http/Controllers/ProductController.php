@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 
@@ -58,7 +59,8 @@ class ProductController extends Controller
                 'type'          =>$request->type,
                 'image'         =>$fileName
             ]);
-        return redirect()->back()->with('msg','Product Create Successfully.');
+        Toastr::success('Create Successfully.', 'Product ');
+        return redirect()->back();
     }
 
     public function edit($encryptID)
@@ -105,8 +107,8 @@ class ProductController extends Controller
 
         $product->save();
 
-
-        return redirect()->route('product.list')->with('msg','Product Updated Successfully.');
+        Toastr::success('Updated Successfully.', 'Product ');
+        return redirect()->route('product.list');
     //     $data->name = $request->input('name');
     // $data->email = $request->input('email');
     
@@ -124,7 +126,8 @@ class ProductController extends Controller
     {
         $product=Product::find($id);
         $product->delete();
-        return redirect()->back()->with('msg','Product Delete Successfully.');
+        Toastr::success('Delete Successfully.', 'Product ');
+        return redirect()->back();
     }
 
 

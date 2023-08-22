@@ -52,7 +52,10 @@
                                 $encryptID = Crypt::encrypt($product->id);
                             @endphp
                             {{-- <a href="{{Route('frontend.show',$encryptID)}}" class="button">Buy Product</a> --}}
-                            <a href="{{Route('add.to.card',$product->id)}}"><i class="fa-solid fa-cart-plus fa-xl"></i></i></a>
+                            <form action="{{Route('add.to.card',$product->id)}}" method="post">
+                                @csrf
+                            <button type="submit"><i class="fa-solid fa-cart-plus fa-xl"></i></button>
+                            </form>
                             <a href="{{Route('frontend.show',$encryptID)}}"><i class="fa-solid fa-eye fa-xl"></i></a>
                             {{-- <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a> --}}
                             {{-- <a href="{{Route('frontend.show',$product->id)}}" class="btn btn-secondary">Show</a> --}}

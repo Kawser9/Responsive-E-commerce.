@@ -161,7 +161,7 @@ Route::get('/card-show',[FrontendController::class, 'cardShow'])->name('card.sho
 Route::get('/search',[FrontendController::class,'search'])->name('search');
 Route::get('/get-by-type/{type}',[FrontendController::class,'getByType'])->name('get.by.product');
 Route::get('/card',[FrontendController::class,'card'])->name('view.card');
-Route::get('/addToCard/{id}',[FrontendController::class,'addToCard'])->name('add.to.card');
+Route::post('/addToCard/{id}',[FrontendController::class,'addToCard'])->name('add.to.card');
 Route::get('/remove-Item/{id}',[FrontendController::class,'removeItem'])->name('remove.item');
 Route::get('/clear-cart',[FrontendController::class,'clearCart'])->name('clear.cart');
 Route::get('/search-by-price',[FrontendController::class,'searchByPrice'])->name('search.by.price');
@@ -186,6 +186,8 @@ Route::group(['middleware'=>'frontendAuth'],function(){
         Route::get('/customer-logout',[CustomerController::class,'logout'])->name('customer.logout');
         Route::get('/checkout',[CustomerController::class,'checkOut'])->name('checkout');
         Route::post('/place-order',[OrderController::class,'placeOrder'])->name('place.order');
+        Route::get('/customer-profile',[FrontendController::class, 'customerProfile'])->name('customer.profile');
+        Route::get('/my-order',[FrontendController::class, 'myOrder'])->name('my.order');
         
        
     
@@ -203,7 +205,7 @@ Route::get('/filter-by-type/{type}',[WebsiteProductController::class,'filteByTyp
 
 //Contact......................................................................................
 Route::get('/contact',[FrontendController::class, 'contact'])->name('contact');
-Route::get('/customer-profile',[FrontendController::class, 'customerProfile'])->name('customer.profile');
+
 
 
 

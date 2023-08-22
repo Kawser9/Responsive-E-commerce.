@@ -29,7 +29,10 @@
         </div>
         <div class="form-group">
             <input type="password" name="confirm_password" class="form-control" id="exampleInputPassword1 "placeholder="Enter Confirm password">
-            </div>
+        </div>
+        <div class="form-group">
+            <input type="file" name="image" class="form-control" id="exampleInputPassword1 "placeholder="Select image....">
+        </div>
         <div class="form-group"><button type="submit" >Registration</button></div>
     </form>
 

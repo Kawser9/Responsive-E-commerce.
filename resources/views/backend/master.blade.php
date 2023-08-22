@@ -14,13 +14,13 @@
         <link href="{{ URL('css/login-form.css') }}" rel="stylesheet" />
         <link href="{{ URL('css/single-show.css') }}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        
-
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css"  href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
+
+       {{-- toastr --}}
+       <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+       {{-- end toastr --}}
 
 
     </head>
@@ -46,6 +46,11 @@
                 @include('backend.fixed.footer')   
             </div>
         </div>
+        {{-- start toastr --}}
+       <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+       <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+       {!! Toastr::message() !!}
+       {{-- end toastr --}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{ URL::asset('js/scripts.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -50,7 +51,8 @@ class CategoryController extends Controller
                 'description'   =>$request->descriptioon,
                 'image'         =>$fileName
         ]);
-        return redirect()->route('category.list')->with('msg','Category Created Successfully.');
+        Toastr::success('Create Successfully.', 'Category');
+        return redirect()->route('category.list');
     }
 
     // update.................................
@@ -86,8 +88,8 @@ class CategoryController extends Controller
 
         
         $category->save();
-
-        return redirect()->route('category.list')->with('msg','Category Update Successfully.');
+        Toastr::success('Update Successfully.', 'Category');
+        return redirect()->route('category.list');
 
     }
 
@@ -109,7 +111,8 @@ class CategoryController extends Controller
 
         $category=Category::find($id);
         $category->delete();
-        return redirect()->route('category.list')->with('msg','Category Delete Successfully.');
+        Toastr::success('Delete Successfully.', 'Category');
+        return redirect()->route('category.list');
 
     }
 

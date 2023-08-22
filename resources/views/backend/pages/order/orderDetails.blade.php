@@ -74,7 +74,7 @@
                                                 <tbody>
                                                 <tr>
                                                     <td>Grand Total :</td>
-                                                    <td>$1641</td>
+                                                    <td>{{$detail->total}} BTD</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Shipping Charge :</td>

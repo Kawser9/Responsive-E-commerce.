@@ -64,17 +64,17 @@ class CustomerController extends Controller
 
         if(auth()->guard('customer')->attempt($credentials))
         {
-            Toastr::success('Login Success.', 'Customer', ['options']);
-            return redirect()->route('view.card')->with('msg','Login Success.');
+            Toastr::success('Login Success.', 'Customer');
+            return redirect()->route('view.card');
         }
-        Toastr::warning('Login Failed Try Again.', 'Customer', ['options']);
+        Toastr::warning('Login Failed Try Again.', 'Customer');
         return redirect()->back();
         // dd("invalid user");
     }
     public function logout()
     {
         auth()->guard('customer')->logout();
-        Toastr::success('Logout Success.', 'Customer', ['options']);
+        Toastr::success('Logout Success.', 'Customer');
         return redirect()->route('home');
     }
 

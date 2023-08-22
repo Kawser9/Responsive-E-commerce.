@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -40,6 +41,7 @@ class BrandController extends Controller
                 'description'   =>$request->description,
 
             ]);
+        Toastr::success('Create Successfully.', 'Brand');
         return redirect()->route('brand.list');
     }
 
@@ -76,8 +78,8 @@ class BrandController extends Controller
 
         $brand->save();
 
-
-        return redirect()->route('brand.list')->with('msg','Brand Updated Successfully.');
+        Toastr::success('Update Successfully.', 'Brand');
+        return redirect()->route('brand.list');
     }
 
     /**
@@ -87,6 +89,7 @@ class BrandController extends Controller
     {
         $brand=Brand::find($id);
         $brand->delete();
-        return redirect()->back()->with('msg','Brand Delete Successfully.');
+        Toastr::success('Delete Successfully.', 'Brand');
+        return redirect()->back();
     }
 }

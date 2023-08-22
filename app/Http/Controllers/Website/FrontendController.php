@@ -27,6 +27,10 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.registration.profile');
     }
+    public function myOrder()
+    {
+        return view('frontend.pages.registration.myorder');
+    }
 
 
     public function search()
@@ -66,10 +70,11 @@ class FrontendController extends Controller
 
    
 
-    public function addToCard($id)
+    public function addToCard(Request $request )
     {
         // dd($id);
         // card;
+        $id=$request->id;
         $cart=Session()->get('cart');
         $product=Product::find($id);
         // dd($product);
@@ -80,8 +85,8 @@ class FrontendController extends Controller
                 'name'=>$product->name,
                 'image'=>$product->image,
                 'price'=>$product->price,
-                'quantity'=>1,
-                'sub_total'=>$product->price * 1
+                'quantity'=>$request->quantity,
+                'sub_total'=>$product->price * (int)request()->quantity
            ];
             session()->put('cart',$newCart);
 
@@ -92,7 +97,7 @@ class FrontendController extends Controller
         {
             if (array_key_exists($id,$cart)) {
                 
-                $cart[$id]['quantity'] = $cart[$id]['quantity'] +1 ;
+                $cart[$id]['quantity'] = $cart[$id]['quantity'] + $request->quantity;
                 $cart[$id]['sub_total'] =  $cart[$id]['quantity'] *  $cart[$id]['price'];
 
                 session()->put('cart',$cart);
@@ -105,8 +110,8 @@ class FrontendController extends Controller
                     'name'=>$product->name,
                     'image'=>$product->image,
                     'price'=>$product->price,
-                    'quantity'=>1,
-                    'sub_total'=>$product->price * 1
+                    'quantity'=>$request->quantity,
+                    'sub_total'=>$product->price * (int)request()->quantity
                ];
                 session()->put('cart',$cart);
             }

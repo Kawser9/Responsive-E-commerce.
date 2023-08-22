@@ -85,12 +85,12 @@ class OrderController extends Controller
   
             }
             DB::commit();
-            Toastr::success('Order is Placed.', 'Order', ['options']);
+            Toastr::success('Order is Placed.', 'Order');
             return redirect()->back();
         }catch(Throwable $e)
         {
           DB::rollBack();
-          Toastr::warning('Something went wrong.', 'Order', ['options']);
+          Toastr::warning('Something went wrong.', 'Order');
           return redirect()->back();
   
         }

@@ -25,12 +25,12 @@
                                         <th>SL</th>
                                             <th>Name</th>
                                             <th>Price</th>
-                                            <th>Quantity</th>
                                             <th>Category</th>
                                             <th>Brand</th>
                                             <th>Status</th>
                                             <th>Type</th>
                                             <th>Description</th>
+                                            <th>Stock</th>
                                             <th>Image</th>
                                             <th>Action</th>
                                         </tr>
@@ -41,12 +41,12 @@
                                             <td>{{$key+1}}</td>
                                             <td>{{$product->name}}</td>
                                             <td>{{$product->price}}</td>
-                                            <td>{{$product->quantity}}</td>
                                             <td>{{$product->catname->name}}</td>
                                             <td>{{$product->brand_name->name}}</td>
                                             <td>{{$product->status}}</td>
                                             <td>{{$product->type}}</td>
                                             <td>{{$product->description}}</td>
+                                            <td>{{$product->quantity}}</td>
                                             <td>
                                                     <img src="{{url('/uploads/products/'.$product->image)}}"style="width: 50px;" alt="">
                                             </td>
