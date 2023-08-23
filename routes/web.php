@@ -128,6 +128,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         Route::get('/order-create',[OrderController::class, 'create'])->name('order.create');
         Route::post('/order-store',[OrderController::class, 'store'])->name('order.store');
         Route::get('/order-detais/{id}',[OrderController::class, 'orderDetails'])->name('order.details');
+        Route::post('/order-update/{id}',[OrderController::class, 'updateOrder'])->name('update.order');
        
 
 
@@ -187,7 +188,11 @@ Route::group(['middleware'=>'frontendAuth'],function(){
         Route::get('/checkout',[CustomerController::class,'checkOut'])->name('checkout');
         Route::post('/place-order',[OrderController::class,'placeOrder'])->name('place.order');
         Route::get('/customer-profile',[FrontendController::class, 'customerProfile'])->name('customer.profile');
-        Route::get('/my-order',[FrontendController::class, 'myOrder'])->name('my.order');
+        Route::get('/my-order/{id}',[FrontendController::class, 'myOrder'])->name('my.order');
+        Route::get('/my-order-details/{id}',[FrontendController::class, 'orderDetails'])->name('my.order.details');
+        // Route::get('/order-detais/{id}',[OrderController::class, 'orderDetails'])->name('order.details');
+
+
         
        
     

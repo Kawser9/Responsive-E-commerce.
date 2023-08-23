@@ -28,8 +28,31 @@
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mb-3">Items from Order #</h4>
-            
+                                        <h4 class="header-title mb-3">Items from Order #</h4> 
+                                        <form action="{{Route('update.order',$detail->id)}}" method="post">
+                                            @csrf
+                                            
+                                            <div class="btn-group">
+                                                <select name="order_status" class="form-select" aria-label="Default select example">
+                                                    <option selected>Update Order Status</option>
+                                                          <option selected value="pending">Pending</option>
+                                                          <option value="confirmed">Confirmed</option>
+                                                          <option value="packed">Packed</option>
+                                                          <option value="shipped">Shipped</option>
+                                                          <option value="delivered">Delivered</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="btn-group">
+                                                <select name="payment_status" class="form-select" aria-label="Default select example">
+                                                    <option selected>Update Payment Status</option>
+                                                          <option selected value="pending">Pending</option>
+                                                          <option value="paid">Paid</option>
+                                                </select>
+                                            </div>
+                                        
+                                          <br><br>
+
                                         <div class="table-responsive">
                                             <table class="table mb-0">
                                                 <thead class="table-light">
@@ -53,7 +76,9 @@
                                             </table>
                                         </div>
                                         <!-- end table-responsive -->
-            
+                                        <br>
+                                        <button type="submit" class="button">save</button>
+                                    </form>
                                     </div>
                                 </div>
                             </div> <!-- end col -->

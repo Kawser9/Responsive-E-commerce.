@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Slider;
@@ -27,9 +29,18 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.registration.profile');
     }
-    public function myOrder()
+    public function myOrder($id)
     {
-        return view('frontend.pages.registration.myorder');
+        $orders=Order::where('customer_id',$id)->get();
+        // dd($orders);
+        return view('frontend.pages.registration.myorder',compact('orders'));
+    }
+    public Function orderDetails($id)
+    {
+      // dd($id);
+        $detail=Order::find($id);
+        $orderDetail=OrderDetail::with('product')->where('order_id',$id)->get();
+        return view('frontend.pages.registration.orderDetails',compact('orderDetail','detail'));
     }
 
 

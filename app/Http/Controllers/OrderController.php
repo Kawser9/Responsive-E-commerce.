@@ -24,6 +24,18 @@ class OrderController extends Controller
         $orderDetail=OrderDetail::with('product')->where('order_id',$id)->get();
         return view('backend.pages.order.orderDetails',compact('orderDetail','detail'));
     }
+    public function updateOrder(Request $request,$id)
+    {
+        // dd($id);
+        $order=Order::find($id);
+        $order->update([
+          'order_status'=>$request->order_status,
+          'payment_status'=>$request->payment_status,
+
+        ]);
+        Toastr::success('Updated Successfully.', 'Order Status ');
+        return redirect()->route('order.list');
+    }
 
     public function create()
     {
@@ -55,6 +67,8 @@ class OrderController extends Controller
         ]);
 
         $myCart=session()->get('cart');
+        session()->forget('cart');
+
         // dd($myCart);
         try
         {
@@ -65,8 +79,11 @@ class OrderController extends Controller
               'name'=>$request->firstName . ' ' . $request->lastName,
               'email'=>$request->email,
               'address'=>$request->address,
+              'number'=>$request->number,
               'payment_method'=>$request->paymentMethod,
               'total'=>array_sum(array_column($myCart,'sub_total')),
+              'payment_status'=>'pending',
+              'order_status'=>'pending'
             ]);
   
   

@@ -34,36 +34,32 @@
             <div id="main-content" class="bg-white border">
                 <div class="d-flex flex-column">
                     <div class="h5">Hello {{auth('customer')->user()->name}},</div>
-                    <h3>Your Total Orders: {{$orders->count()}}</h3>
+                    <div class="">Your Total Product: {{$orderDetail->count()}}</div>
                     <table table class="table">
                         <thead>
                             <tr>
                                 <th>SL</th>
-                                <th>Rechiver Name</th>
-                                <th>Order ID</th>
-                                <th>Order Date</th>
-                                <th>Status</th>
-                                <th>Total</th>
-                                <th>View Details</th>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Sub Total</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($orders as $item)
+                            @foreach ($orderDetail as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->id}}</td>
-                                <td>{{$item->created_at}}</td>
-                                <td>{{$item->order_status}}</td>
-                                <td>{{$item->total}} BTD</td>
-                                <td>
-                                    <a href="{{Route('my.order.details',$item->id)}}" class="btn btn-info btn-sm "><i class="fa fa-eye" ></i></a>
-                                </td>
+                                <td>{{$item->product->name}}</td>
+                                <td>{{$item->qty}}</td>
+                                <td>{{$item->price}} BTD</td>
+                                <td>{{$item->subtotal}} BTD</td>
                             </tr>
                             @endforeach
                         </tbody>
+
                         
                     </table>
+                    <span>Total : {{$detail->total}} BTD</span> 
             </div>
         </div>
         <br><br>

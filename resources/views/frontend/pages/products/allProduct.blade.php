@@ -54,7 +54,7 @@
                             {{-- <a href="{{Route('frontend.show',$encryptID)}}" class="button">Buy Product</a> --}}
                             <form action="{{Route('add.to.card',$product->id)}}" method="post">
                                 @csrf
-                            <button type="submit"><i class="fa-solid fa-cart-plus fa-xl"></i></button>
+                            <button name="quantity" value="1" type="submit"><i class="fa-solid fa-cart-plus fa-xl"></i></button>
                             </form>
                             <a href="{{Route('frontend.show',$encryptID)}}"><i class="fa-solid fa-eye fa-xl"></i></a>
                             {{-- <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a> --}}
