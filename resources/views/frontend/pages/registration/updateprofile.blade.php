@@ -3,53 +3,6 @@
 
 <br> <br><br><br>
 
-{{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynav"
-            aria-controls="mynav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-            <div class="d-flex">
-                <div class="d-flex align-items-center logo bg-purple">
-                    <div class="fab fa-joomla h2 text-white"></div>
-                </div>
-                <div class="ms-3 d-flex flex-column">
-                    <div class="h4">Furfection</div>
-                    <div class="fs-6">My pet App</div>
-                </div>
-            </div>
-        </a>
-        <div class="collapse navbar-collapse" id="mynav">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Categories <span
-                            class="fas fa-th-large px-1"></span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Exclusive</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Collections</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Blogs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <div class="cart bg-purple">
-                            <span class="fas fa-shopping-cart text-white"></span>
-                        </div>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> <span class="fas fa-user pe-2"></span> Hello Jhon</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav> --}}
-
 <div class="container mt-4">
     <div class="row">
         <div class="col-lg-3 my-lg-0 my-md-1">
@@ -78,41 +31,35 @@
             </div>
         </div>
         <div class="col-lg-9 my-lg-0 my-1">
-            {{-- <div id="main-content" class="bg-white border"> --}}
-                <section class="vh-100" style="background-color: #eee;">
-                    <div class="container py-1 h-100">
-                      <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-md-12 col-xl-10">
-                  
-                          <div class="card" style="border-radius: 15px;">
-                            <div class="card-body text-center">
-                              <div class="mt-3 mb-4">
-                                <img src="{{url('/uploads/customers/'.auth('customer')->user()->image)}}"
-                                  class="rounded-circle img-fluid" style="width: 100px;" />
-                              </div>
-                              <h4 class="mb-2">{{auth('customer')->user()->name}}</h4>
-                              <p class="text-muted mb-4">Email</span> : <a
-                                  href="#!">{{auth('customer')->user()->email}}</a></p>
-
-                                  <p class="text-muted mb-4">Phone</span> : <a
-                                    href="#!">{{auth('customer')->user()->phone}}</a></p>
-
-                                    <p class="text-muted mb-4">Address</span> : <a
-                                        href="#!">{{auth('customer')->user()->address}}</a></p>
-
-                                <a href="{{Route('customer.edit')}}" class="btn btn-primary btn-rounded btn-lg">
-                                Edit Profile
-                              </a>
-                              
-                            </div>
-                          </div>
-                  
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                  <br><br><br>
-            </div>
+            <form class="form" action="{{Route('customer.update',auth('customer')->user()->id)}}" method="post" enctype="multipart/form-data">
+                <h2>Edit Profile</h2>
+                @csrf
+        
+                <div class="form-group">
+                    <input required type="text" name="name"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{auth('customer')->user()->name}}">
+                </div>
+        
+        
+                <div class="form-group">
+                <input required type="email" name="email" class="form-control" id="exampleInputPassword1 " value="{{auth('customer')->user()->email}}">
+                </div>
+        
+                <div class="form-group">
+                    <input type="phone" name="phone" class="form-control" id="number " value="{{auth('customer')->user()->phone}}">
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" name="address" class="form-control" id="address" value="{{auth('customer')->user()->address}}">
+                </div>
+{{--         
+                <div class="form-group">
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1 " value="{{auth('customer')->user()->email}}">
+                </div> --}}
+                <div class="form-group">
+                    <input type="file" name="image" class="form-control" id="image " value="{{auth('customer')->user()->image}}">
+                </div>
+                <div class="form-group"><button type="submit" >Save</button></div>
+            </form>
         </div>
     </div>
 

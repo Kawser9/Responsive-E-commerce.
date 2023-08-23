@@ -42,6 +42,7 @@
                                 <th>Rechiver Name</th>
                                 <th>Order ID</th>
                                 <th>Order Date</th>
+                                <th>Payment</th>
                                 <th>Status</th>
                                 <th>Total</th>
                                 <th>View Details</th>
@@ -54,6 +55,7 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->created_at}}</td>
+                                <td>{{$item->payment_method}}</td>
                                 <td>{{$item->order_status}}</td>
                                 <td>{{$item->total}} BTD</td>
                                 <td>

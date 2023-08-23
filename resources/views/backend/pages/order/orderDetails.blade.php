@@ -25,7 +25,7 @@
                         
                         
                         <div class="row">
-                            <div class="col-lg-8">
+                            <div class="col-lg-12" id="printslip">
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="header-title mb-3">Items from Order #</h4> 
@@ -74,6 +74,7 @@
                                                 @endforeach
                                                 </tbody>
                                             </table>
+                                            <div><span>Total : {{$detail->total}} BTD</span></div>
                                         </div>
                                         <!-- end table-responsive -->
                                         <br>
@@ -81,102 +82,57 @@
                                     </form>
                                     </div>
                                 </div>
-                            </div> <!-- end col -->
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="header-title mb-3">Shipping Information</h4>
         
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title mb-3">Order Summary</h4>
-            
-                                        <div class="table-responsive">
-                                            <table class="table mb-0">
-                                                <thead class="table-light">
-                                                <tr>
-                                                    <th>Description</th>
-                                                    <th>Price</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>Grand Total :</td>
-                                                    <td>{{$detail->total}} BTD</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Shipping Charge :</td>
-                                                    <td>120 BTD</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Estimated Tax : </td>
-                                                    <td>$19.22</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Total :</th>
-                                                    <th>$1683.22</th>
-                                                </tr>
-                                                </tbody>
-                                            </table>
+                                                <h5>{{$detail->name}}</h5>
+                                                
+                                                <address class="mb-0 font-14 address-lg">
+                                                    {{$detail->address}}<br>
+                                                    <abbr title="Phone">Email:</abbr> {{$detail->email}} <br/>
+                                                    <abbr title="Mobile">M:</abbr> (+01) 12345 67890
+                                                </address>
+                    
+                                            </div>
                                         </div>
-                                        <!-- end table-responsive -->
-            
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
+                                    </div> <!-- end col -->
+                
+                                    <div class="col-lg-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="header-title mb-3">Billing Information</h4>
         
-        
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title mb-3">Shipping Information</h4>
-
-                                        <h5>{{$detail->name}}</h5>
-                                        
-                                        <address class="mb-0 font-14 address-lg">
-                                            {{$detail->address}}<br>
-                                            <abbr title="Phone">Email:</abbr> {{$detail->email}} <br/>
-                                            <abbr title="Mobile">M:</abbr> (+01) 12345 67890
-                                        </address>
-            
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
-        
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title mb-3">Billing Information</h4>
-
-                                        <ul class="list-unstyled mb-0">
-                                            <li>
-                                                <p class="mb-2"><span class="fw-bold me-2">Payment Type:</span> Credit Card</p>
-                                                <p class="mb-2"><span class="fw-bold me-2">Provider:</span> Visa ending in 2851</p>
-                                                <p class="mb-2"><span class="fw-bold me-2">Valid Date:</span> 02/2020</p>
-                                                <p class="mb-0"><span class="fw-bold me-2">CVV:</span> xxx</p>
-                                            </li>
-                                        </ul>
-            
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
-        
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title mb-3">Delivery Info</h4>
-            
-                                        <div class="text-center">
-                                            <i class="mdi mdi-truck-fast h2 text-muted"></i>
-                                            <h5><b>UPS Delivery</b></h5>
-                                            <p class="mb-1"><b>Order ID :</b> xxxx235</p>
-                                            <p class="mb-0"><b>Payment Mode :</b> COD</p>
+                                                <ul class="list-unstyled mb-0">
+                                                    <li>
+                                                        <p class="mb-2"><span class="fw-bold me-2">Payment Type:</span> Credit Card</p>
+                                                        <p class="mb-2"><span class="fw-bold me-2">Provider:</span> Visa ending in 2851</p>
+                                                        <p class="mb-2"><span class="fw-bold me-2">Valid Date:</span> 02/2020</p>
+                                                        <p class="mb-0"><span class="fw-bold me-2">CVV:</span> xxx</p>
+                                                    </li>
+                                                </ul>
+                    
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div> <!-- end col -->
+                
                             </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
+                            <div>
+                                <button onclick="printReport()" class="button">Print Slip</button>
+                            </div>
+                            <script>
+                                function printReport() {
+                                var printContents = document.getElementById("printslip").innerHTML;
+                                var originalContents = document.body.innerHTML;
+                                document.body.innerHTML = printContents;
+                                window.print();
+                                document.body.innerHTML = originalContents;
+                                }
+                            </script>
+            
+                        
         
                         
                     </div> <!-- container -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
@@ -29,6 +30,46 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.registration.profile');
     }
+    public function customerEdit()
+    {
+        return view('frontend.pages.registration.updateprofile');
+    }
+
+    public function customerUpdate(Request $request,$id)
+    {
+        // dd($id);
+        // $request->validate
+        //     ([
+        //         'name'=>'required',
+        //         'email'=>'required|email|unique:customers',
+        //         'password'=>'required|min:6',
+                
+        //     ]);
+            $customer=Customer::find($id);
+            // dd($customer);
+            $fileName=$customer->image;
+            if($request->hasFile('image'))
+            {
+                $image=$request->file('image');
+                $fileName=date('Ymdhsi').'.'.$image->getClientOriginalExtension();
+                $image->storeAs('/customers',$fileName);
+
+            }
+            
+
+        $customer->update([
+                'name'              =>$request->name,
+                'email'             =>$request->email,
+                'phone'             =>$request->phone,
+                'address'           =>$request->address,
+                'image'             =>$fileName
+            ]);
+        // return redirect()->route('frontend.master');
+        Toastr::success('Successfully Updated .', 'Customer Profile', ['options']);
+        return redirect()->route('customer.profile');
+    } 
+
+
     public function myOrder($id)
     {
         $orders=Order::where('customer_id',$id)->get();

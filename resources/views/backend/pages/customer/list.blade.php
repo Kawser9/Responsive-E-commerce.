@@ -11,8 +11,8 @@
                                             <th>SL</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Password</th>
-                                            <th>Action</th>
+                                            <th>Phone </th>
+                                            <th>Address </th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -20,8 +20,8 @@
                                             <th>SL</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Password</th>
-                                            <th>Action</th>
+                                            <th>Phone </th>
+                                            <th>Address </th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -30,14 +30,8 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$customer->name}}</td>
                                             <td>{{$customer->email}}</td>
-                                            <td>{{$customer->password}}</td>
-                                            <td>
-                                              <ul>
-                                                <a href="" class="btn btn-info btn-sm"><i class="fa fa-eye" ></i></a>
-                                                <a href="" class="btn btn-success btn-sm"><i class="fa fa-pencil-square"></i></a>
-                                                <a href="" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                              </ul>
-                                            </td>
+                                            <td>{{$customer->phone}}</td>
+                                            <td>{{$customer->address}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

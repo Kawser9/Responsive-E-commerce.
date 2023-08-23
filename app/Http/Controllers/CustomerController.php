@@ -35,12 +35,24 @@ class CustomerController extends Controller
                 'name'=>'required',
                 'email'=>'required|email|unique:customers',
                 'password'=>'required|min:6',
-                'confirm_password'=>'required|min:6'
+                
             ]);
+
+            if($request->hasFile('image'))
+            {
+                $image=$request->file('image');
+                $fileName=date('Ymdhsi').'.'.$image->getClientOriginalExtension();
+                $image->storeAs('/customers',$fileName);
+
+            }
+
         Customer::create
             ([
                 'name'              =>$request->name,
                 'email'             =>$request->email,
+                'phone'             =>$request->phone,
+                'address'           =>$request->address,
+                'image'             =>$fileName,
                 'password'          =>bcrypt($request->password)
             ]);
         // return redirect()->route('frontend.master');

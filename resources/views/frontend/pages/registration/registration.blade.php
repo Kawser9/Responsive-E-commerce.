@@ -25,13 +25,18 @@
         </div>
 
         <div class="form-group">
+            <input type="phone" name="phone" class="form-control" id="number "placeholder="Enter your phone number">
+        </div>
+        
+        <div class="form-group">
+            <input type="text" name="address" class="form-control" id="address"placeholder="Enter Your Address">
+        </div>
+
+        <div class="form-group">
         <input type="password" name="password" class="form-control" id="exampleInputPassword1 "placeholder="Enter New password">
         </div>
         <div class="form-group">
-            <input type="password" name="confirm_password" class="form-control" id="exampleInputPassword1 "placeholder="Enter Confirm password">
-        </div>
-        <div class="form-group">
-            <input type="file" name="image" class="form-control" id="exampleInputPassword1 "placeholder="Select image....">
+            <input type="file" name="image" class="form-control" id="image "placeholder="Select image....">
         </div>
         <div class="form-group"><button type="submit" >Registration</button></div>
     </form>

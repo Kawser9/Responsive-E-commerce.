@@ -188,6 +188,8 @@ Route::group(['middleware'=>'frontendAuth'],function(){
         Route::get('/checkout',[CustomerController::class,'checkOut'])->name('checkout');
         Route::post('/place-order',[OrderController::class,'placeOrder'])->name('place.order');
         Route::get('/customer-profile',[FrontendController::class, 'customerProfile'])->name('customer.profile');
+        Route::get('/customer-profile-edit',[FrontendController::class, 'customerEdit'])->name('customer.edit');
+        Route::post('/customer-profile-edit/{id}',[FrontendController::class, 'customerUpdate'])->name('customer.update');
         Route::get('/my-order/{id}',[FrontendController::class, 'myOrder'])->name('my.order');
         Route::get('/my-order-details/{id}',[FrontendController::class, 'orderDetails'])->name('my.order.details');
         // Route::get('/order-detais/{id}',[OrderController::class, 'orderDetails'])->name('order.details');
