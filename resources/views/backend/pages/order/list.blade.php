@@ -32,7 +32,7 @@
                                             <td>{{$order->number}}</td>
                                             <td>{{$order->address}}</td>
                                             <td>{{$order->payment_method}}</td>
-                                            <td>{{$order->total}} BTD</td>
+                                            <td>{{$order->total}} ৳</td>
                                             <td>{{$order->created_at}}</td>
                                             <td>{{$order->payment_status}}</td>
                                             <td>{{$order->order_status}}</td>

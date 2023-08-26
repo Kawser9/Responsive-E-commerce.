@@ -46,7 +46,7 @@
                     <h6 class="my-0">{{$cart['name']}}</h6>
                     <small class="text-muted">{{$cart['quantity']}}</small>
                     </div>
-                    <span class="text-muted">{{$cart['sub_total']}} BTD</span>
+                    <span class="text-muted">{{$cart['sub_total']}} ৳</span>
                 </li>
             @endforeach
         @endif
@@ -54,8 +54,8 @@
         
         
         <li class="list-group-item d-flex justify-content-between">
-          <span>Total (BTD)</span>
-          <strong>{{session()->has('cart') ? array_sum(array_column(session()->get('cart'),'sub_total')):0}} BTD</strong>
+          <span>Total ( ৳)</span>
+          <strong>{{session()->has('cart') ? array_sum(array_column(session()->get('cart'),'sub_total')):0}}  ৳</strong>
         </li>
       </ul>
 

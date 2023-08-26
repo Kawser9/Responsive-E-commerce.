@@ -14,7 +14,7 @@
 		<div class="product-description">
 			{{$product->description}}
 		</div>
-		<div class="product-price">Price: {{$product->price}} BTD</div>
+		<div class="product-price">Price: {{$product->price}} ৳</div>
 	</div>
 </body>
 

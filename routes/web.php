@@ -147,6 +147,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         Route::get('/reports',[ReportController::class,'reportList'])->name('reports.list');
         Route::get('/product-reports-by-time',[ReportController::class,'getByTimeReport'])->name('getByTimeReport');
         Route::get('/search-report',[ReportController::class,'searchByTime'])->name('report.search');
+        Route::get('/pending-order',[ReportController::class,'pendingOrder'])->name('pending.order');
+        Route::get('/order-status',[ReportController::class,'orderStatus'])->name('order.status');
 
 
 

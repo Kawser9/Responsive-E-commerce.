@@ -30,11 +30,11 @@
                                     </div>
                                     <div class="cart_item_price cart_info_col">
                                         <div class="cart_item_title">Price</div>
-                                        <div class="cart_item_text">{{$cart['price']}} BTD</div>
+                                        <div class="cart_item_text">{{$cart['price']}}   ৳</div>
                                     </div>
                                     <div class="cart_item_total cart_info_col">
                                         <div class="cart_item_title">Total</div>
-                                        <div class="cart_item_text">{{$cart['price'] * $cart['quantity']}} BTD</div>
+                                        <div class="cart_item_text">{{$cart['price'] * $cart['quantity']}}   ৳</div>
                                     </div>
                                     <ul><a href="{{Route('remove.item',$key)}}" type="button" ><i class="fa-solid fa-xmark xl" style="color: #ff0a3b;"></i></a></ul>
                                 </div>
@@ -48,7 +48,7 @@
                     <div class="order_total">
                         <div class="order_total_content text-md-right">
                             <div class="order_total_title">Order Total:</div>
-                            <div class="order_total_amount">{{$cartData?array_sum(array_column($cartData,'sub_total')):0}} BTD</div>
+                            <div class="order_total_amount">{{$cartData?array_sum(array_column($cartData,'sub_total')):0}}  ৳</div>
                         </div>
                     </div>
                     <div class="cart_buttons"> <a href="{{Route('frontend.product')}}" class="button cart_button_clear"><i class="fas fa-angle-left me-2"></i>Continue Shopping</a>

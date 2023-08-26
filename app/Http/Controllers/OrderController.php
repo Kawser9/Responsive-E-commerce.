@@ -15,7 +15,7 @@ class OrderController extends Controller
 {
     public function list()
     {
-        $orders=Order::with('customer')->get();
+        $orders=Order::with('customer')->latest()->get();
         return view('backend.pages.order.list',compact('orders'));
     }
     public Function orderDetails($id)

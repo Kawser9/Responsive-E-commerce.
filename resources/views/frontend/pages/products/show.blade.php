@@ -27,20 +27,20 @@
   
 			<div class="col-lg-4">
 			  <div class="portfolio-info">
-				<h3>Product information</h3>
+				<h3>{{$product->name}}</h3>
 				<ul>
-				  <li><strong>Name</strong>: {{$product->name}}</li>
-				  <li><strong>Category</strong>: {{$product->catname->name}}</li>
+				  {{-- <li><strong>Name</strong>: </li> --}}
+				  {{-- <li><strong>Category</strong>: {{$product->catname->name}}</li> --}}
 				  <li><strong>Brand</strong>: {{$product->brand_name->name}}</li>
-				  <li><strong>Price</strong>: {{$product->price}}  BDT</li>
+				  <li><strong>Price</strong>: {{$product->price}}  ৳</li>
 				  <li><strong>Stock</strong>:
 					@if ($product->quantity > 0)
-						Available
+						In Stock
 					@else 
 						Out of Stock
 					@endif
 					({{ $product->quantity }})
-				</li>
+				  </li>
 				</ul>
 				<form action="{{Route('add.to.card',$product->id)}}" method="post">
 					@csrf
@@ -66,6 +66,12 @@
 				<h2>Details</h2>
 				<p>
 					{{$product->description}}
+				</p>
+			  </div>
+			  <div class="portfolio-description">
+				<h2><i class="fa-regular fa-comment"></i> View comments</h2>
+				<p>
+					jdfnksjdhnfkjs
 				</p>
 			  </div>
 			</div>

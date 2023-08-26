@@ -27,8 +27,8 @@
                         <div class="portfolio-wrap">
                             <img src="{{url('/uploads/products/'.$product->image)}}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                            <h4>{{$product->name}} | <span class="badge badge-primary">{{$singleCategory->name}}</h4>
-                            <h4>{{$product->price}}</h4>
+                            <h4>{{$product->name}} | <span class="badge badge-primary">{{$singleCategory->name}} | @if ($product->quantity > 0) In Stock @else Out of Stock @endif</h4>
+                            <h4>{{$product->price}}  ৳</h4>
                             <div class="portfolio-links">
                                 @php
                                      $encryptID = Crypt::encrypt($product->id);

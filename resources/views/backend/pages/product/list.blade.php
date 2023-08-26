@@ -40,7 +40,7 @@
                                         <tr>
                                             <td>{{$key+1}}</td>
                                             <td>{{$product->name}}</td>
-                                            <td>{{$product->price}}</td>
+                                            <td>{{$product->price}}  ৳</td>
                                             <td>{{$product->catname->name}}</td>
                                             <td>{{$product->brand_name->name}}</td>
                                             <td>{{$product->status}}</td>
