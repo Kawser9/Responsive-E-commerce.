@@ -16,7 +16,7 @@
 
 <body>
 	<div class="container">
-		<h1>Product SingleShow</h1>
+		<h1>Category Single Show</h1>
 		<div class="product-image">
 			<img src="{{url('/uploads/category/'.$category->image)}}" alt="Category Image">
 		</div>

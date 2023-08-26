@@ -44,33 +44,22 @@
                 <li class="list-group-item d-flex justify-content-between lh-sm">
                     <div>
                     <h6 class="my-0">{{$cart['name']}}</h6>
-                    <small class="text-muted">Description</small>
+                    <small class="text-muted">{{$cart['quantity']}}</small>
                     </div>
-                    <span class="text-muted">{{$cart['price']}} BTD</span>
+                    <span class="text-muted">{{$cart['sub_total']}} BTD</span>
                 </li>
             @endforeach
         @endif
        
         
-        <li class="list-group-item d-flex justify-content-between bg-light">
-          <div class="text-success">
-            <h6 class="my-0">Promo code</h6>
-            <small>.........</small>
-          </div>
-          <span class="text-success">−$5</span>
-        </li>
+        
         <li class="list-group-item d-flex justify-content-between">
           <span>Total (BTD)</span>
           <strong>{{session()->has('cart') ? array_sum(array_column(session()->get('cart'),'sub_total')):0}} BTD</strong>
         </li>
       </ul>
 
-      <form class="card p-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Promo code">
-          <button type="submit" class="btn btn-secondary">Redeem</button>
-        </div>
-      </form>
+     
     </div>
     <div class="col-md-7 col-lg-8">
       <h4 class="mb-3">Billing address</h4>
@@ -103,7 +92,7 @@
           </div>
           <div class="col-12">
             <label for="number" class="form-label">Phone Number </label>
-            <input name="number" type="number" class="form-control" id="number" placeholder="">
+            <input name="number" type="phone" class="form-control" id="number" placeholder="">
           </div>
 
           <div class="col-12">

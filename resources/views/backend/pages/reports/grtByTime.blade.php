@@ -28,9 +28,9 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <select name="brand_id" class="form-select" aria-label="Default select example" required>
-                        <option selected>Select brand</option>
+                        <option >Select brand</option>
                             @foreach ($brands as $brand)
-                                <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                <option  value="{{$brand->id}}">{{$brand->name}}</option>
                             @endforeach
                         </select>
                     </div>

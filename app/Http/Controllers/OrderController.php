@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Product;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\Function_;
@@ -34,7 +35,8 @@ class OrderController extends Controller
 
         ]);
         Toastr::success('Updated Successfully.', 'Order Status ');
-        return redirect()->route('order.list');
+        // return redirect()->route('order.list');
+        return redirect()->back();
     }
 
     public function create()
@@ -99,7 +101,19 @@ class OrderController extends Controller
                 'qty'=>$cart['quantity'],
                 'subtotal'=>$cart['sub_total'],
               ]);
-  
+
+              $product=Product::find($key);
+              // dd($product->quantity);
+              // if ($product->quantity > $cart['quantity']) {
+
+              //   $product->decrement('quantity',$cart['quantity']);
+
+              // } else {
+
+              //   Toastr::warning('Out of stok.', 'Product');
+              // }
+              
+              $product->decrement('quantity',$cart['quantity']);
             }
             DB::commit();
             Toastr::success('Order is Placed.', 'Order');

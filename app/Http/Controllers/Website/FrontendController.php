@@ -129,47 +129,58 @@ class FrontendController extends Controller
         $id=$request->id;
         $cart=Session()->get('cart');
         $product=Product::find($id);
+
+        if ($product->quantity >= $request->quantity) 
+        {
         // dd($product);
-        if (empty($cart))
-        {
-           $newCart[$id]=[
-
-                'name'=>$product->name,
-                'image'=>$product->image,
-                'price'=>$product->price,
-                'quantity'=>$request->quantity,
-                'sub_total'=>$product->price * (int)request()->quantity
-           ];
-            session()->put('cart',$newCart);
-
-        //    dd($cart);
-
-        }
-        else 
-        {
-            if (array_key_exists($id,$cart)) {
-                
-                $cart[$id]['quantity'] = $cart[$id]['quantity'] + $request->quantity;
-                $cart[$id]['sub_total'] =  $cart[$id]['quantity'] *  $cart[$id]['price'];
-
-                session()->put('cart',$cart);
-
-
-            } else {
-                
-                $cart[$id]=[
+            if (empty($cart))
+            {
+            $newCart[$id]=[
 
                     'name'=>$product->name,
                     'image'=>$product->image,
                     'price'=>$product->price,
                     'quantity'=>$request->quantity,
                     'sub_total'=>$product->price * (int)request()->quantity
-               ];
-                session()->put('cart',$cart);
+            ];
+                session()->put('cart',$newCart);
+
+            //    dd($cart);
+
             }
-            
+            else 
+            {
+                if (array_key_exists($id,$cart)) {
+                    
+                    $cart[$id]['quantity'] = $cart[$id]['quantity'] + $request->quantity;
+                    $cart[$id]['sub_total'] =  $cart[$id]['quantity'] *  $cart[$id]['price'];
+
+                    session()->put('cart',$cart);
+
+
+                } else {
+                    
+                    $cart[$id]=[
+
+                        'name'=>$product->name,
+                        'image'=>$product->image,
+                        'price'=>$product->price,
+                        'quantity'=>$request->quantity,
+                        'sub_total'=>$product->price * (int)request()->quantity
+                ];
+                    session()->put('cart',$cart);
+                }
+                
+            }
+            Toastr::success('Product add to card successfully.', 'Cart', ['options']);
+        } 
+
+        else {
+
+        Toastr::warning('Out of stok.', 'Product');
+        
         }
-        Toastr::success('Product add to card successfully.', 'Cart', ['options']);
+        
         return redirect()->back();
     }
 

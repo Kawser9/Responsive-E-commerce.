@@ -33,6 +33,14 @@
 				  <li><strong>Category</strong>: {{$product->catname->name}}</li>
 				  <li><strong>Brand</strong>: {{$product->brand_name->name}}</li>
 				  <li><strong>Price</strong>: {{$product->price}}  BDT</li>
+				  <li><strong>Stock</strong>:
+					@if ($product->quantity > 0)
+						Available
+					@else 
+						Out of Stock
+					@endif
+					({{ $product->quantity }})
+				</li>
 				</ul>
 				<form action="{{Route('add.to.card',$product->id)}}" method="post">
 					@csrf
@@ -45,7 +53,12 @@
 						</div>
 					</div>
 					<br>
-					<button type="submit" class="button">Add To Card</button>
+					@if ($product->quantity > 0)
+						<button type="submit" class="button">Add To Card</button>
+					@else 
+						<a class="button">Out of Stock</a>
+					@endif
+					
 				</form>
 				{{-- <a href="{{Route('add.to.card',$product->id)}}" class="button">Add To Card</a> --}}
 			  </div>
