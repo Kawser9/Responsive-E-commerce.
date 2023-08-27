@@ -40,6 +40,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Product Images
                             </a>
+                            <a class="nav-link" href="{{route('supplier.list')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Delivary Man
+                            </a>
                             <a class="nav-link" href="{{route('reports.list')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Reports

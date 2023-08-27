@@ -15,6 +15,7 @@ use App\Http\Controllers\UserController;
 
 // use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Website\ProductController as WebsiteProductController;
 use App\Http\Controllers\Website\RegistrationController;
 use App\Http\Controllers\Website\FrontendController;
@@ -181,6 +182,7 @@ Route::get('/registration',[RegistrationController::class,'registration'])->name
 Route::get('/frontend_login',[RegistrationController::class,'login'])->name('frontend.login');
 Route::post('/customer-store',[CustomerController::class,'customerStore'])->name('customer.store');
 Route::post('/doligin',[CustomerController::class,'dologin'])->name('customer.login');
+Route::post('/comment-store',[RegistrationController::class,'store'])->name('comment.store');
 
 
 
@@ -197,10 +199,22 @@ Route::group(['middleware'=>'frontendAuth'],function(){
         // Route::get('/order-detais/{id}',[OrderController::class, 'orderDetails'])->name('order.details');
 
 
-        
        
     
 });
+
+// SSLCOMMERZ Start
+// Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+// Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);//hosted checkout
+// Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);//easy checkout
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/success', [SslCommerzPaymentController::class, 'success'])->name('payment.success');
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 
 
 

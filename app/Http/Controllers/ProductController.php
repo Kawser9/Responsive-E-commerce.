@@ -31,13 +31,13 @@ class ProductController extends Controller
         $request->validate
             ([
 
-                'name'          =>'required',
-                'price'         =>'required|gt:100',
-                'quantity'      =>'required|gt:10',
-                'image'         =>'required',
-                'category_id'   =>'required',
-                'brand_id'      =>'required',
-                'type'          =>'required'
+                'name'        => 'required',
+                'price'       => 'required|numeric|gt:100',
+                'quantity'    => 'required|numeric|gt:10',
+                'image'       => 'required', 
+                'category_id' => 'required|numeric',
+                'brand_id'    => 'required|numeric', 
+                'type'        => 'required'
             ]);    
 
             // dd($request->hasFile('image'));

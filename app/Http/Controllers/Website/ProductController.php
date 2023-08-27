@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -19,9 +20,9 @@ class ProductController extends Controller
     public function show($encryptID)
     {
         $id=Crypt::decrypt($encryptID);
-        
+        $comments = Comment::with('customer')->where('product_id',$id)->latest()->get();
         $product=Product::with('images')->find($id);
-        return view('frontend.pages.products.show',compact('product'));
+        return view('frontend.pages.products.show',compact('product','comments'));
     }
 
     public function categoryWiseProduct($encryptID)
