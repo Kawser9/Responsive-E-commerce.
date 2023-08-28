@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function view_product()
     {
-        $products=Product::all();
+        $products=Product::latest()->get();
         return view('frontend.pages.products.allProduct',compact('products'));
     }
 

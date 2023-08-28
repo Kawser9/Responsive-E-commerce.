@@ -25,7 +25,7 @@ class UserController extends Controller
         ]);
         if(auth()->attempt(request()->only(['email','password'])))
         {
-            Toastr::success('Login successfully.', 'ADMIN', ['options']);
+            Toastr::success('Login successfully.', '{{auth()->user()->name}}', ['options']);
             return redirect()->route('dashboard');
         }
             Toastr::warning('Login faild,try again.', 'ADMIN', ['options']);

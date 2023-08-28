@@ -28,6 +28,7 @@
                             <label for="">Order Status : </label>
                             <div class="btn-group">
                                 <select name="order_status" class="form-select" aria-label="Default select example">
+                                          <option value="">Select Status</option>
                                           <option @if ($detail->order_status=='pending') selected @endif value="pending">Pending</option>
                                           <option @if ($detail->order_status=='confirmed') selected @endif value="confirmed">Confirmed</option>
                                           <option @if ($detail->order_status=='packed') selected @endif value="packed">Packed</option>

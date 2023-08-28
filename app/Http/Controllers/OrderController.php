@@ -63,73 +63,87 @@ class OrderController extends Controller
 
 
     public function placeOrder(Request $request)
-    {
-        // dd($request);
-        $request->validate([
+      {
+          // dd($request);
+          $request->validate([
 
-        ]);
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'address' => 'required|string|max:255',
+            'number' => 'required|string|max:20',
+            'paymentMethod' => 'required|in:SSL,COD'
 
-        $myCart=session()->get('cart');
-        session()->forget('cart');
+          ]);
 
-        // dd($myCart);
-        try
-        {
-          DB::beginTransaction();
-        //   For order create
-          $order=Order::create([
-              'customer_id'=>auth('customer')->user()->id,
-              'name'=>$request->firstName . ' ' . $request->lastName,
-              'email'=>$request->email,
-              'address'=>$request->address,
-              'number'=>$request->number,
-              'payment_method'=>$request->paymentMethod,
-              'total'=>array_sum(array_column($myCart,'sub_total')),
-              'payment_status'=>'pending',
-              'order_status'=>'pending'
-            ]);
-  
-  
-            //For order details create 
+          $myCart = session()->get('cart');
 
-            foreach($myCart as $key=>$cart)
-            {
-  
-              OrderDetail::create([
-                'order_id'=>$order->id,
-                'product_id'=>$key,
-                'price'=>$cart['price'],
-                'qty'=>$cart['quantity'],
-                'subtotal'=>$cart['sub_total'],
-              ]);
+          try {
+              DB::beginTransaction();
 
-              $product=Product::find($key);
-              
-              $product->decrement('quantity',$cart['quantity']);
-            }
-            DB::commit();
+              $exceedsStock = false;
 
+              foreach ($myCart as $key => $cart) {
+                  $product = Product::find($key);
 
-            if($request->paymentMethod == 'SSL')
-            {
-              // dd('this is ssl');
-  
-              // redirect to payment page
-              $this->payNow($order);
-            }
-            Toastr::success('Order is Placed.', 'Order');
-            return redirect()->back();
-        }catch(Throwable $e)
-        {
-          DB::rollBack();
-          Toastr::warning('Something went wrong.', 'Order');
-          return redirect()->back();
-  
-        }
-  
-  
-  
-    }
+                  if ($cart['quantity'] > $product->quantity) {
+                      $exceedsStock = true;
+                      break; // Exit loop if one product quantity exceeds stock
+                  }
+              }
+
+              if ($exceedsStock) {
+                  DB::rollBack();
+                  Toastr::warning('Select Product within available stock.', 'Order');
+                  return redirect()->back();
+              } else {
+                  // For order creation
+                  $order = Order::create([
+                      'customer_id' => auth('customer')->user()->id,
+                      'name' => $request->firstName . ' ' . $request->lastName,
+                      'email' => $request->email,
+                      'address' => $request->address,
+                      'number' => $request->number,
+                      'payment_method' => $request->paymentMethod,
+                      'total' => array_sum(array_column($myCart, 'sub_total')),
+                      'payment_status' => 'pending',
+                      'order_status' => 'pending'
+                  ]);
+
+                  // For order details creation
+                  foreach ($myCart as $key => $cart) {
+                      OrderDetail::create([
+                          'order_id' => $order->id,
+                          'product_id' => $key,
+                          'price' => $cart['price'],
+                          'qty' => $cart['quantity'],
+                          'subtotal' => $cart['sub_total'],
+                      ]);
+
+                      $product = Product::find($key);
+
+                      $product->decrement('quantity', $cart['quantity']);
+                  }
+
+                  DB::commit();
+
+                  if ($request->paymentMethod == 'SSL') {
+                      // Redirect to payment page
+                      $this->payNow($order);
+                  }
+
+                  Toastr::success('Order is Placed.', 'Order');
+                  
+                  session()->forget('cart');
+                  return redirect()->back();
+              }
+          } catch (Throwable $e) {
+              DB::rollBack();
+              Toastr::warning('Something went wrong.', 'Order');
+              return redirect()->back();
+          }
+      }
+
     public function payNow($orderData)
     {
       // dd($orderData);
