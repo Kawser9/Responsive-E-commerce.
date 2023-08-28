@@ -71,55 +71,54 @@
 			  <div class="portfolio-description">
 				<h2><i class="fa-regular fa-comment"></i> View comments</h2>
 				{{-- --}}
-
+			
 				<div class="row d-flex justify-content-center">
 					<div class="col-md-12 col-lg-12">
-					  <div class="card shadow-0 border" style="background-color: #f0f2f5;">
-						<div class="card-body p-4">
-
-							@if (auth('customer')->user())
-							<form action="{{Route('comment.store')}}" method="post">
-								@csrf
-								<div class="form-outline mb-4">
-									<input type="text" name="product_id" value="{{$product->id}}"><br>
-									<input type="text" name="customer_id" value="{{auth('customer')->user()->id}}"><br>
-									<input type="text" name="comment" id="addANote" class="form-control" placeholder="Type comment..." />
-									<br>
-									<button type="submit" class="form-label" for="addANote">+ Add a Comments</button>
+						<div class="card shadow-0 border" style="background-color: #f0f2f5;">
+							<div class="card-body p-4">
+			
+								@if (auth('customer')->user())
+								<form action="{{ Route('comment.store') }}" method="post" class="comment-form">
+									@csrf
+									<div class="form-group">
+										<input type="hidden" name="product_id" value="{{$product->id}}">
+										<input type="hidden" name="customer_id" value="{{auth('customer')->user()->id}}">
+										<textarea name="comment" id="addANote" class="form-control" rows="3" placeholder="Write a comment..."></textarea>
+									</div>
+									<div class="form-group mb-0">
+										<button type="submit" class="btn btn-primary">Add Comment</button>
+									</div>
+								</form>
+								@else
+								Do login for comments.
+								@endif
+			
+								<div class="comments-section">
+									@foreach ($comments as $comment)
+									<div class="comment-card card mb-4">
+										<div class="card-body">
+											<p>{{$comment->comment}}</p>
+			
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="commenter-info d-flex flex-row align-items-center">
+													<img src="{{url('/uploads/customers/'.$comment->customer->image)}}" alt="avatar" width="25" height="25" />
+													<p class="small mb-0 ms-2">{{$comment->customer->name}}</p>
+												</div>
+												<div class="comment-actions d-flex flex-row align-items-center">
+													<p class="small text-muted mb-0">....</p>
+													{{-- <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i> --}}
+												</div>
+											</div>
+										</div>
+									</div>
+									@endforeach
 								</div>
-							</form>
-							@else
-							Do login for comments.
-							@endif
-
-
-
-
-						@foreach ($comments as $comment)
-						  <div class="card mb-8">
-							<div class="card-body">
-							  <p>{{$comment->comment}}</p>
-				  
-							  <div class="d-flex justify-content-between">
-								<div class="d-flex flex-row align-items-center">
-								  <img src="{{url('/uploads/customers/'.$comment->customer->image)}}" alt="avatar" width="25"
-									height="25" />
-								  <p class="small mb-0 ms-2">{{$comment->customer->name}}</p>
-								</div>
-								<div class="d-flex flex-row align-items-center">
-								  <p class="small text-muted mb-0"></p>
-								  {{-- <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i> --}}
-								  <p class="small text-muted mb-0">....</p>
-								</div>
-							  </div>
 							</div>
-						  </div>
-						@endforeach
-						 
 						</div>
-					  </div>
 					</div>
-				  </div>
+				</div>
+			</div>
+			
 				{{--  --}}
 			  </div>
 			</div>
@@ -149,7 +148,21 @@
 	</script>
 
 </body>
+<style>
+	.comments-section {
+    max-height: 300px; /* Set the maximum height for the comment section */
+    overflow-y: auto; /* Add vertical scroll if content exceeds max height */
+    margin-top: 20px; /* Add some spacing from the form above */
+}
+.comment-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
 
+</style>
 
 
 @endsection
