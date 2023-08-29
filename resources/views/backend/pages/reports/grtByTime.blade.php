@@ -51,8 +51,13 @@
         </form>
 
 <div class="container mt-5" id="printReport"> 
-    <h2 class="page-header">Report of  {{request()->start_date}}  to  {{request()->end_date}}</h2>
-    
+    <div style="text-align: center;">
+        <h1>Buy Gadget</h1>
+        <p>Uttara, Dhaka 1230</p>
+        <h2>Product Report</h2>
+        <p>{{auth()->user()->name}}</p>
+        <p>Report of {{request()->start_date}} to {{request()->end_date}}</p>
+    </div>
     
     <br>
     
@@ -68,7 +73,6 @@
                         <th>Brand</th>
                         <th>Status</th>
                         <th>Type</th>
-                        {{-- <th>Description</th> --}}
                         <th>Adding Date</th>
                     </tr>
                 </thead>
@@ -85,7 +89,6 @@
                         <td>{{$product->brand_name->name}}</td>
                         <td>{{$product->status}}</td>
                         <td>{{$product->type}}</td>
-                        {{-- <td>{{$product->description}}</td> --}}
                         <td>{{$product->created_at}}</td>
                         
                     </tr>
@@ -98,7 +101,6 @@
     </div>
 </div>
 </body>
-{{-- <button onclick="" class="button">Print Report</button> --}}
 
 <button onclick="printReport()" class="button">Print Report</button>
 
@@ -111,58 +113,5 @@
       document.body.innerHTML = originalContents;
     }
   </script>
-
-<!-- Add Bootstrap JS and Popper.js (required for Bootstrap) here -->
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> --}}
-   
-    {{-- links --}}
-
-{{-- <div class="container mt-5" id="printReport"> 
-    <h2 class="page-header">Report of {{request()->start_date}} to {{request()->end_date}}
-    </h2>
-        <div >
-            <table table class="table">
-                <thead>
-                    <tr>
-                    <th>SL</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Category</th>
-                        <th>Brand</th>
-                        <th>Status</th>
-                        <th>Type</th>
-                        <th>Description</th>
-                        <th>Adding Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if(isset($productsByDate))
-                    @foreach($productsByDate as $key=>$product)
-                    <tr>
-                        <td>{{$key+1}}</td>
-                        <td>{{$product->name}}</td>
-                        <td>{{$product->price}}</td>
-                        <td>{{$product->quantity}}</td>
-                        <td>{{$product->catname->name}}</td>
-                        <td>{{$product->brand_name->name}}</td>
-                        <td>{{$product->status}}</td>
-                        <td>{{$product->type}}</td>
-                        <td>{{$product->description}}</td>
-                        <td>{{$product->created_at}}</td>
-                        
-                    </tr>
-                    @endforeach
-                    @endif
-                </tbody>
-            </table>
-            {{$products->links()}}
-            <br>
-        </div>
-    </div>
-</div>
-<button onclick="" class="btn btn-danger">Print Report</button>
-<a class="button" href=""></a> --}}
-
 
 @endsection

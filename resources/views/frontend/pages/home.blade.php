@@ -220,9 +220,10 @@
 
               </div>
 
-                <div class="form">
-                  <a class="button" href="{{Route('frontend.product')}}">All Products</a>
-                </div>
+
+              <div style="text-align: center;">
+                <a class="button" href="{{Route('frontend.product')}}">All Products</a>
+              </div>
                   
               
             </section>

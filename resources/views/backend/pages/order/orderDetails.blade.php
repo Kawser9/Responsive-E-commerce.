@@ -41,47 +41,62 @@
                                 <select name="payment_status" class="form-select" aria-label="Default select example">
                                           <option @if ($detail->payment_status=='pending') selected @endif value="pending">Pending</option>
                                           <option @if ($detail->payment_status=='paid') selected @endif value="paid">Paid</option>
+                                          <option @if ($detail->payment_status=='VALID') selected @endif value="VALID">VALID</option>
                                 </select>
                             </div>
                             <br>
                                 <button type="submit" class="button">Update</button>
                         </form>
                           
+
+                        
                         
                         
                         <div class="row">
                             <div class="col-lg-12" id="printslip">
+                                <div style="text-align: center;">
+                                    <h1>Buy Gadget</h1>
+                                    <p>Uttara, Dhaka 1230</p>
+                                    <h2>Order # {{$detail->id}}</h2>
+                                    <p>{{auth()->user()->name}}</p>
+                                </div>
+                                <div style="text-align: left;">
+                                    <h4>Date & Time : {{$detail->created_at}}</h4>
+                                </div>
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title mb-3">Items from Order # {{$detail->id}}</h4> 
-                                        <h5 class="header-title mb-3">Order Status : {{$detail->order_status}}</h5>
-                                        <h5 class="header-title mb-3">Payment Status : {{$detail->payment_status}}</h5>
-                                        
+                                        <h5 class="header-title mb-3">Order Status: {{$detail->order_status}}</h5>
+                                        <h5 class="header-title mb-3">Payment Status: {{$detail->payment_status}}</h5>
+
                                           <br><br>
 
-                                        <div class="table-responsive">
-                                            <table class="table mb-0">
+                                          <div class="table-responsive">
+                                            <table class="table table-bordered">
                                                 <thead class="table-light">
-                                                <tr>
-                                                    <th>Item</th>
-                                                    <th>Quantity</th>
-                                                    <th>Price</th>
-                                                    <th>Total</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th>Item</th>
+                                                        <th>Quantity</th>
+                                                        <th>Price</th>
+                                                        <th>Total</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach ($orderDetail as $item)
-                                                <tr>
-                                                    <td>{{$item->product->name}}</td>
-                                                    <td>{{$item->qty}}</td>
-                                                    <td>{{$item->price}} BTD</td>
-                                                    <td>{{$item->subtotal}} BTD</td>
-                                                </tr>
-                                                @endforeach
+                                                    @foreach ($orderDetail as $item)
+                                                    <tr>
+                                                        <td>{{$item->product->name}}</td>
+                                                        <td>{{$item->qty}}</td>
+                                                        <td>{{$item->price}} ৳</td>
+                                                        <td>{{$item->subtotal}} ৳</td>
+                                                    </tr>
+                                                    @endforeach
+                                                    <tr>
+                                                        <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                                                        <td><strong>{{$detail->total}} ৳</strong></td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
-                                            <div><span>Total : {{$detail->total}} BTD</span></div>
                                         </div>
+                                        
                                         <!-- end table-responsive -->
                                         
                                     </div>
@@ -113,8 +128,7 @@
                                                     <li>
                                                         <p class="mb-2"><span class="fw-bold me-2">Payment Type:</span> {{$detail->payment_method}}</p>
                                                         {{-- <p class="mb-2"><span class="fw-bold me-2">Provider:</span> Visa ending in 2851</p> --}}
-                                                        <p class="mb-2"><span class="fw-bold me-2">Valid Date:</span> {{$detail->created_at}}</p>
-                                                        {{-- <p class="mb-0"><span class="fw-bold me-2">CVV:</span> xxx</p> --}}
+                                                        <p class="mb-2"><span class="fw-bold me-2">Date:</span> {{$detail->created_at}}</p>
                                                     </li>
                                                 </ul>
                     
@@ -123,7 +137,7 @@
                                     </div> <!-- end col -->
                 
                             </div> <!-- end col -->
-                            <div>
+                            <div class="text-center mt-3">
                                 <button onclick="printReport()" class="button">Print Invoice</button>
                             </div>
                             <script>

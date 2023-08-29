@@ -34,13 +34,23 @@
                                             <td>{{$order->payment_method}}</td>
                                             <td>{{$order->total}} ৳</td>
                                             <td>{{$order->created_at}}</td>
-                                            <td>{{$order->payment_status}}</td>
-                                            <td>{{$order->order_status}}</td>
-                                            <td style="inset-inline: ">
-                                                <ul class="culumn justify-content-center ">
-                                                    <a href="{{Route('order.details',$order->id)}}" class="btn btn-info btn-sm "><i class="fa fa-eye" ></i></a>
-                                                </ul>
-                                              </td>
+                                            <td>
+                                                <span class="order-status {{$order->payment_status}}">
+                                                    {{$order->payment_status}}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="order-status {{$order->order_status}}">
+                                                    {{$order->order_status}}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <a href="{{Route('order.details',$order->id)}}" class="btn btn-info btn-sm me-2">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -49,4 +59,48 @@
                         </div>
                     </div>
                 </div>
+
+
 @endsection
+
+<style>
+    .order-status {
+        padding: 3px 5px;
+        border-radius: 9px;
+        font-weight: bold;
+    }
+
+    .order-status.pending {
+        color: white;
+        background-color: red;
+    }
+
+    .order-status.confirmed {
+        color: white;
+        background-color: green;
+    }
+
+    .order-status.packed {
+        color: white;
+        background-color: blue;
+    }
+
+    .order-status.shipped {
+        color: white;
+        background-color: orange;
+    }
+
+    .order-status.delivered {
+        color: white;
+        background-color: #007bff;
+    }
+    .order-status.paid {
+        color: white;
+        background-color: #0fff3b;
+    }
+    .order-status.VALID {
+        color: white;
+        background-color: #0fff3b;
+    }
+</style>
+

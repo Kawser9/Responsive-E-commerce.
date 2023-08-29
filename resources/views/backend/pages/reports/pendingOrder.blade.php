@@ -45,8 +45,13 @@
         
 
 <div class="container mt-5" id="printReport"> 
-    <h2 class="page-header">Report of  {{request()->start_date}}  to  {{request()->end_date}}</h2>
-    
+    <div style="text-align: center;">
+        <h1>Buy Gadget</h1>
+        <p>Uttara, Dhaka 1230</p>
+        <h2>Order Report</h2>
+        <p>{{auth()->user()->name}}</p>
+        <p>Report of {{request()->start_date}} to {{request()->end_date}}</p>
+    </div>
     
     <br>
     
