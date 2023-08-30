@@ -35,7 +35,7 @@
                 <div class="d-flex flex-column">
                     <div class="h5">Hello {{auth('customer')->user()->name}},</div>
                     <div class="">Your Total Product: {{$orderDetail->count()}}</div>
-                    <table table class="table">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>SL</th>
@@ -48,18 +48,22 @@
                         <tbody>
                             @foreach ($orderDetail as $item)
                             <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$item->product->name}}</td>
-                                <td>{{$item->qty}}</td>
-                                <td>{{$item->price}} BTD</td>
-                                <td>{{$item->subtotal}} BTD</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->product->name }}</td>
+                                <td>{{ $item->qty }}</td>
+                                <td>{{ $item->price }} BTD</td>
+                                <td>{{ $item->subtotal }} BTD</td>
                             </tr>
                             @endforeach
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>Total:</strong></td>
+                                <td>{{ $detail->total }} BTD</td>
+                            </tr>
                         </tbody>
-
-                        
                     </table>
-                    <span>Total : {{$detail->total}} BTD</span> 
             </div>
         </div>
         <br><br>

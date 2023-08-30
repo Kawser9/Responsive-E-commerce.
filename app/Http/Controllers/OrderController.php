@@ -44,6 +44,12 @@ class OrderController extends Controller
     {
         return view('backend.pages.order.create');
     }
+    
+    public function pendingOrder()
+    {
+        $orders=Order::where('order_status','pending')->get();
+        return view('backend.pages.order.pending',compact('orders'));
+    }
 
     public function store(Request $request)
     {

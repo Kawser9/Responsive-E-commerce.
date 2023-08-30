@@ -130,6 +130,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         Route::post('/order-store',[OrderController::class, 'store'])->name('order.store');
         Route::get('/order-detais/{id}',[OrderController::class, 'orderDetails'])->name('order.details');
         Route::post('/order-update/{id}',[OrderController::class, 'updateOrder'])->name('update.order');
+        Route::get('/order-pending',[OrderController::class, 'pendingOrder'])->name('order.pending');
        
 
 
@@ -228,6 +229,7 @@ Route::get('/filter-by-type/{type}',[WebsiteProductController::class,'filteByTyp
 
 //Contact......................................................................................
 Route::get('/contact',[FrontendController::class, 'contact'])->name('contact');
+Route::get('/about',[FrontendController::class, 'about'])->name('about');
 
 
 

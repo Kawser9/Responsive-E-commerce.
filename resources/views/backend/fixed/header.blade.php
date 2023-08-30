@@ -8,12 +8,12 @@
                
             </form>
 
-                <div class="search-box">
+                {{-- <div class="search-box">
                   <form action="" method="GET">
                     <input type="text" name="search" placeholder="Search Product ...">
                     <button type="submit"><i class="bi bi-search"></i></button>
                   </form>
-                </div>
+                </div> --}}
               
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">

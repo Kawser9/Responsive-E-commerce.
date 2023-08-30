@@ -29,7 +29,7 @@
                                             <th>Brand</th>
                                             <th>Status</th>
                                             <th>Type</th>
-                                            <th>Description</th>
+                                            {{-- <th>Description</th> --}}
                                             <th>Stock</th>
                                             <th>Image</th>
                                             <th>Action</th>
@@ -45,21 +45,19 @@
                                             <td>{{$product->brand_name->name}}</td>
                                             <td>{{$product->status}}</td>
                                             <td>{{$product->type}}</td>
-                                            <td>{{$product->description}}</td>
+                                            {{-- <td>{{$product->description}}</td> --}}
                                             <td>{{$product->quantity}}</td>
                                             <td>
                                                     <img src="{{url('/uploads/products/'.$product->image)}}"style="width: 50px;" alt="">
                                             </td>
-                                            <td style="inset-inline: ">
-                                              <ul class="culumn justify-content-center ">
+                                            <td style="display: flex; align-items: center; justify-content: center;">
                                                 @php
-                                                    $encryptID =Crypt::encrypt($product->id);
+                                                  $encryptID = Crypt::encrypt($product->id);
                                                 @endphp
-                                                  <a href="{{Route('product.show',$encryptID)}}" class="btn btn-info btn-sm "><i class="fa fa-eye" ></i></a>
-                                                  <a href="{{Route('product.edit',$encryptID)}}" class="btn btn-success btn-sm"><i class="fa fa-pencil-square"></i></a>
-                                                  <a href="{{Route('product.delete',$product->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                              </ul>
-                                            </td>
+                                                <a href="{{ Route('product.show', $encryptID) }}" class="btn btn-info btn-sm" style="margin-right: 5px;"><i class="fa fa-eye"></i></a>
+                                                <a href="{{ Route('product.edit', $encryptID) }}" class="btn btn-success btn-sm" style="margin-right: 5px;"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="{{ Route('product.delete', $product->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                              </td>
                                         </tr>
                                         @endforeach
                                     </tbody>

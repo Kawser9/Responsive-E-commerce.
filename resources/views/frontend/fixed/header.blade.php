@@ -74,6 +74,7 @@
           <li><a href="{{Route('frontend.product')}}">All Products</a></li>
 
           <li><a href="{{Route('contact')}}">Contact</a></li>
+          <li><a href="{{Route('about')}}">About Us</a></li>
           {{-- <li><a href="{{Route('customer.profile')}}"><i class="fa-solid fa-user fa-xl"></i></a></li> --}}
           
         @if (auth('customer')->user())

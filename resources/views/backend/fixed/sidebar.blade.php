@@ -36,10 +36,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Slider
                             </a>
-                            <a class="nav-link" href="{{route('image.list')}}">
+                            {{-- <a class="nav-link" href="{{route('image.list')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Product Images
-                            </a>
+                            </a> --}}
                             <a class="nav-link" href="{{route('supplier.list')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Delivary Man

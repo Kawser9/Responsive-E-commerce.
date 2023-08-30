@@ -18,7 +18,7 @@
                         <h2 class="page-header">Category List |  <a href="{{route('category.create')}}" class="c_button">Create</a>
                         </h2>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple" class="table">
                                     <thead>
                                         <tr>
                                             <th>SL</th>
@@ -49,11 +49,11 @@
                                             <td>
                                                 <img src="{{url('/uploads/category/'.$category->image)}}"style="width: 50px;" alt="">
                                             </td>
-                                            <td>
+                                            <td style="display: flex; align-items: center; justify-content: center;">
                                               <ul>
-                                                <a href="{{Route('category.show',$category->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye" ></i></a>
-                                                <a href="{{Route('category.edit',$category->id)}}" class="btn btn-success btn-sm"><i class="fa fa-pencil-square"></i></a>
-                                                <a href="{{Route('category.delete',$category->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                                <a href="{{Route('category.show',$category->id)}}" class="btn btn-info btn-sm" style="margin-right: 5px;"><i class="fa fa-eye" ></i></a>
+                                                <a href="{{Route('category.edit',$category->id)}}" class="btn btn-success btn-sm" style="margin-right: 5px;"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="{{Route('category.delete',$category->id)}}" class="btn btn-danger btn-sm" style="margin-right: 5px;"><i class="fa fa-trash"></i></a>
                                               </ul>
                                             </td>
                                         </tr>

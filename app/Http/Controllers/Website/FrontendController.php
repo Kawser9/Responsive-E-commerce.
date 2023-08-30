@@ -17,13 +17,17 @@ class FrontendController extends Controller
     public function master()
     {
         $sliders=Slider::all();
-        $products=Product::latest()->take(6)->get();
+        $products=Product::latest()->take(12)->get();
         return view('frontend.pages.home',compact('products','sliders'));
     }
 
     public function contact()
     {
         return view('frontend.pages.contact.contact');
+    }
+    public function about()
+    {
+        return view('frontend.pages.contact.about');
     }
 
     public function customerProfile()

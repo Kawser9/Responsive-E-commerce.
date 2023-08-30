@@ -117,6 +117,8 @@
 
 /* Hover effect */
 .c_button:hover {
-  color: #e0d0d0;
+  color: #ffffff;
   background-color: #f12a3e;
+  text-decoration: none;
+
 }
