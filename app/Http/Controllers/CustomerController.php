@@ -76,7 +76,7 @@ class CustomerController extends Controller
 
         if(auth()->guard('customer')->attempt($credentials))
         {
-            Toastr::success('Login Success.', 'Customer');
+            Toastr::success('Login Success.', "Customer");
             return redirect()->route('home');
         }
         Toastr::warning('Login Failed Try Again.', 'Customer');

@@ -76,7 +76,7 @@ class FrontendController extends Controller
 
     public function myOrder($id)
     {
-        $orders=Order::where('customer_id',$id)->get();
+        $orders=Order::where('customer_id',$id)->latest()->get();
         // dd($orders);
         return view('frontend.pages.registration.myorder',compact('orders'));
     }
@@ -181,7 +181,7 @@ class FrontendController extends Controller
 
         else {
 
-        Toastr::warning('Out of stok.', 'Product');
+        Toastr::warning("We have only {$product->quantity} product slect the amount of product in stock.", 'Product');
         
         }
         

@@ -47,7 +47,7 @@ class OrderController extends Controller
     
     public function pendingOrder()
     {
-        $orders=Order::where('order_status','pending')->get();
+        $orders=Order::where('order_status','pending')->latest()->get();
         return view('backend.pages.order.pending',compact('orders'));
     }
 

@@ -30,8 +30,8 @@
           <div class="card-body">
             <h5 class="card-title">Order Report</h5>
             <a class="btn btn-primary btn-block" href="{{Route('pending.order')}}">All Orders </a>
-            <a class="btn btn-primary btn-block" href="">Per Unit Order</a>
-            <a class="btn btn-primary btn-block" href="">Deliverd Order</a>
+            {{-- <a class="btn btn-primary btn-block" href="">Date wise Order</a> --}}
+            {{-- <a class="btn btn-primary btn-block" href="">Deliverd Order</a> --}}
             <p class="card-text"></p>
           </div>
         </div>
