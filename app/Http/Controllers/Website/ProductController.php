@@ -29,7 +29,6 @@ class ProductController extends Controller
     {
         $id = Crypt::decrypt($encryptID);
         $singleCategory=Category::with('products')->find($id);
-        
         return view('frontend.pages.products.category-wise-product',compact('singleCategory'));
     }
     public function filteByType($type)
