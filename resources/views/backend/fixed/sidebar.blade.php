@@ -48,6 +48,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Reports
                             </a>
+                            <a class="nav-link" href="{{route('permitions.list')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Permitions
+                            </a>
                             
                             
                 </nav>

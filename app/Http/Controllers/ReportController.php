@@ -55,4 +55,9 @@ class ReportController extends Controller
         return view('backend.pages.reports.pendingOrder',compact('orders'));
 
     }
+
+    public function permitions()
+    {
+        return view('backend.pages.permitions.list');
+    }
 }

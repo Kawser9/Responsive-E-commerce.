@@ -121,6 +121,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         Route::get('/pending-order',[ReportController::class,'pendingOrder'])->name('pending.order');
         Route::get('/order-status',[ReportController::class,'orderStatus'])->name('order.status');
 
+        Route::get('/permitions/list',[ReportController::class,'permitions'])->name('permitions.list'); 
+
+
 });
 //=========================================================================================
 
