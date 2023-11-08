@@ -4,7 +4,7 @@
 <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="{{Route('home')}}">Buy Gadget</a></h1>
+      <h1 class="logo me-auto"><a href="{{Route('home')}}">{{ __('BUY GADGET') }}</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="frontend/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -26,7 +26,7 @@
               </form>
             </div>
           </li>
-          <li><a href="{{Route('home')}}" class="">Home</a></li>
+          <li><a href="{{Route('home')}}" class="">{{ __('Home') }}</a></li>
           {{-- @dd($category) --}}
 
           <li class="dropdown"><a href="#"><span>Category</span> <i class="bi bi-chevron-down"></i></a>
@@ -92,7 +92,14 @@
           <li><a href="{{Route('frontend.login')}}" class="getstarted">Login</a></li>
         @endif
         <li><a href="{{Route('view.card')}}" ><i class="fa-solid fa-cart-shopping fa-beat fa-xl"></i></a></li>
+        <li>
+          <select class="form-control" name="" id="" onchange="location = this.options[this.selectedIndex].value;">
+              <option @if(session()->get('locale')=='en') selected @endif value="{{route('change.lang','en')}}">English</option>
+              <option @if(session()->get('locale')=='bn') selected @endif value="{{route('change.lang','bn')}}">Bangla</option>
+              <option @if(session()->get('locale')=='ar') selected @endif value="{{route('change.lang','ar')}}">Arabic</option>
 
+          </select>
+        </li>
 
           {{-- <a href="{{Route('view.card')}}" class="btn btn-info btn-sm "><i class="fa-solid fa-cart-shopping" ></i></a> --}}
         </ul>

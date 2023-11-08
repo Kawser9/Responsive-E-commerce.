@@ -53,6 +53,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $middlewareAliases = [
+        'local' => \App\Http\Middleware\LocalizationMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'frontendAuth' => \App\Http\Middleware\FrontendAuthentication::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

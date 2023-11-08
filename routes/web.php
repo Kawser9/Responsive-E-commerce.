@@ -30,7 +30,9 @@ use App\Http\Controllers\Website\FrontendController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
- 
+Route::group(['middleware'=>'local'],function(){
+
+Route::get('/change-lang/{lang}', [DashboardController::class, 'changeLang'])->name('change.lang');
 // Login............................................................................
 Route::get('/admin-login',[UserController::class, 'login'])->name('admin.login');
 Route::post('/admin/do-login',[UserController::class,'authenticate'])->name('login');
@@ -181,3 +183,5 @@ Route::get('/filter-by-type/{type}',[WebsiteProductController::class,'filteByTyp
 //Contact......................................................................................
 Route::get('/contact',[FrontendController::class, 'contact'])->name('contact');
 Route::get('/about',[FrontendController::class, 'about'])->name('about');
+
+});
